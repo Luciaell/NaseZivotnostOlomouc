@@ -1,6 +1,11 @@
-def pozdrav():
-    print("Ahoj Zebry!")
-#následující kód se spustí pouze pokud je tento soubor spuštěn jako hlavní program
-#až budete načítat ostatní soubory pomocí import, je třeba také použít if __name__ == "__main__":, aby se zabránilo spuštění celého obsahu souboru při importu
-if __name__ == "__main__":
-    pozdrav()
+import streamlit as st
+
+st.slider(
+    label="nastavení důležitosti",  # Label as a string parameter
+    min_value=0,                   # Minimum value
+    max_value=100,                 # Maximum value
+    value=50,                      # Default value
+    step=1,                        # Step size
+    format="percent"               # Format of the values
+)
+

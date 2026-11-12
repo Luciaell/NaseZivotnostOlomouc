@@ -1,5 +1,6 @@
 import streamlit as st
 
+#USER INTERFACE - Luci
 def slider_dulezitost(label):
     return st.slider(
         label,
@@ -14,3 +15,9 @@ def slider_dulezitost(label):
 slider_supermarkety=slider_dulezitost(label="supermarkety")
 slider_skoly=slider_dulezitost(label="školy")
 slider_zdravotnictvi=slider_dulezitost(label="zdravotnictví")
+
+st.metric(
+    label="index žití",
+    value=2.0,
+    border=True
+)

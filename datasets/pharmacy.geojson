@@ -1,0 +1,1032 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-18T15:11:17Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "way/401467024",
+      "properties": {
+        "@id": "way/401467024",
+        "addr:city": "Olomouc",
+        "addr:conscriptionnumber": "1347",
+        "addr:housenumber": "1347/29",
+        "addr:place": "Nová Ulice",
+        "addr:postcode": "77900",
+        "addr:street": "I. P. Pavlova",
+        "addr:streetnumber": "29",
+        "amenity": "pharmacy",
+        "building": "hospital",
+        "building:levels": "4",
+        "check_date": "2025-03-02",
+        "contact:email": "lekarna@fnol.cz",
+        "contact:phone": "+420 588 442 604",
+        "dispensing": "yes",
+        "email": "lekarna@fnol.cz",
+        "healthcare": "pharmacy",
+        "name": "( Z ) Lékárna FN Olomouc",
+        "opening_hours": "Mo-Fr 07:30-17:00; Sa 08:00-12:00",
+        "operator": "FNOL",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "ref:SUKL": "89302000000",
+        "ref:ruian:addr": "74374567",
+        "roof:shape": "flat",
+        "website": "https://lekarna.fnol.cz/"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.2389164,
+              49.5829146
+            ],
+            [
+              17.2386602,
+              49.5827687
+            ],
+            [
+              17.2386492,
+              49.5827629
+            ],
+            [
+              17.2386091,
+              49.5827417
+            ],
+            [
+              17.2385795,
+              49.5827264
+            ],
+            [
+              17.2385714,
+              49.5827229
+            ],
+            [
+              17.2384277,
+              49.5826599
+            ],
+            [
+              17.2385165,
+              49.5826259
+            ],
+            [
+              17.238513,
+              49.5826241
+            ],
+            [
+              17.2386448,
+              49.5825734
+            ],
+            [
+              17.2387815,
+              49.5826447
+            ],
+            [
+              17.2388213,
+              49.5826292
+            ],
+            [
+              17.2388928,
+              49.5826014
+            ],
+            [
+              17.2389134,
+              49.5825933
+            ],
+            [
+              17.2389457,
+              49.5825807
+            ],
+            [
+              17.238963,
+              49.5825995
+            ],
+            [
+              17.2389913,
+              49.5826305
+            ],
+            [
+              17.2390693,
+              49.5827163
+            ],
+            [
+              17.239074,
+              49.5827214
+            ],
+            [
+              17.239122,
+              49.5827465
+            ],
+            [
+              17.2392225,
+              49.5827989
+            ],
+            [
+              17.2393547,
+              49.5828679
+            ],
+            [
+              17.2392835,
+              49.5828956
+            ],
+            [
+              17.2391874,
+              49.5829329
+            ],
+            [
+              17.239051,
+              49.5828615
+            ],
+            [
+              17.2389164,
+              49.5829146
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/698460307",
+      "properties": {
+        "@id": "way/698460307",
+        "amenity": "pharmacy",
+        "brand": "Dr. Max",
+        "brand:wikidata": "Q56317371",
+        "brand:wikipedia": "fr:Dr.Max",
+        "building": "retail",
+        "building:levels": "1",
+        "building:ruian:type": "10",
+        "email": "olomouc@drmax.cz",
+        "healthcare": "pharmacy",
+        "name": "Dr. Max",
+        "opening_hours": "Mo-Su 08:00-20:00",
+        "phone": "+420 585 207 204",
+        "ref:SUKL": "89203000000",
+        "ref:ruian:building": "41361687",
+        "source": "cuzk:ruian",
+        "website": "https://www.drmax.cz/lekarny/olomouc-stursova-1124-3",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.2722757,
+              49.5881264
+            ],
+            [
+              17.2722775,
+              49.588045
+            ],
+            [
+              17.2723583,
+              49.5880463
+            ],
+            [
+              17.2724261,
+              49.5880638
+            ],
+            [
+              17.2724456,
+              49.5880688
+            ],
+            [
+              17.2725757,
+              49.5880854
+            ],
+            [
+              17.2725736,
+              49.5881307
+            ],
+            [
+              17.272492,
+              49.5881299
+            ],
+            [
+              17.2722757,
+              49.5881264
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/252648965",
+      "properties": {
+        "@id": "node/252648965",
+        "amenity": "pharmacy",
+        "email": "lekarnapovel@seznam.cz",
+        "healthcare": "pharmacy",
+        "name": "Povel",
+        "opening_hours": "Mo-Fr 07:30-18:00;Sa 08:00-12:00",
+        "phone": "+420 585 750 040",
+        "website": "https://lekarnapovel.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2436204,
+          49.5784767
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/898627335",
+      "properties": {
+        "@id": "node/898627335",
+        "amenity": "pharmacy",
+        "email": "lekarna.rena@seznam.cz",
+        "healthcare": "pharmacy",
+        "name": "Lékárna Rena",
+        "opening_hours": "Mo-Fr 08:00-18:30;Sa 08:00-12:00",
+        "phone": "+420 585 435 247"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2557486,
+          49.5772352
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/899485107",
+      "properties": {
+        "@id": "node/899485107",
+        "amenity": "pharmacy",
+        "email": "lekarnauruze@seznam.cz",
+        "healthcare": "pharmacy",
+        "name": "U Růže",
+        "opening_hours": "Mo-Fr 07:30-18:00;Sa 08:00-12:00",
+        "phone": "+420 585 313 393"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.28553,
+          49.5925361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/899826005",
+      "properties": {
+        "@id": "node/899826005",
+        "amenity": "pharmacy",
+        "check_date:opening_hours": "2025-02-07",
+        "email": "lekarna@spea.cz",
+        "healthcare": "pharmacy",
+        "name": "SPEA",
+        "opening_hours": "Mo-Fr 06:45-18:00",
+        "phone": "+420 585 505 115",
+        "website": "https://www.spea.cz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.247682,
+          49.5958547
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/900959145",
+      "properties": {
+        "@id": "node/900959145",
+        "amenity": "pharmacy",
+        "check_date": "2025-04-03",
+        "check_date:opening_hours": "2025-02-19",
+        "email": "lekarnaupottingea@seznam.cz",
+        "healthcare": "pharmacy",
+        "name": "U Pötingea",
+        "opening_hours": "Mo-Fr 07:30-18:00",
+        "phone": "+420 585 223 782",
+        "website": "https://www.mujlekarnik.cz/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2466186,
+          49.595636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/928042659",
+      "properties": {
+        "@id": "node/928042659",
+        "amenity": "pharmacy",
+        "contact:email": "lekarna@vilazdravi.cz",
+        "contact:phone": "+420 588 500 566",
+        "contact:website": "http://www.vilazdravi.cz/",
+        "email": "lekarna@vilazdravi.cz",
+        "healthcare": "pharmacy",
+        "name": "Domovina",
+        "opening_hours": "Mo-Th 07:45-18:00; Fr 07:45-16:00",
+        "phone": "+420 588 500 566",
+        "ref:SUKL": "89237000000",
+        "website": "http://www.vilazdravi.cz/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.255708,
+          49.586885
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/928044666",
+      "properties": {
+        "@id": "node/928044666",
+        "amenity": "pharmacy",
+        "email": "lekarnanapoliklinice2@seznam.cz",
+        "healthcare": "pharmacy",
+        "name": "Lékárna Na Poliklinice II",
+        "opening_hours": "Mo-Th 07:30-17:00; Fr 07:30-16:00",
+        "phone": "+420 585 506 114",
+        "ref:SUKL": "89924000001",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2535057,
+          49.589126
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/928046383",
+      "properties": {
+        "@id": "node/928046383",
+        "amenity": "pharmacy",
+        "email": "pharmacia@seznam.cz",
+        "healthcare": "pharmacy",
+        "name": "Lékárna U Červeného kostela",
+        "opening_hours": "Mo-Fr 07:30-17:00",
+        "phone": "+420 585 227 126"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2469693,
+          49.5930792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/928046808",
+      "properties": {
+        "@id": "node/928046808",
+        "amenity": "pharmacy",
+        "check_date": "2026-02-19",
+        "check_date:opening_hours": "2025-02-19",
+        "contact:email": "info@lekarna-moric.cz",
+        "contact:phone": "+420 585 221 552",
+        "email": "info@lekarna-moric.cz",
+        "healthcare": "pharmacy",
+        "name": "U sv. Mořice",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 08:00-12:00",
+        "phone": "+420 585 221 552",
+        "ref:SUKL": "89265000001",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2519851,
+          49.5951404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1574140814",
+      "properties": {
+        "@id": "node/1574140814",
+        "amenity": "pharmacy",
+        "brand": "Dr. Max",
+        "brand:wikidata": "Q56317371",
+        "brand:wikipedia": "fr:Dr.Max",
+        "email": "olomouc4@drmax.cz",
+        "healthcare": "pharmacy",
+        "name": "Dr. Max",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "phone": "+420 585 207 357",
+        "website": "https://www.drmax.cz/lekarny/olomouc-8-kvetna-515-19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2494417,
+          49.5954861
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2260266175",
+      "properties": {
+        "@id": "node/2260266175",
+        "amenity": "pharmacy",
+        "brand": "Benu",
+        "brand:wikidata": "Q62562792",
+        "contact:email": "olomouc.jeremenkova@benu.cz",
+        "contact:phone": "+420 703 462 261",
+        "contact:website": "https://www.benu.cz/",
+        "healthcare": "pharmacy",
+        "name": "Benu",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa 08:00-12:00",
+        "ref:SUKL": "201162013",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2781109,
+          49.5920966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2260266192",
+      "properties": {
+        "@id": "node/2260266192",
+        "amenity": "pharmacy",
+        "brand": "Agel",
+        "brand:wikidata": "Q41365932",
+        "dispensing": "yes",
+        "email": "lekarnaolomouc@pol.agel.cz",
+        "healthcare": "pharmacy",
+        "name": "Agel",
+        "opening_hours": "Mo-Th 07:00-16:30; Fr 07:00-14:30",
+        "phone": "+420 581 071 553",
+        "ref:SUKL": "89295000000",
+        "website": "https://lekarna.agel.cz/lekarny/olomouc/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2762292,
+          49.5917183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2306908857",
+      "properties": {
+        "@id": "node/2306908857",
+        "amenity": "pharmacy",
+        "email": "lekarna510@volny.cz",
+        "healthcare": "pharmacy",
+        "name": "Lékárna 510 (klasická a veterinární)",
+        "opening_hours": "Mo-Fr 07:30-17:00",
+        "phone": "+420 585 313 560",
+        "website": "http://www.lekarna2.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.288917,
+          49.5799828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2614472073",
+      "properties": {
+        "@id": "node/2614472073",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "521/34",
+        "addr:postcode": "77900",
+        "addr:street": "Dlouhá",
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Lékárna Na Letné",
+        "website": "https://www.mujlekarnik.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2585447,
+          49.60198
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2635104398",
+      "properties": {
+        "@id": "node/2635104398",
+        "addr:floor": "0",
+        "amenity": "pharmacy",
+        "brand": "Benu",
+        "brand:wikidata": "Q62562792",
+        "check_date": "2025-10-29",
+        "email": "olomouc.galeriemoritz@benu.cz",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Benu",
+        "opening_hours": "Mo-Su 08:00-19:00",
+        "phone": "+420 731 638 157",
+        "ref": "89947000001",
+        "website": "https://www.benu.cz/lekarna-benu-olomouc-galerie-moritz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2504063,
+          49.5948311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2635120309",
+      "properties": {
+        "@id": "node/2635120309",
+        "amenity": "pharmacy",
+        "email": "pavel.kalman@seznam.cz",
+        "healthcare": "pharmacy",
+        "name": "Lékárna Kalman",
+        "opening_hours": "Mo-Th 08:00-18:00; Sa 08:00-12:00; Fr 08:00-17:00",
+        "phone": "+420 585 419 785",
+        "website": "https://lekarna-kalman.webnode.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2327883,
+          49.5916732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2635131069",
+      "properties": {
+        "@id": "node/2635131069",
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "name": "Lékárna REMEDIA",
+        "website": "http://lekarny.zdravcentra.cz/remedia/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2343554,
+          49.5909435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2639933787",
+      "properties": {
+        "@id": "node/2639933787",
+        "amenity": "pharmacy",
+        "contact:email": "esolekarna@seznam.cz",
+        "contact:phone": "+420 585 242 755",
+        "contact:website": "https://www.benu.cz/olomouc-cajkovskeho",
+        "email": "eso.olomouc@benu.cz",
+        "healthcare": "pharmacy",
+        "name": "Eso - Benu",
+        "opening_hours": "Mo-Th 08:00-17:00; Fr 08:00-16:00",
+        "ref:SUKL": "89100270000"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2342451,
+          49.5786528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2688531340",
+      "properties": {
+        "@id": "node/2688531340",
+        "amenity": "pharmacy",
+        "email": "olomouc@lekarnaave.cz",
+        "healthcare": "pharmacy",
+        "name": "Ave",
+        "opening_hours": "Mo-Fr 08:00-17:00",
+        "phone": "+420 585 220 936",
+        "ref:SUKL": "89958000000",
+        "website": "https://www.lekarnaave.cz/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2755982,
+          49.5922437
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3026903939",
+      "properties": {
+        "@id": "node/3026903939",
+        "amenity": "pharmacy",
+        "check_date": "2025-03-03",
+        "contact:email": "lekarna@fnol.cz",
+        "contact:phone": "+420 588 442 604",
+        "contact:website": "https://www.fnol.cz/",
+        "email": "lekarna@fnol.cz",
+        "healthcare": "pharmacy",
+        "name": "Lékárna FN Olomouc",
+        "opening_hours": "24/7",
+        "ref:SUKL": "89302000000",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2373135,
+          49.5844752
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3027640519",
+      "properties": {
+        "@id": "node/3027640519",
+        "amenity": "pharmacy",
+        "email": "vusaku@seznam.cz",
+        "healthcare": "pharmacy",
+        "name": "Lékárna V Ušáku",
+        "opening_hours": "Mo-Fr 07:15-17:00; Sa 07:15-14:00",
+        "phone": "+420 588 519 074"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2428665,
+          49.5961357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3336217305",
+      "properties": {
+        "@id": "node/3336217305",
+        "amenity": "pharmacy",
+        "brand": "Dr. Max",
+        "brand:wikidata": "Q56317371",
+        "brand:wikipedia": "fr:Dr.Max",
+        "email": "olomouc.prazska@drmax.cz",
+        "healthcare": "pharmacy",
+        "name": "Dr. Max",
+        "phone": "+420 585 413 931",
+        "website": "https://www.drmax.cz/lekarny/olomouc-prazska-248-39"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2222224,
+          49.6015135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3994191986",
+      "properties": {
+        "@id": "node/3994191986",
+        "amenity": "pharmacy",
+        "brand": "Dr. Max",
+        "brand:wikidata": "Q56317371",
+        "dispensing": "yes",
+        "email": "olomouc.pavlovicka@drmax.cz",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Dr. Max",
+        "opening_hours": "Mo-Fr 08:00-19:00;Sa 08:00-13:00",
+        "phone": "+420 735 195 386",
+        "website": "https://www.drmax.cz/lekarny/olomouc-belidla-pavlovicka-49-18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2782168,
+          49.6014438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4032937695",
+      "properties": {
+        "@id": "node/4032937695",
+        "addr:housenumber": "1",
+        "addr:street": "Polská",
+        "amenity": "pharmacy",
+        "brand": "Dr. Max",
+        "brand:wikidata": "Q56317371",
+        "brand:wikipedia": "fr:Dr.Max",
+        "contact:email": "olomouc.polska@drmax.cz",
+        "contact:phone": "+420 225 574 324",
+        "contact:website": "https://www.drmax.cz/",
+        "dog": "no",
+        "email": "olomouc.polska@drmax.cz",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Dr. Max",
+        "opening_hours": "Mo-Su 08:00-20:00",
+        "operator": "Česká lékárna holding a.s.",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "payment:visa_debit": "yes",
+        "payment:visa_electron": "yes",
+        "phone": "+420 585 436 266",
+        "ref": "324",
+        "ref:SUKL": "89965000000",
+        "smoking": "no",
+        "website": "https://www.drmax.cz/lekarny/olomouc-polska-1",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2587695,
+          49.5865306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6467771021",
+      "properties": {
+        "@id": "node/6467771021",
+        "amenity": "pharmacy",
+        "email": "krebsovaj@vnol.cz",
+        "healthcare": "pharmacy",
+        "name": "Lékárna Vojenské nemocnice",
+        "opening_hours": "Mo-Th 07:30-15:30; Fr 07:30-14:00",
+        "phone": "+420 973 407 054",
+        "website": "https://www.vnol.cz/lekarna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2657519,
+          49.6059095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6467771024",
+      "properties": {
+        "@id": "node/6467771024",
+        "amenity": "pharmacy",
+        "email": "lekarna@schafferova.cz",
+        "healthcare": "pharmacy",
+        "name": "Na středisku",
+        "opening_hours": "Mo-Th 07:15-17:00; Fr 07:15-14:30",
+        "phone": "+420 585 415 188"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2428851,
+          49.5785789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9538636011",
+      "properties": {
+        "@id": "node/9538636011",
+        "amenity": "pharmacy",
+        "brand": "Dr. Max",
+        "brand:wikidata": "Q56317371",
+        "check_date:opening_hours": "2024-03-14",
+        "dispensing": "yes",
+        "healthcare": "pharmacy",
+        "name": "Dr. Max",
+        "opening_hours": "Mo-Su 08:00-20:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2247529,
+          49.5843498
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9835917613",
+      "properties": {
+        "@id": "node/9835917613",
+        "amenity": "pharmacy",
+        "brand": "Benu",
+        "brand:wikidata": "Q62562792",
+        "healthcare": "pharmacy",
+        "name": "Benu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2479953,
+          49.5761711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10580970286",
+      "properties": {
+        "@id": "node/10580970286",
+        "addr:housenumber": "1310/10a",
+        "addr:street": "Horní lán",
+        "amenity": "pharmacy",
+        "brand": "Dr. Max",
+        "brand:wikidata": "Q56317371",
+        "email": "lekarna@horni-lan.cz",
+        "healthcare": "pharmacy",
+        "name": "Lékárna Horní Lán",
+        "opening_hours": "Mo-Th 07:30-17:00; Fr 07:30-14:00",
+        "phone": "601 100 001",
+        "website": "https://www.spea.cz/lekarny"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2309054,
+          49.5770368
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10581820095",
+      "properties": {
+        "@id": "node/10581820095",
+        "amenity": "pharmacy",
+        "brand": "Dr. Max",
+        "brand:wikidata": "Q56317371",
+        "healthcare": "pharmacy",
+        "name": "Dr. Max"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2234249,
+          49.600815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11263064779",
+      "properties": {
+        "@id": "node/11263064779",
+        "amenity": "pharmacy",
+        "contact:email": "uspasiteleolomouc@gmail.com",
+        "contact:phone": "+420 606 756 326",
+        "healthcare": "pharmacy",
+        "name": "U Spasitele",
+        "opening_hours": "Mo,Tu,Th 07:30-16:00; We 07:30-17:00; Fr 07:30-15:00",
+        "ref:SUKL": "00214742595"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2518165,
+          49.5930847
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11575790306",
+      "properties": {
+        "@id": "node/11575790306",
+        "amenity": "pharmacy",
+        "brand": "Benu",
+        "brand:wikidata": "Q62562792",
+        "contact:email": "olomouc.occity@benu.cz",
+        "contact:phone": "+420 705 837 301",
+        "contact:website": "https://www.benu.cz",
+        "healthcare": "pharmacy",
+        "name": "Benu",
+        "opening_hours": "Mo-Fr 08:00-20:00; Sa,Su 08:00-18:00",
+        "ref:SUKL": "00203743916",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2210599,
+          49.602259
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12273054111",
+      "properties": {
+        "@id": "node/12273054111",
+        "amenity": "pharmacy",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Mapo lékárna",
+        "opening_hours": "Mo-Fr 07:30-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2693014,
+          49.5909639
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12431322254",
+      "properties": {
+        "@id": "node/12431322254",
+        "amenity": "pharmacy",
+        "check_date": "2026-02-12",
+        "healthcare": "pharmacy",
+        "name": "U trojice",
+        "opening_hours": "Mo-Fr 08:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2521743,
+          49.5942672
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12526665840",
+      "properties": {
+        "@id": "node/12526665840",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1",
+        "addr:postcode": "77900",
+        "addr:street": "Polská",
+        "amenity": "pharmacy",
+        "brand": "Dr. Max",
+        "brand:wikidata": "Q56317371",
+        "check_date": "2025-03-21",
+        "dispensing": "yes",
+        "drive_through": "no",
+        "email": "olomouc.polska@drmax.cz",
+        "healthcare": "pharmacy",
+        "level": "0",
+        "name": "Dr. Max",
+        "note": "0. Floor / 41",
+        "opening_hours": "Mo-Su 08:00-20:00",
+        "operator": "Mgr. Ludmila Vítková",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+420 585 436 266",
+        "website": "https://www.drmax.cz/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2572085,
+          49.5879839
+        ]
+      }
+    }
+  ]
+}

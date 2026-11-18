@@ -1,0 +1,4513 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-18T14:57:06Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/25756448",
+      "properties": {
+        "@id": "node/25756448",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Fibichova",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2772273,
+          49.5889806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/61203315",
+      "properties": {
+        "@id": "node/61203315",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Globus",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2237448,
+          49.6005527
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/332289012",
+      "properties": {
+        "@id": "node/332289012",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Autobusové nádraží, podchod",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2847755,
+          49.5886785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/332289019",
+      "properties": {
+        "@id": "node/332289019",
+        "bus": "yes",
+        "departures_board": "realtime",
+        "highway": "bus_stop",
+        "name": "Autobusové nádraží, podchod",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2848538,
+          49.5884616
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/385207305",
+      "properties": {
+        "@id": "node/385207305",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2025-12-06",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Smetanovy sady",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2543621,
+          49.5859788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/457013316",
+      "properties": {
+        "@id": "node/457013316",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Smetanovy sady",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2529191,
+          49.5853315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/691214661",
+      "properties": {
+        "@id": "node/691214661",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Na Letné",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2626321,
+          49.6005423
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/846712112",
+      "properties": {
+        "@id": "node/846712112",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2021-05-22",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Vejdovského",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2703113,
+          49.5897127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/899802361",
+      "properties": {
+        "@id": "node/899802361",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-04-11",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Řepčín, Máchova",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2287221,
+          49.6081436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/899814848",
+      "properties": {
+        "@id": "node/899814848",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2022-08-31",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "name": "Na Střelnici",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2514089,
+          49.5989665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/899826006",
+      "properties": {
+        "@id": "node/899826006",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "realtime",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "I",
+        "name": "Náměstí Hrdinů",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2472275,
+          49.5967237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/915683639",
+      "properties": {
+        "@id": "node/915683639",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Rooseveltova",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.255188,
+          49.585829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/915696492",
+      "properties": {
+        "@id": "node/915696492",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Pionýrská",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2380213,
+          49.577532
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/915697120",
+      "properties": {
+        "@id": "node/915697120",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Pionýrská",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2383486,
+          49.577125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/958107043",
+      "properties": {
+        "@id": "node/958107043",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-10-13",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Foerstrova, pošta",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2353688,
+          49.5913414
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/958107044",
+      "properties": {
+        "@id": "node/958107044",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2021-04-12",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Foerstrova, pošta",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2355864,
+          49.591493
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/958107050",
+      "properties": {
+        "@id": "node/958107050",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-08-09",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Svornosti",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2341335,
+          49.5941778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/958107057",
+      "properties": {
+        "@id": "node/958107057",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Svornosti",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2348875,
+          49.594131
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/959168564",
+      "properties": {
+        "@id": "node/959168564",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "7",
+        "name": "Tržnice, plocha",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2538359,
+          49.5887772
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/959168565",
+      "properties": {
+        "@id": "node/959168565",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "local_ref": "Výstup",
+        "name": "Tržnice, plocha",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2546115,
+          49.5887086
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/959177528",
+      "properties": {
+        "@id": "node/959177528",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2025-11-07",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "F",
+        "name": "Náměstí Hrdinů",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2472422,
+          49.5938477
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/959177530",
+      "properties": {
+        "@id": "node/959177530",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "G",
+        "name": "Náměstí Hrdinů",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2474527,
+          49.5942845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1039125198",
+      "properties": {
+        "@id": "node/1039125198",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Dvořákova",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2394101,
+          49.5889321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1039125204",
+      "properties": {
+        "@id": "node/1039125204",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2021-04-12",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Dvořákova",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2382923,
+          49.5895511
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1189793993",
+      "properties": {
+        "@id": "node/1189793993",
+        "bus": "yes",
+        "check_date:shelter": "2026-01-26",
+        "highway": "bus_stop",
+        "name": "U Botanické zahrady",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2494491,
+          49.5838733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1214976095",
+      "properties": {
+        "@id": "node/1214976095",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "U Zlaté koule",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2355435,
+          49.5967822
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1269663282",
+      "properties": {
+        "@id": "node/1269663282",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "local_ref": "F",
+        "name": "Hlavní nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.277502,
+          49.5917931
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1269663286",
+      "properties": {
+        "@id": "node/1269663286",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "G",
+        "name": "Hlavní nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2773608,
+          49.592093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1269663304",
+      "properties": {
+        "@id": "node/1269663304",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "local_ref": "E",
+        "name": "Hlavní nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2779132,
+          49.5914775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1307794731",
+      "properties": {
+        "@id": "node/1307794731",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2025-08-11",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "U Teplárny",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2682418,
+          49.5858327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1833491817",
+      "properties": {
+        "@id": "node/1833491817",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Šlechtitelů",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2786274,
+          49.5745443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1833491818",
+      "properties": {
+        "@id": "node/1833491818",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "name": "Přichystalova",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2699462,
+          49.5775042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1833491819",
+      "properties": {
+        "@id": "node/1833491819",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Konzum",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2734053,
+          49.5816178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1833491821",
+      "properties": {
+        "@id": "node/1833491821",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Technologická",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2838669,
+          49.5775839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1833491822",
+      "properties": {
+        "@id": "node/1833491822",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Holická, Grapo",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2788638,
+          49.5807883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1833491823",
+      "properties": {
+        "@id": "node/1833491823",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Nový Svět",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.274161,
+          49.5822971
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1837461471",
+      "properties": {
+        "@id": "node/1837461471",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "C",
+        "name": "Tržnice",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2532414,
+          49.5896708
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1837461472",
+      "properties": {
+        "@id": "node/1837461472",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "A",
+        "name": "Tržnice",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2526258,
+          49.5897212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1855090217",
+      "properties": {
+        "@id": "node/1855090217",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2022-04-12",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Klášterní Hradisko",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2633826,
+          49.604786
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1855090240",
+      "properties": {
+        "@id": "node/1855090240",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Klášterní Hradisko",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2647195,
+          49.6041161
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1855581959",
+      "properties": {
+        "@id": "node/1855581959",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Velkomoravská",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2549818,
+          49.5810756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1892613509",
+      "properties": {
+        "@id": "node/1892613509",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "name": "Svatoplukova",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2320446,
+          49.60535
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1892613510",
+      "properties": {
+        "@id": "node/1892613510",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Svatoplukova",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2313431,
+          49.6055625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1905286030",
+      "properties": {
+        "@id": "node/1905286030",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Rooseveltova",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2560238,
+          49.5850938
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1909719068",
+      "properties": {
+        "@id": "node/1909719068",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Envelopa",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2612706,
+          49.5905238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1909719069",
+      "properties": {
+        "@id": "node/1909719069",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Envelopa",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2610446,
+          49.5906107
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2013680176",
+      "properties": {
+        "@id": "node/2013680176",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "local_ref": "I",
+        "name": "Kosmonautů",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2746082,
+          49.5918028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2144238876",
+      "properties": {
+        "@id": "node/2144238876",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "realtime",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "D",
+        "name": "Hlavní nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2775965,
+          49.5920593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2144238887",
+      "properties": {
+        "@id": "node/2144238887",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "C",
+        "name": "Hlavní nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2774425,
+          49.5923675
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2144240230",
+      "properties": {
+        "@id": "node/2144240230",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "H",
+        "name": "Hlavní nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2771868,
+          49.5924682
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2144240869",
+      "properties": {
+        "@id": "node/2144240869",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Hlavní nádraží, P",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2766746,
+          49.5936494
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2144242624",
+      "properties": {
+        "@id": "node/2144242624",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "J",
+        "name": "Kosmonautů",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2753358,
+          49.5916667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2205223204",
+      "properties": {
+        "@id": "node/2205223204",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "17. listopadu",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "Bing",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2648188,
+          49.5948394
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2205223212",
+      "properties": {
+        "@id": "node/2205223212",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "17. listopadu",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "source": "Bing",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2651192,
+          49.5949082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2270895090",
+      "properties": {
+        "@id": "node/2270895090",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-03-07",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Vejdovského",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.270494,
+          49.5904995
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2270912219",
+      "properties": {
+        "@id": "node/2270912219",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Komenského",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2661504,
+          49.5974758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2271670618",
+      "properties": {
+        "@id": "node/2271670618",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Ladova",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2409831,
+          49.6028314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2271670619",
+      "properties": {
+        "@id": "node/2271670619",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "name": "Na trati",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2360728,
+          49.6026633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2338116278",
+      "properties": {
+        "@id": "node/2338116278",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Na Špici",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2745173,
+          49.5983001
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2338116312",
+      "properties": {
+        "@id": "node/2338116312",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Na Špici",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2741451,
+          49.5997342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2537838606",
+      "properties": {
+        "@id": "node/2537838606",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Trnkova",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2575104,
+          49.5793905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2539694641",
+      "properties": {
+        "@id": "node/2539694641",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "U Bristolu",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2667085,
+          49.5980706
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2539759901",
+      "properties": {
+        "@id": "node/2539759901",
+        "amenity": "waste_basket",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Pasteurova",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2720685,
+          49.5991361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2611627297",
+      "properties": {
+        "@id": "node/2611627297",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Fakultní nemocnice",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2397237,
+          49.5807546
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2611627298",
+      "properties": {
+        "@id": "node/2611627298",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:tactile_paving": "2025-02-12",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Fakultní nemocnice",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2401241,
+          49.5804831
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2617463911",
+      "properties": {
+        "@id": "node/2617463911",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Foerstrova",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.232257,
+          49.5947733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2617463915",
+      "properties": {
+        "@id": "node/2617463915",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Foerstrova",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2325282,
+          49.5949698
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2617463917",
+      "properties": {
+        "@id": "node/2617463917",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Gymnázium Hejčín",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2367992,
+          49.6013943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2617463921",
+      "properties": {
+        "@id": "node/2617463921",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Gymnázium Hejčín",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2366553,
+          49.6014357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2617463927",
+      "properties": {
+        "@id": "node/2617463927",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Řepčín, Máchova",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2282974,
+          49.6087331
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2617463930",
+      "properties": {
+        "@id": "node/2617463930",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Na trati",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2362813,
+          49.6023348
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2617463932",
+      "properties": {
+        "@id": "node/2617463932",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Neředín, krematorium",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2173692,
+          49.5953053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2617463974",
+      "properties": {
+        "@id": "node/2617463974",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Šibeník",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2368833,
+          49.5975817
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2617463977",
+      "properties": {
+        "@id": "node/2617463977",
+        "bench": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Šibeník",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2369994,
+          49.5982747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2617521700",
+      "properties": {
+        "@id": "node/2617521700",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Na Střelnici",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2515295,
+          49.5981418
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2650641607",
+      "properties": {
+        "@id": "node/2650641607",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Finanční úřad",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2524961,
+          49.6038539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2650641609",
+      "properties": {
+        "@id": "node/2650641609",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Finanční úřad",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2520495,
+          49.6015819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2650729017",
+      "properties": {
+        "@id": "node/2650729017",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2023-04-26",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Lazce",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.252134,
+          49.6069896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2650729021",
+      "properties": {
+        "@id": "node/2650729021",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Lazce",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no",
+        "toilets:wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2522788,
+          49.6073928
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2650729024",
+      "properties": {
+        "@id": "node/2650729024",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Lazce, kaple",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2520522,
+          49.6102233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2652111870",
+      "properties": {
+        "@id": "node/2652111870",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Jablonského",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2598484,
+          49.6080847
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2652111872",
+      "properties": {
+        "@id": "node/2652111872",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Jablonského",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2601651,
+          49.6078198
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2652156441",
+      "properties": {
+        "@id": "node/2652156441",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Černá cesta",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2671223,
+          49.5996921
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2652156443",
+      "properties": {
+        "@id": "node/2652156443",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Černá cesta",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2672343,
+          49.5991991
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2652164677",
+      "properties": {
+        "@id": "node/2652164677",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Na Letné",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2622177,
+          49.6004458
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2654192762",
+      "properties": {
+        "@id": "node/2654192762",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Dlouhá",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.257631,
+          49.6007311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2654210402",
+      "properties": {
+        "@id": "node/2654210402",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2021-07-28",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Ladova",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2419049,
+          49.60246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2654226477",
+      "properties": {
+        "@id": "node/2654226477",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Tomkova",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2392627,
+          49.6041028
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2654226478",
+      "properties": {
+        "@id": "node/2654226478",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Tomkova",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2397664,
+          49.6043681
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2668812238",
+      "properties": {
+        "@id": "node/2668812238",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Komenského",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2660937,
+          49.5973327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2742303301",
+      "properties": {
+        "@id": "node/2742303301",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Kaufland",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2715337,
+          49.588067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2742303305",
+      "properties": {
+        "@id": "node/2742303305",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Vejdovského",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2686729,
+          49.5903598
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2742696081",
+      "properties": {
+        "@id": "node/2742696081",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Řepčínská",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2352259,
+          49.606376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2742696082",
+      "properties": {
+        "@id": "node/2742696082",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Řepčínská",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2353842,
+          49.6061622
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2742696085",
+      "properties": {
+        "@id": "node/2742696085",
+        "bus": "yes",
+        "check_date:shelter": "2021-03-13",
+        "highway": "bus_stop",
+        "name": "Řepčín, škola",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2303612,
+          49.6070671
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2742696089",
+      "properties": {
+        "@id": "node/2742696089",
+        "bench": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Řepčín, škola",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.231351,
+          49.6073869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2742696091",
+      "properties": {
+        "@id": "node/2742696091",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Erenburgova",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2321729,
+          49.5995165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2745560618",
+      "properties": {
+        "@id": "node/2745560618",
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Tyfloservis",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2327442,
+          49.5797495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2745560619",
+      "properties": {
+        "@id": "node/2745560619",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "FN, Ortopedie",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2367201,
+          49.581865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2745560620",
+      "properties": {
+        "@id": "node/2745560620",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "FN, U Lékárny",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2394969,
+          49.5832979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2745560621",
+      "properties": {
+        "@id": "node/2745560621",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "FN, III. interní klinika",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2392779,
+          49.5839916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2745560622",
+      "properties": {
+        "@id": "node/2745560622",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "FN, Ředitelství",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2401662,
+          49.5857433
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2745560623",
+      "properties": {
+        "@id": "node/2745560623",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "FN, Centrální příjem",
+        "official_name": "Olomouc, FN Centrální příjem",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.237924,
+          49.5847069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2745560624",
+      "properties": {
+        "@id": "node/2745560624",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "FN, Zdravotníků",
+        "official_name": "Olomouc, FN Zdravotníků",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2388718,
+          49.5869789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2745606050",
+      "properties": {
+        "@id": "node/2745606050",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Dopravní stavby",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2889699,
+          49.5992941
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2745649043",
+      "properties": {
+        "@id": "node/2745649043",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Trnkova",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2572301,
+          49.5797475
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2745649057",
+      "properties": {
+        "@id": "node/2745649057",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Za Poštou",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2567622,
+          49.5826328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2745649058",
+      "properties": {
+        "@id": "node/2745649058",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Hotelový dům",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2454235,
+          49.5822493
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2747825582",
+      "properties": {
+        "@id": "node/2747825582",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Chválkovická - Epava",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2821781,
+          49.6072284
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2747825592",
+      "properties": {
+        "@id": "node/2747825592",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Chválkovická - Epava",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.282189,
+          49.6069981
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2747825597",
+      "properties": {
+        "@id": "node/2747825597",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Na Pile",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2797424,
+          49.604145
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2747825604",
+      "properties": {
+        "@id": "node/2747825604",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-03-05",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Na Pile",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2799653,
+          49.6046683
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2747825609",
+      "properties": {
+        "@id": "node/2747825609",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "AŽD",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2860019,
+          49.6079345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2747825615",
+      "properties": {
+        "@id": "node/2747825615",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "name": "AŽD",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2866156,
+          49.6079606
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2747840457",
+      "properties": {
+        "@id": "node/2747840457",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Zora",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2748543,
+          49.5859291
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2747840476",
+      "properties": {
+        "@id": "node/2747840476",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "U Teplárny",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2688765,
+          49.5852594
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3248550680",
+      "properties": {
+        "@id": "node/3248550680",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Olomouc CITY",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2199181,
+          49.6014553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3402411500",
+      "properties": {
+        "@id": "node/3402411500",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-08-23",
+        "highway": "bus_stop",
+        "name": "U Botanické zahrady",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2492278,
+          49.584756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3402555637",
+      "properties": {
+        "@id": "node/3402555637",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Povel, škola",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2487192,
+          49.5800274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3402701095",
+      "properties": {
+        "@id": "node/3402701095",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Povel, škola",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2488858,
+          49.5799708
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3409211902",
+      "properties": {
+        "@id": "node/3409211902",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-05-06",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Karafiátová",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2298716,
+          49.5863518
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3409211905",
+      "properties": {
+        "@id": "node/3409211905",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-05-06",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Karafiátová",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2300664,
+          49.5868694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3409211906",
+      "properties": {
+        "@id": "node/3409211906",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-05-01",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Kmochova",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2311559,
+          49.5930312
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3409211909",
+      "properties": {
+        "@id": "node/3409211909",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-05-01",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Kmochova",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2313373,
+          49.5931349
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3409211919",
+      "properties": {
+        "@id": "node/3409211919",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-05-06",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Stupkova",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2304789,
+          49.5880826
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3409211920",
+      "properties": {
+        "@id": "node/3409211920",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-05-06",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Stupkova",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2316187,
+          49.5887041
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3409211924",
+      "properties": {
+        "@id": "node/3409211924",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2023-06-25",
+        "highway": "bus_stop",
+        "name": "Tabulový vrch",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2224809,
+          49.5832214
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3409211927",
+      "properties": {
+        "@id": "node/3409211927",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Tabulový vrch",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2227842,
+          49.5834332
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3409247779",
+      "properties": {
+        "@id": "node/3409247779",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:bench": "2026-05-06",
+        "check_date:shelter": "2026-05-06",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Jílová",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2321685,
+          49.590017
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3409247782",
+      "properties": {
+        "@id": "node/3409247782",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-05-06",
+        "highway": "bus_stop",
+        "name": "Jílová",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2320747,
+          49.5906769
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4185602357",
+      "properties": {
+        "@id": "node/4185602357",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Hlavní nádraží, O",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2765002,
+          49.5944613
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4187418805",
+      "properties": {
+        "@id": "node/4187418805",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "local_ref": "M",
+        "name": "Hlavní nádraží",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2783489,
+          49.5899251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5080852776",
+      "properties": {
+        "@id": "node/5080852776",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-03-07",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Nová Ulice",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2309693,
+          49.5775152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5080853029",
+      "properties": {
+        "@id": "node/5080853029",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Nová Ulice",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2309109,
+          49.5776996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5098065957",
+      "properties": {
+        "@id": "node/5098065957",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Lékařská fakulta",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2373336,
+          49.5876891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5106246144",
+      "properties": {
+        "@id": "node/5106246144",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Okružní",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2260358,
+          49.5812276
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5106248247",
+      "properties": {
+        "@id": "node/5106248247",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Okružní",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2266171,
+          49.5805359
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5121370238",
+      "properties": {
+        "@id": "node/5121370238",
+        "bus": "yes",
+        "check_date:shelter": "2026-03-03",
+        "highway": "bus_stop",
+        "name": "U Rybářského stavu",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2576344,
+          49.5769357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5851123172",
+      "properties": {
+        "@id": "node/5851123172",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "DPMO",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2554187,
+          49.5980051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5875444175",
+      "properties": {
+        "@id": "node/5875444175",
+        "bench": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Kafkova",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2274968,
+          49.5748156
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8536836392",
+      "properties": {
+        "@id": "node/8536836392",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "U Bristolu",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2668495,
+          49.5980801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8652054304",
+      "properties": {
+        "@id": "node/8652054304",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "name": "Fibichova",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2768773,
+          49.588845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8781524169",
+      "properties": {
+        "@id": "node/8781524169",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2026-08-22",
+        "highway": "bus_stop",
+        "name": "Za Poštou",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2565952,
+          49.5822956
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8781524178",
+      "properties": {
+        "@id": "node/8781524178",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Nový Svět",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2738405,
+          49.5824743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8784768095",
+      "properties": {
+        "@id": "node/8784768095",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "U Rybářského stavu",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2580118,
+          49.5770104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/8784824981",
+      "properties": {
+        "@id": "node/8784824981",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Velkomoravská",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2582772,
+          49.5811692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9062108730",
+      "properties": {
+        "@id": "node/9062108730",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Dopravní stavby",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2891673,
+          49.5994741
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9202937289",
+      "properties": {
+        "@id": "node/9202937289",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Zenit",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2507098,
+          49.5810144
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9202937294",
+      "properties": {
+        "@id": "node/9202937294",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Lékařská fakulta",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2376849,
+          49.5876176
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9207214665",
+      "properties": {
+        "@id": "node/9207214665",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Profesora Fuky",
+        "public_transport": "platform",
+        "shelter": "no",
+        "start_date": "2021-10-29",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2247806,
+          49.58406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9207214666",
+      "properties": {
+        "@id": "node/9207214666",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Profesora Fuky",
+        "public_transport": "platform",
+        "shelter": "no",
+        "start_date": "2021-10-29",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2254527,
+          49.5840827
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9416545931",
+      "properties": {
+        "@id": "node/9416545931",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Zenit",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.247284,
+          49.5819897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081241",
+      "properties": {
+        "@id": "node/9984081241",
+        "bus": "yes",
+        "description": "výstupní zastávka",
+        "highway": "bus_stop",
+        "local_ref": "Výstup",
+        "name": "Olomouc, autobusové nádraží",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2852689,
+          49.5884636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081242",
+      "properties": {
+        "@id": "node/9984081242",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "14",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2860374,
+          49.5881835
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081243",
+      "properties": {
+        "@id": "node/9984081243",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "15",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2859358,
+          49.5883049
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081244",
+      "properties": {
+        "@id": "node/9984081244",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "13",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2861393,
+          49.5880653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081245",
+      "properties": {
+        "@id": "node/9984081245",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "11",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2858967,
+          49.5881333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081246",
+      "properties": {
+        "@id": "node/9984081246",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "12",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2857978,
+          49.5882542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081247",
+      "properties": {
+        "@id": "node/9984081247",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "10",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.285994,
+          49.588016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081248",
+      "properties": {
+        "@id": "node/9984081248",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "8",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.28575,
+          49.5880887
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081249",
+      "properties": {
+        "@id": "node/9984081249",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "9",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2856585,
+          49.5882053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081250",
+      "properties": {
+        "@id": "node/9984081250",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "7",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2858535,
+          49.5879644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081251",
+      "properties": {
+        "@id": "node/9984081251",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "5",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2856127,
+          49.5880337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081252",
+      "properties": {
+        "@id": "node/9984081252",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "6",
+        "name": "Olomouc, autobusové nádraží",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2855083,
+          49.5881595
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081253",
+      "properties": {
+        "@id": "node/9984081253",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "4",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2857086,
+          49.5879168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081254",
+      "properties": {
+        "@id": "node/9984081254",
+        "EE:gtfs:id": "38167",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "3",
+        "name": "Olomouc, autobusové nádraží",
+        "name:et": "Olomouc",
+        "network": "Flixbus",
+        "network:wikidata": "Q15712258",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "route_ref": "Flixbus 913, 916, 918, 919, N899, N913, N918, N1283, N1395, N3277",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.28533,
+          49.5881167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081255",
+      "properties": {
+        "@id": "node/9984081255",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "2",
+        "name": "Olomouc, autobusové nádraží",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2854755,
+          49.58794
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9984081256",
+      "properties": {
+        "@id": "node/9984081256",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "1",
+        "name": "Olomouc, autobusové nádraží",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "official_name": "Olomouc, aut. nádr.",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.285545,
+          49.5878562
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210702737",
+      "properties": {
+        "@id": "node/10210702737",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "realtime",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "H",
+        "name": "Náměstí Hrdinů",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2472619,
+          49.596576
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210702739",
+      "properties": {
+        "@id": "node/10210702739",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "J",
+        "name": "Náměstí Hrdinů",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2469276,
+          49.5965554
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210702741",
+      "properties": {
+        "@id": "node/10210702741",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "check_date:shelter": "2025-11-07",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "E",
+        "name": "Náměstí Hrdinů",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2471645,
+          49.5942451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210726318",
+      "properties": {
+        "@id": "node/10210726318",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "B",
+        "name": "Tržnice",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2523728,
+          49.5898409
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210726319",
+      "properties": {
+        "@id": "node/10210726319",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "D",
+        "name": "Tržnice",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.253584,
+          49.5895099
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210726320",
+      "properties": {
+        "@id": "node/10210726320",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "1",
+        "name": "Tržnice, plocha",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2541307,
+          49.5887495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210726321",
+      "properties": {
+        "@id": "node/10210726321",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "2",
+        "name": "Tržnice, plocha",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2545119,
+          49.5886016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210726322",
+      "properties": {
+        "@id": "node/10210726322",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "6",
+        "name": "Tržnice, plocha",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2544068,
+          49.5885582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210726323",
+      "properties": {
+        "@id": "node/10210726323",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "3",
+        "name": "Tržnice, plocha",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2548205,
+          49.588478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210726324",
+      "properties": {
+        "@id": "node/10210726324",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "5",
+        "name": "Tržnice, plocha",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2548283,
+          49.588388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210726325",
+      "properties": {
+        "@id": "node/10210726325",
+        "bench": "yes",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "local_ref": "4",
+        "name": "Tržnice, plocha",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2551325,
+          49.5883554
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10210726326",
+      "properties": {
+        "@id": "node/10210726326",
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "lit": "no",
+        "name": "Tržnice, plocha Olympia",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "operator": "Dopravní podnik města Olomouce",
+        "operator:short": "DPMO",
+        "operator:wikidata": "Q11822108",
+        "public_transport": "platform",
+        "ref": "Olympia",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2541723,
+          49.5888778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10581122899",
+      "properties": {
+        "@id": "node/10581122899",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "name": "Ladova",
+        "network": "Integrovaný dopravní systém Olomouckého kraje",
+        "network:short": "IDSOK",
+        "network:wikidata": "Q12021688",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2402681,
+          49.6029932
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10585030386",
+      "properties": {
+        "@id": "node/10585030386",
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Envelopa",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2626878,
+          49.5895433
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12070311925",
+      "properties": {
+        "@id": "node/12070311925",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Stiborova",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.223857,
+          49.5889045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12070311926",
+      "properties": {
+        "@id": "node/12070311926",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Stiborova",
+        "public_transport": "platform",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2242573,
+          49.5902927
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12951387155",
+      "properties": {
+        "@id": "node/12951387155",
+        "bench": "no",
+        "bin": "no",
+        "bus": "yes",
+        "departures_board": "realtime",
+        "highway": "bus_stop",
+        "lit": "yes",
+        "name": "Envelopa",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2632012,
+          49.5898302
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13004223127",
+      "properties": {
+        "@id": "node/13004223127",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "public_transport": "platform"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2186585,
+          49.6014068
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13334601794",
+      "properties": {
+        "@id": "node/13334601794",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "name": "U Zlaté koule",
+        "public_transport": "platform",
+        "shelter": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2359194,
+          49.5966611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13363851433",
+      "properties": {
+        "@id": "node/13363851433",
+        "bench": "no",
+        "bin": "yes",
+        "bus": "yes",
+        "disused:public_transport": "platform",
+        "highway": "bus_stop",
+        "lit": "no",
+        "local_ref": "N",
+        "name": "Hlavní nádraží",
+        "public_transport": "platform",
+        "shelter": "no",
+        "tactile_paving": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2782156,
+          49.5902438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/14166801860",
+      "properties": {
+        "@id": "node/14166801860",
+        "bench": "yes",
+        "bin": "yes",
+        "bus": "yes",
+        "departures_board": "timetable",
+        "highway": "bus_stop",
+        "local_ref": "R",
+        "name": "Hlavní nádraží",
+        "network": "RegioJet",
+        "network:short": "RJ",
+        "network:wikidata": "Q221186",
+        "not:network:wikidata": "Q12021688",
+        "operator": "Regiojet",
+        "public_transport": "platform",
+        "ref": "R",
+        "shelter": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2755332,
+          49.5919916
+        ]
+      }
+    }
+  ]
+}

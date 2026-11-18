@@ -4,8 +4,11 @@ from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
 
 def search_location(location_name : str):
-    loc = Nominatim(user_agent="Geopy Library").geocode(location_name)
-    return [loc.latitude, loc.longitude] if loc else None
+        try:
+            loc = Nominatim(user_agent="Geopy Library").geocode(location_name)
+            return [loc.latitude, loc.longitude] if loc else None
+        except Exception:
+            return None
 
 def draw_circle(map : folium.Map, radius : int, coords : tuple):
     folium.Circle(
@@ -20,11 +23,23 @@ def draw_circle(map : folium.Map, radius : int, coords : tuple):
     popup="{} meters".format(radius),
     tooltip="I am in meters",
 ).add_to(map)
+    folium.Marker(coords).add_to(m)
 
-m = folium.Map(location=search_location("Olomouc"), zoom_start=12)
+m = folium.Map(location=[49.6363900, 17.3643839], zoom_start=12)
+with st.form("search_form"):
+    query = st.text_input(
+        "Search",
+        placeholder="Enter a location",
+        label_visibility="collapsed",
+    )
+    submitted = st.form_submit_button("Search")
 
 radius = 1000
-coords = search_location("Jazz Tibet Club, Olomouc")
-draw_circle(m, radius, coords)
-folium.Marker(coords).add_to(m)
-st_data = st_folium(m, width=725)
+coords = search_location(query)
+
+if coords is None:
+    st.error("Could not find that location.")
+else:
+    m = folium.Map(location=coords, zoom_start=14)
+    draw_circle(m, radius, coords)
+    st_folium(m, width=725, key="map", returned_objects=[])

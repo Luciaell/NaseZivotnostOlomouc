@@ -2,15 +2,34 @@ import folium
 import streamlit as st
 from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
+from geopy.point import Point
+import vypocet_test
 
-def search_location(location_name : str):
-        try:
-            loc = Nominatim(user_agent="Geopy Library").geocode(location_name)
-            return [loc.latitude, loc.longitude] if loc else None
-        except Exception:
-            return None
+geolocator = Nominatim(user_agent="Geopy Library")
 
-def draw_circle(map : folium.Map, radius : int, coords : tuple):
+# returns city boundary box (4 point extremes)
+def get_city_bbox(city: str):
+     loc = geolocator.geocode(city, timeout=10)
+     if not loc:
+          return None
+     south, north, west, east = map(float, loc.raw["boundingbox"])
+     return (south, west, north, east)
+
+def search_location(query: str):
+    bbox = get_city_bbox("Olomouc")
+    if bbox is None:
+        return None
+    south, west, north, east = bbox
+    loc = geolocator.geocode(
+        query,
+        timeout=10,
+        viewbox=[Point(south, west), Point(north, east)],
+        bounded=True,
+        addressdetails=True
+        )
+    return [loc.latitude, loc.longitude] if loc else None
+
+def draw_circle(map: folium.Map, radius: int, coords: tuple):
     folium.Circle(
     location=coords,
     radius=radius,
@@ -37,7 +56,7 @@ with st.form("search_form"):
 radius = 1000
 coords = search_location(query)
 
-if coords is None:
+if not coords:
     st.error("Could not find that location.")
 else:
     m = folium.Map(location=coords, zoom_start=14)

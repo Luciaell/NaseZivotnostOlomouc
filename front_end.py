@@ -121,8 +121,6 @@ def draw_circle(m: folium.Map, radius: int, coords):
         weight=1,
         fill=True,
         fill_opacity=0.1,
-        popup=f"{radius} meters",
-        tooltip="I am in meters",
     ).add_to(m)
     icon = folium.Icon(color="#0000FF", icon="house", prefix="fa")
     folium.Marker(coords, icon=icon).add_to(m)
@@ -134,9 +132,27 @@ selected = st_searchbox(
     key="address_search",
 )
 
-radius = 500
+radius = 1000
 default_center = [49.5955, 17.2518]
 default_zoom = 12.5
+
+MARKER_STYLES = {
+    "zastavky":     {"color": "blue",      "icon": "bus"},
+    "skolky":       {"color": "orange",    "icon": "child"},
+    "lekarny":      {"color": "green",     "icon": "pills"},
+    "skoly":        {"color": "red",       "icon": "school"},
+    "supermarkety": {"color": "purple",    "icon": "cart-shopping"},
+}
+DEFAULT_STYLE = {"color": "gray", "icon": "location-dot"}
+
+
+def add_marker(m: folium.Map, typ: str, item: dict):
+    style = MARKER_STYLES.get(typ, DEFAULT_STYLE)
+    folium.Marker(
+        location=[item["lat"], item["lon"]],
+        tooltip=f"{item['nazev']} ({item['vzdalenost_m']} m)",
+        icon=folium.Icon(color=style["color"], icon=style["icon"], prefix="fa"),
+    ).add_to(m)
 
 if not selected:
     m = folium.Map(location=default_center, zoom_start=default_zoom)
@@ -147,11 +163,11 @@ else:
         st.error("Could not find that location.")
     else:
         m = folium.Map(location=coords, zoom_start=default_zoom)
-        draw_circle(m, radius, coords)
         for typ in instituce.TYPY:
             seznam = instituce.najdi_instituce(coords, typ, radius / 1000)
             st.write(f"### {typ} ({len(seznam)})")
             for i in seznam:
                 st.write(f"- {i['nazev']} ({i['vzdalenost_m']} m)")
-                folium.Marker(location=[i['lat'], i['lon']]).add_to(m)
+                add_marker(m, typ, i)
+    draw_circle(m, radius, coords)
     st_folium(m, width=725, key="map", returned_objects=[])

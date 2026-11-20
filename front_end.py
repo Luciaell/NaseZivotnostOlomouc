@@ -116,13 +116,14 @@ def draw_circle(m: folium.Map, radius: int, coords):
         location=coords,
         radius=radius,
         color="blue",
-        weight=3,
-        fill=False,
-        opacity=1,
+        weight=1,
+        fill=True,
+        fill_opacity=0.1,
         popup=f"{radius} meters",
         tooltip="I am in meters",
     ).add_to(m)
-    folium.Marker(coords).add_to(m)
+    icon = folium.Icon(color="#0000FF", icon="house", prefix="fa")
+    folium.Marker(coords, icon=icon).add_to(m)
 
 
 selected = st_searchbox(
@@ -132,16 +133,17 @@ selected = st_searchbox(
 )
 
 radius = 1000
-default_center = [49.6363900, 17.3643839]
+default_center = [49.5955, 17.2518]
+default_zoom = 12.5
 
 if not selected:
-    m = folium.Map(location=default_center, zoom_start=12)
+    m = folium.Map(location=default_center, zoom_start=default_zoom)
     st_folium(m, width=725, key="map", returned_objects=[])
 else:
     coords = addresses.get(selected) or search_location(selected)
     if not coords:
         st.error("Could not find that location.")
     else:
-        m = folium.Map(location=coords, zoom_start=12)
+        m = folium.Map(location=coords, zoom_start=default_zoom)
         draw_circle(m, radius, coords)
         st_folium(m, width=725, key="map", returned_objects=[])

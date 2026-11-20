@@ -14,7 +14,7 @@ OVERPASS_URLS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
 ]
-HEADERS = {"User-Agent": "olomouc-map-app/1.0"}
+HEADERS = {"User-Agent": "nase-zivotnost-ol/1.0"}
 MIN_CHARS = 2      # suggestions appear after this many characters
 MAX_RESULTS = 10
 
@@ -142,6 +142,6 @@ else:
     if not coords:
         st.error("Could not find that location.")
     else:
-        m = folium.Map(location=coords, zoom_start=16)
+        m = folium.Map(location=coords, zoom_start=12)
         draw_circle(m, radius, coords)
         st_folium(m, width=725, key="map", returned_objects=[])

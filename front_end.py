@@ -8,6 +8,8 @@ from geopy.point import Point
 from streamlit_folium import st_folium
 from streamlit_searchbox import st_searchbox
 
+import instituce
+
 geolocator = Nominatim(user_agent="Geopy Library")
 
 OVERPASS_URLS = [
@@ -132,7 +134,7 @@ selected = st_searchbox(
     key="address_search",
 )
 
-radius = 1000
+radius = 500
 default_center = [49.5955, 17.2518]
 default_zoom = 12.5
 
@@ -147,3 +149,8 @@ else:
         m = folium.Map(location=coords, zoom_start=default_zoom)
         draw_circle(m, radius, coords)
         st_folium(m, width=725, key="map", returned_objects=[])
+        for typ in instituce.TYPY:
+            seznam = instituce.najdi_instituce(coords, typ, radius / 1000)
+            st.write(f"### {typ} ({len(seznam)})")
+            for i in seznam:
+                st.write(f"- {i['nazev']} ({i['vzdalenost_m']} m)")

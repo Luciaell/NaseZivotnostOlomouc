@@ -148,9 +148,10 @@ else:
     else:
         m = folium.Map(location=coords, zoom_start=default_zoom)
         draw_circle(m, radius, coords)
-        st_folium(m, width=725, key="map", returned_objects=[])
         for typ in instituce.TYPY:
             seznam = instituce.najdi_instituce(coords, typ, radius / 1000)
             st.write(f"### {typ} ({len(seznam)})")
             for i in seznam:
                 st.write(f"- {i['nazev']} ({i['vzdalenost_m']} m)")
+                folium.Marker(location=[i['lat'], i['lon']]).add_to(m)
+    st_folium(m, width=725, key="map", returned_objects=[])

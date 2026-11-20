@@ -1,0 +1,36 @@
+# Well since I'm technically the leader of this team I took some time off my sleep to write
+# this roamap so we don't get stuck waiting for others to finish working on dependencies.
+
+Planned features:
+
+===== Front End
+- show sum of institutions in a short summary under map
+- show closest instution of every type and color warnings for long distance
+- add config menu to filter types, change distance radius
+
+===== Back End
+- implement types ("KATEGORIE") for new datasets as they're added
+- get a Claude or other API key to integrate it into our app
+    - function to pass data over to the LLM (yuck) to summarize
+- refactor and optimize code for our exact purpose
+
+===== Data Analysis
+-! find datasets that include primary school names
+- find datasets for:    
+        Necessities:    tram stations
+                        train stations
+
+        Recreational:   gyms & sport halls
+                        cinemas & theatres
+                        parks
+
+- figure out a way to implement sensor data into our project 
+    - ex. traffic density in area, tree coverage, air quality
+
+===== Design
+- think of a name and logo for the app
+- start working on a presentation with base points
+- any new ideas are welcome
+
+# GLHF
+# We don't talk about the +57727 line commit

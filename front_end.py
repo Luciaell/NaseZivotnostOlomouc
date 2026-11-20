@@ -1,33 +1,30 @@
+import unicodedata
+
 import folium
 import requests
 import streamlit as st
-from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
 from geopy.point import Point
+from streamlit_folium import st_folium
+from streamlit_searchbox import st_searchbox
 
 geolocator = Nominatim(user_agent="Geopy Library")
 
-OVERPASS_URL = "https://overpass-api.de/api/interpreter"
-OVERPASS_QUERY = """
-[out:json][timeout:60];
-area["name"="Olomouc"]["boundary"="administrative"]["admin_level"="8"]->.city;
-way(area.city)["highway"]["name"];
-out tags;
-"""
+OVERPASS_URLS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+]
+HEADERS = {"User-Agent": "olomouc-map-app/1.0"}
+MIN_CHARS = 2      # suggestions appear after this many characters
+MAX_RESULTS = 10
 
 
-# list of street names in Olomouc, fetched once a day
-@st.cache_data(ttl=60 * 60 * 24, show_spinner="Loading streets...")
-def get_streets() -> list[str]:
-    try:
-        r = requests.post(OVERPASS_URL, data={"data": OVERPASS_QUERY}, timeout=90)
-        r.raise_for_status()
-        return sorted({el["tags"]["name"] for el in r.json()["elements"]})
-    except Exception:
-        return []
+def normalize(s: str) -> str:
+    # Lowercase and strip diacritics, so 'kat' matches 'Kateřinská'.
+    s = unicodedata.normalize("NFD", s.lower())
+    return "".join(c for c in s if unicodedata.category(c) != "Mn")
 
 
-# returns city bounding box (4 point extremes)
 @st.cache_data(show_spinner=False)
 def get_city_bbox(city: str):
     loc = geolocator.geocode(city, timeout=10)
@@ -35,6 +32,48 @@ def get_city_bbox(city: str):
         return None
     south, north, west, east = map(float, loc.raw["boundingbox"])
     return (south, west, north, east)
+
+
+@st.cache_data(ttl=60 * 60 * 24, show_spinner="Loading addresses...")
+def fetch_addresses() -> dict[str, list[float]]:
+    # Returns {"Kateřinská 12": [lat, lon], ...} for all address points in the box.
+    south, west, north, east = get_city_bbox("Olomouc")
+    query = f"""
+    [out:json][timeout:40];
+    nwr["addr:housenumber"]["addr:street"]({south},{west},{north},{east});
+    out tags center qt;
+    """
+    last_error = None
+    for url in OVERPASS_URLS:
+        try:
+            r = requests.post(url, data={"data": query}, headers=HEADERS, timeout=60)
+            r.raise_for_status()
+            data = r.json()
+            if "elements" not in data:
+                raise RuntimeError(data.get("remark", "No elements in response"))
+            addresses = {}
+            for el in data["elements"]:
+                tags = el["tags"]
+                lat = el.get("lat") or el.get("center", {}).get("lat")
+                lon = el.get("lon") or el.get("center", {}).get("lon")
+                if lat is None:
+                    continue
+                # Czech style: conscription number / orientation number (e.g. 123/4)
+                cp, co = tags.get("addr:conscriptionnumber"), tags.get("addr:streetnumber")
+                number = f"{cp}/{co}" if cp and co else tags["addr:housenumber"]
+                addresses[f"{tags['addr:street']} {number}"] = [lat, lon]
+            return addresses
+        except Exception as e:
+            last_error = e
+    raise RuntimeError(f"All Overpass servers failed: {last_error}")  # not cached
+
+
+def get_addresses() -> dict[str, list[float]]:
+    try:
+        return fetch_addresses()
+    except Exception as e:
+        st.warning(f"Address list unavailable ({e}). Free-text search still works.")
+        return {}
 
 
 @st.cache_data(show_spinner=False)
@@ -53,6 +92,25 @@ def search_location(query: str):
     return [loc.latitude, loc.longitude] if loc else None
 
 
+addresses = get_addresses()
+labels = sorted(addresses)
+normalized = [(normalize(label), label) for label in labels]
+
+
+def suggest(searchterm: str) -> list[str]:
+    # Called by the searchbox on every keystroke.
+    if len(searchterm) < MIN_CHARS:
+        return []
+    term = normalize(searchterm)
+    starts = [lab for n, lab in normalized if n.startswith(term)]
+    contains = [lab for n, lab in normalized if term in n and not n.startswith(term)]
+    results = (starts + contains)[:MAX_RESULTS]
+    # let the user pick their exact text even if it's not in the list
+    if searchterm not in results:
+        results.append(searchterm)
+    return results
+
+
 def draw_circle(m: folium.Map, radius: int, coords):
     folium.Circle(
         location=coords,
@@ -67,33 +125,23 @@ def draw_circle(m: folium.Map, radius: int, coords):
     folium.Marker(coords).add_to(m)
 
 
-streets = get_streets()
-if not streets:
-    st.warning("Street list unavailable, you can still type an address manually.")
-
-with st.form("search_form"):
-    query = st.selectbox(
-        "Search",
-        options=streets,
-        index=None,                      # start empty
-        placeholder="Enter a location",
-        accept_new_options=True,         # typed text doesn't have to be in the list
-        label_visibility="collapsed",
-    )
-    submitted = st.form_submit_button("Search")
+selected = st_searchbox(
+    suggest,
+    placeholder="Enter a location",
+    key="address_search",
+)
 
 radius = 1000
 default_center = [49.6363900, 17.3643839]
 
-if not query:
-    # nothing searched yet: show the default map
+if not selected:
     m = folium.Map(location=default_center, zoom_start=12)
     st_folium(m, width=725, key="map", returned_objects=[])
 else:
-    coords = search_location(query)
+    coords = addresses.get(selected) or search_location(selected)
     if not coords:
         st.error("Could not find that location.")
     else:
-        m = folium.Map(location=coords, zoom_start=14)
+        m = folium.Map(location=coords, zoom_start=16)
         draw_circle(m, radius, coords)
         st_folium(m, width=725, key="map", returned_objects=[])

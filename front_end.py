@@ -51,6 +51,25 @@ KINDS = {
 }
 DEFAULT_KIND = {"color": "gray", "icon": "location-dot", "symbol": "location_on"}
 
+# Metric card sections, in display order. Types missing here go under "Ostatní".
+GROUPS = {
+    "Doprava":            ("bus_stops", "tram_stops", "train_stations"),
+    "Vzdělání":           ("kindergartens", "schools", "libraries"),
+    "Každodenní potřeby": ("supermarkets", "pharmacies"),
+    "Volný čas":          ("restaurants", "theatres", "cinemas", "gyms", "sports_halls",
+                           "places_of_worship"),
+}
+
+# Livability score (0-10), computed without the AI. Everyday needs make up most of it;
+# the remaining types are a bonus. Same weighting as the chatbot prompt.
+TRANSPORT = ("bus_stops", "tram_stops")   # either one covers the transport need
+EVERYDAY = ("kindergartens", "schools", "pharmacies", "supermarkets")
+EVERYDAY_SHARE = 0.8                      # 8 of 10 points; the bonus types give the other 2
+EDGE_SCORE = 0.3                          # an amenity at the radius edge counts 30 %, at the door 100 %
+
+# Start screen examples: the first known address on each street (free text if none is known).
+EXAMPLE_STREETS = ["Horní náměstí", "třída Svobody", "Brněnská", "Foerstrova"]
+
 CARTO_STYLES = {"voyager": "voyager", "positron": "light_all", "dark_matter": "dark_all"}
 CARTO_ATTR = (
     '&copy; přispěvatelé <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, '
@@ -225,6 +244,53 @@ def summary_heading(missing: int, results: dict[str, list]):
         st.error(f"Chybí: {missing} z {len(results)} služeb.")
 
 
+# --- livability score ---
+
+def amenity_score(found: list[dict]) -> float:
+    """0 when none is in the radius, else 1 at the door falling to EDGE_SCORE at the edge."""
+    if not found:
+        return 0.0
+    share = min(found[0]["distance_m"], RADIUS_M) / RADIUS_M
+    return 1 - (1 - EDGE_SCORE) * share
+
+
+def livability_score(results: dict[str, list]) -> float | None:
+    everyday, bonus = [], []
+    transport = [results[k] for k in TRANSPORT if k in results]
+    if transport:
+        everyday.append(max(amenity_score(found) for found in transport))
+    for kind, found in results.items():
+        if kind in TRANSPORT:
+            continue
+        if not found and kind in chatbot.INCOMPLETE:
+            continue   # incomplete data must not lower the score
+        (everyday if kind in EVERYDAY else bonus).append(amenity_score(found))
+
+    def mean(xs):
+        return sum(xs) / len(xs)
+
+    if everyday and bonus:
+        return 10 * (EVERYDAY_SHARE * mean(everyday) + (1 - EVERYDAY_SHARE) * mean(bonus))
+    if everyday or bonus:
+        return 10 * mean(everyday or bonus)
+    return None
+
+
+def show_score(score: float | None):
+    if score is None:
+        return
+    color = "green" if score >= 7 else "orange" if score >= 4 else "red"
+    st.metric(
+        f":{color}[:material/star: Hodnocení lokality]",
+        f"{score:.1f} / 10",
+        help=f"Vypočteno z dostupnosti služeb v okruhu {RADIUS_M} m. Doprava, obchod, lékárna, "
+             f"školka a škola tvoří {EVERYDAY_SHARE * 10:.0f} bodů, ostatní služby jsou bonus. "
+             "Čím blíž služba je, tím víc bodů.",
+    )
+
+
+# --- metric cards ---
+
 def show_metric(kind: str, found: list[dict]):
     style = KINDS.get(kind, DEFAULT_KIND)
     label = style.get("label", kind).capitalize()
@@ -236,11 +302,26 @@ def show_metric(kind: str, found: list[dict]):
         nearest = found[0]  # back_end returns results sorted by distance
         color = dist_color(nearest["distance_m"])
         st.metric(f":{color}[:material/{style['symbol']}: {label}]", f"{nearest['distance_m']} m")
+        walk = f":material/directions_walk: {chatbot.walk_minutes(nearest['distance_m'])} min"
         name = nearest["name"]
         if len(name) > 30:
-            st.caption(name[:30] + "…", help=name)
+            st.caption(f"{walk} · {name[:30]}…", help=name)
         else:
-            st.caption(name)
+            st.caption(f"{walk} · {name}")
+
+
+def show_metric_groups(results: dict[str, list]):
+    grouped = {kind for kinds in GROUPS.values() for kind in kinds}
+    sections = {**GROUPS, "Ostatní": tuple(k for k in results if k not in grouped)}
+    for title, kinds in sections.items():
+        shown = [kind for kind in kinds if kind in results]
+        if not shown:
+            continue
+        st.markdown(f"**{title}**")
+        grid = st.columns(METRIC_COLUMNS)
+        for i, kind in enumerate(shown):
+            with grid[i % METRIC_COLUMNS]:
+                show_metric(kind, results[kind])
 
 
 # --- AI chatbot (see CHATBOT.md) ---
@@ -278,7 +359,7 @@ def respond(client: anthropic.Anthropic, messages: list[dict]) -> bool:
     return True
 
 
-def show_chatbot(address: str, results: dict[str, list]):
+def show_chatbot(address: str, results: dict[str, list], score: float | None):
     """Render the chat in the current container (the column next to the map)."""
     st.subheader(":material/smart_toy: AI shrnutí okolí")
     key = get_anthropic_key()
@@ -292,7 +373,8 @@ def show_chatbot(address: str, results: dict[str, list]):
     chat = st.session_state.get("chat")
     if not chat or chat["key"] != chat_key:
         labels = {kind: style["label"] for kind, style in KINDS.items()}
-        context = chatbot.build_context(address, results, RADIUS_M, labels)
+        hidden = [kind for kind in back_end.TYPES if kind not in results]   # turned off in settings
+        context = chatbot.build_context(address, results, RADIUS_M, labels, score, hidden)
         chat = {"key": chat_key, "messages": [{"role": "user", "content": context}]}
         st.session_state["chat"] = chat
     messages = chat["messages"]
@@ -325,6 +407,7 @@ def show_results(coords, address: str, enabled, col_map, col_text):
         for item in found:
             add_marker(m, kind, item)
     draw_selected_location(m, coords, circle_color(results))
+    score = livability_score(results)   # shown on the page and given to the chatbot
 
     with col_map:
         st_folium(m, use_container_width=True, height=MAP_HEIGHT, key="map", returned_objects=[])
@@ -332,14 +415,15 @@ def show_results(coords, address: str, enabled, col_map, col_text):
         if not enabled:
             st.info("Vyberte alespoň jednu kategorii.")
         else:
-            show_chatbot(address, results)   # AI summary next to the map
+            show_chatbot(address, results, score)   # AI summary next to the map
 
-    if enabled:   # metric cards full width, below both columns
-        summary_heading(find_missing(results), results)
-        grid = st.columns(METRIC_COLUMNS)
-        for i, (kind, found) in enumerate(results.items()):
-            with grid[i % METRIC_COLUMNS]:
-                show_metric(kind, found)
+    if enabled:   # score and metric cards full width, below both columns
+        col_score, col_heading = st.columns([1, 3], vertical_alignment="center")
+        with col_score:
+            show_score(score)
+        with col_heading:
+            summary_heading(find_missing(results), results)
+        show_metric_groups(results)
 
 
 def settings() -> list[str]:
@@ -353,9 +437,57 @@ def settings() -> list[str]:
             format_func=lambda k: KINDS.get(k, DEFAULT_KIND).get("label", k).capitalize(),
         )
 
+# --- start screen ---
+
+def example_addresses() -> list[str]:
+    examples = []
+    for street in EXAMPLE_STREETS:
+        prefix = normalize(street) + " "
+        match = next((label for n, label in normalized if n.startswith(prefix)), None)
+        examples.append(match or street)   # free text goes through Nominatim
+    return examples
+
+
+def bump_search_key():
+    # A new key recreates the searchbox, so it picks up the new default.
+    st.session_state["search_gen"] = st.session_state.get("search_gen", 0) + 1
+
+
+def pick_example(address: str):
+    st.session_state["example"] = address
+    bump_search_key()
+
+
+def clear_example():
+    # Called when the user clears the searchbox; otherwise the example would come back.
+    if st.session_state.pop("example", None) is not None:
+        bump_search_key()
+
+
+def show_intro():
+    st.title("Naše životnost Olomouc")
+    st.markdown(
+        f"Zadejte adresu v Olomouci a zjistěte, jak se tam žije. Aplikace ukáže, co je "
+        f"v okruhu **{RADIUS_M} m**: zastávky, školy a školky, obchody, lékárny i volný čas. "
+        "Lokalitu ohodnotí a AI ji shrne a odpoví na vaše dotazy."
+    )
+    st.caption("Vyzkoušejte například:")
+    for address in example_addresses():
+        st.button(address, icon=":material/location_on:", on_click=pick_example, args=(address,))
+
+
 # --- page ---
 
-selected = st_searchbox(suggest, placeholder="Zadejte adresu", key="address_search")
+example = st.session_state.get("example")
+selected = st_searchbox(
+    suggest,
+    placeholder="Zadejte adresu",
+    key=f"address_search_{st.session_state.get('search_gen', 0)}",
+    default=example,
+    default_searchterm=example or "",
+    default_options=[example] if example else None,
+    reset_function=clear_example,
+)
 
 enabled = settings()
 
@@ -365,6 +497,8 @@ if not selected:
     with col_map:
         st_folium(make_map(DEFAULT_CENTER, DEFAULT_ZOOM), use_container_width=True,
                   height=MAP_HEIGHT, key="map", returned_objects=[])
+    with col_text:
+        show_intro()
 else:
     coords = addresses.get(selected) or search_location(selected)
     if not coords:

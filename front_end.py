@@ -5,9 +5,11 @@ import anthropic
 import folium
 import requests
 import streamlit as st
-from geopy.geocoders import Nominatim
+from branca.element import MacroElement
 from folium.plugins import HeatMap
+from geopy.geocoders import Nominatim
 from geopy.point import Point
+from jinja2 import Template
 from streamlit_folium import st_folium
 from streamlit_searchbox import st_searchbox
 
@@ -56,6 +58,18 @@ KINDS = {
     "places_of_worship": {"label": "kostel",            "color": "black",      "icon": "church",        "symbol": "church"},
 }
 DEFAULT_KIND = {"color": "gray", "icon": "location-dot", "symbol": "location_on"}
+
+# Zoomed out below this level, place markers turn into small dots so they don't crowd the map.
+DETAIL_MIN_ZOOM = 15
+DOT_RADIUS = 5   # px
+# Hex values of the Leaflet.awesome-markers colour names used in KINDS, for the dots.
+MARKER_HEX = {
+    "red": "#d63e2a", "darkred": "#a23336", "lightred": "#eb7d7f", "orange": "#f69730",
+    "beige": "#ffcb92", "green": "#72b026", "darkgreen": "#728224", "lightgreen": "#bbf970",
+    "blue": "#38aadd", "darkblue": "#0067a3", "lightblue": "#8adaff", "cadetblue": "#436978",
+    "purple": "#d252b9", "darkpurple": "#5b396b", "pink": "#ff8ee8", "white": "#fbfbfb",
+    "gray": "#575757", "lightgray": "#a3a3a3", "black": "#303030",
+}
 
 # Metric card sections, in display order. Types missing here go under "Ostatní".
 GROUPS = {
@@ -201,7 +215,6 @@ def suggest(searchterm: str) -> list[str | tuple[str, str]]:
     # otherwise their own text is the best guess and goes on top (Enter picks it).
     return results + [free_text] if starts else [free_text] + results
 
-
 # --- map ---
 
 def get_carto_key() -> str | None:
@@ -292,13 +305,52 @@ def draw_selected_location(m: folium.Map, coords, color: str, radius: int):
     folium.Marker(coords, icon=icon, tooltip="Vybraná adresa").add_to(m)
 
 
-def add_marker(m: folium.Map, kind: str, item: dict):
+class ZoomSwitch(MacroElement):
+    """Shows `detail` from `min_zoom` up and `simple` when zoomed out further (Leaflet JS)."""
+
+    _template = Template("""
+        {% macro script(this, kwargs) %}
+        (function () {
+            var map = {{ this._parent.get_name() }};
+            var detail = {{ this.detail.get_name() }};
+            var simple = {{ this.simple.get_name() }};
+            function update() {
+                var zoomedOut = map.getZoom() < {{ this.min_zoom }};
+                map.removeLayer(zoomedOut ? detail : simple);
+                map.addLayer(zoomedOut ? simple : detail);
+            }
+            map.on("zoomend", update);
+            update();
+        })();
+        {% endmacro %}
+    """)
+
+    def __init__(self, detail: folium.FeatureGroup, simple: folium.FeatureGroup, min_zoom: int):
+        super().__init__()
+        self._name = "ZoomSwitch"
+        self.detail, self.simple, self.min_zoom = detail, simple, min_zoom
+
+
+def add_marker(detail: folium.FeatureGroup, simple: folium.FeatureGroup, kind: str, item: dict):
+    # Each place goes in twice: an icon marker (zoomed in) and a small dot (zoomed out).
     style = KINDS.get(kind, DEFAULT_KIND)
+    location = [item["lat"], item["lon"]]
+    tooltip = f"{item['name']} ({item['distance_m']} m)"
     folium.Marker(
-        location=[item["lat"], item["lon"]],
-        tooltip=f"{item['name']} ({item['distance_m']} m)",
+        location=location,
+        tooltip=tooltip,
         icon=folium.Icon(color=style["color"], icon=style["icon"], prefix="fa"),
-    ).add_to(m)
+    ).add_to(detail)
+    folium.CircleMarker(
+        location=location,
+        tooltip=tooltip,
+        radius=DOT_RADIUS,
+        color="white",   # thin outline keeps neighbouring dots apart
+        weight=1,
+        fill=True,
+        fill_color=MARKER_HEX.get(style["color"], MARKER_HEX["gray"]),
+        fill_opacity=0.9,
+    ).add_to(simple)
 
 
 def summary_heading(missing: int, results: dict[str, list], radius: int):
@@ -469,9 +521,12 @@ def show_results(coords, address: str, enabled, show_heat: bool, radius: int, co
     fit_radius(m, coords, radius)
     results = {kind: back_end.find_institutions(coords, kind, radius / 1000)
                for kind in enabled}
+    detail = folium.FeatureGroup(name="Místa (ikony)", control=False).add_to(m)
+    simple = folium.FeatureGroup(name="Místa (body)", control=False).add_to(m)
     for kind, found in results.items():
         for item in found:
-            add_marker(m, kind, item)
+            add_marker(detail, simple, kind, item)
+    ZoomSwitch(detail, simple, DETAIL_MIN_ZOOM).add_to(m)
     draw_selected_location(m, coords, circle_color(results), radius)
     score = livability_score(results, radius)   # shown on the page and given to the chatbot
 
@@ -507,7 +562,7 @@ def settings() -> tuple[list[str], bool, int]:
             help="Jak daleko od adresy se hledají služby. Mění mapu, karty, hodnocení i AI shrnutí.",
         )
         enabled = st.pills(
-            "Zobrazit kategorie",
+            "Filtrovat kategorie",
             options=list(back_end.TYPES),
             default=list(back_end.TYPES),
             selection_mode="multi",

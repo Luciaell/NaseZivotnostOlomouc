@@ -31,6 +31,8 @@ SELECTED_ZOOM = 15
 MAP_HEIGHT = 500
 METRIC_COLUMNS = 4
 CHAT_HEIGHT = 380  # scrollable chat history; with the heading and input it lines up with the map
+CHAT_ICON = ":material/near_me:"          # diagonal arrowhead in the chat heading
+ASSISTANT_AVATAR = ":material/smart_toy:"  # robot next to the AI's messages
 
 # One entry per type in back_end.TYPES: Czech label, map marker style (Font Awesome
 # `icon`) and the summary icon (`symbol`, a Google Material Symbol name).
@@ -374,7 +376,7 @@ def get_chat_client(api_key: str) -> anthropic.Anthropic:
 
 def respond(client: anthropic.Anthropic, messages: list[dict]) -> bool:
     """Stream one assistant reply into the page and append it to `messages`."""
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant", avatar=ASSISTANT_AVATAR):
         try:
             text = st.write_stream(chatbot.stream_reply(client, messages))
         except anthropic.AuthenticationError:
@@ -395,7 +397,7 @@ def respond(client: anthropic.Anthropic, messages: list[dict]) -> bool:
 
 def show_chatbot(address: str, results: dict[str, list], score: float | None):
     """Render the chat in the current container (the column next to the map)."""
-    st.subheader(":material/smart_toy: AI shrnutí okolí")
+    st.subheader(f"{CHAT_ICON} Shrnutí")
     key = get_anthropic_key()
     if not key:
         st.info("AI shrnutí je vypnuté: chybí ANTHROPIC_API_KEY v .streamlit/secrets.toml.")
@@ -419,7 +421,8 @@ def show_chatbot(address: str, results: dict[str, list], score: float | None):
 
     with history:
         for msg in messages[1:]:   # messages[0] is the hidden data prompt
-            with st.chat_message(msg["role"]):
+            avatar = ASSISTANT_AVATAR if msg["role"] == "assistant" else None
+            with st.chat_message(msg["role"], avatar=avatar):
                 st.markdown(msg["content"])
 
         if len(messages) == 1:     # summary not generated yet

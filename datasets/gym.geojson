@@ -1,0 +1,326 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-20T22:13:22Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/2205116103",
+      "properties": {
+        "@id": "node/2205116103",
+        "leisure": "fitness_centre",
+        "name": "Yofyz",
+        "source": "survey",
+        "sport": "yoga"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2735313,
+          49.5936064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10058509750",
+      "properties": {
+        "@id": "node/10058509750",
+        "addr:housenumber": "26/21",
+        "addr:street": "Sudova",
+        "leisure": "fitness_centre",
+        "name": "TJ Sokol Nový Svět"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2750778,
+          49.5804329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10585030392",
+      "properties": {
+        "@id": "node/10585030392",
+        "leisure": "fitness_centre",
+        "name": "AURA-SOMA a FENG SHUI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.266508,
+          49.5903611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12108009081",
+      "properties": {
+        "@id": "node/12108009081",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "193/48",
+        "addr:postcode": "779 00",
+        "addr:street": "Chválkovická",
+        "alt_name": "Chochola M",
+        "alt_name_1": "Kafe do ruky",
+        "leisure": "fitness_centre",
+        "name": "MTWO",
+        "operator": "Michal Chochola",
+        "phone": "+420776204824",
+        "sport": "boxing;kickboxing;martial_arts;crossfit;fitness"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2827107,
+          49.6075066
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12289021458",
+      "properties": {
+        "@id": "node/12289021458",
+        "leisure": "fitness_centre",
+        "name": "Dákiní",
+        "opening_hours": "\"by appointment\"",
+        "sport": "yoga"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2489943,
+          49.5953208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12547327070",
+      "properties": {
+        "@id": "node/12547327070",
+        "check_date": "2025-01-31",
+        "leisure": "fitness_centre",
+        "level": "-1",
+        "name": "Help to be Fit",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa,Su 08:00-20:00",
+        "website": "https://www.helptobefit.cz",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2774693,
+          49.5904064
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12736196060",
+      "properties": {
+        "@id": "node/12736196060",
+        "leisure": "fitness_centre",
+        "name": "Ultimate Fitness Olomouc",
+        "website": "https://www.ultimatefitness.cz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.255695,
+          49.6079124
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13357238312",
+      "properties": {
+        "@id": "node/13357238312",
+        "leisure": "fitness_centre",
+        "name": "Sense of body",
+        "opening_hours": "Mo,We 08:00-12:00,13:00-19:00; Tu,Th 10:00-19:00; Fr 08:00-16:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2671358,
+          49.5953617
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13359428120",
+      "properties": {
+        "@id": "node/13359428120",
+        "leisure": "fitness_centre",
+        "name": "Primegym"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.249578,
+          49.5962594
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13477962201",
+      "properties": {
+        "@id": "node/13477962201",
+        "addr:streetnumber": "4",
+        "email": "info@legendsgym.cz",
+        "leisure": "fitness_centre",
+        "name": "Legends Gym",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa-Su 08:00-20:00",
+        "phone": "+420 727 857 657;+420 774 420 765",
+        "sport": "fitness"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2675118,
+          49.5998856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13628757902",
+      "properties": {
+        "@id": "node/13628757902",
+        "addr:housenumber": "1338/1d",
+        "addr:postcode": "77900",
+        "addr:street": "tř. Kosmonautů",
+        "leisure": "fitness_centre",
+        "name": "ELEMENT gyms",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa-Su 08:00-17:00",
+        "phone": "+420 771 289 494",
+        "website": "https://elementgyms.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.268858,
+          49.5915866
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13666942004",
+      "properties": {
+        "@id": "node/13666942004",
+        "leisure": "fitness_centre",
+        "name": "Nextgym"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2602404,
+          49.5880299
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13686405119",
+      "properties": {
+        "@id": "node/13686405119",
+        "leisure": "fitness_centre",
+        "name": "Solo-Gym"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2513038,
+          49.5924552
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13752441403",
+      "properties": {
+        "@id": "node/13752441403",
+        "leisure": "fitness_centre",
+        "name": "NextGen Gym"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2906972,
+          49.5797851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13960306128",
+      "properties": {
+        "@id": "node/13960306128",
+        "contact:facebook": "https://cs-cz.facebook.com/fitnessgymtimpo/",
+        "email": "fitnesstimpo@seznam.cz",
+        "leisure": "fitness_centre",
+        "name": "Fitness Life",
+        "opening_hours": "Mo-Fr 06:00-21:00; Sa 09:00-12:00; Su 09:00-12:00,17:00-20:00",
+        "phone": "+420 585 414 250",
+        "website": "https://www.fitnesstimpo.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2287116,
+          49.5930776
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/14064281592",
+      "properties": {
+        "@id": "node/14064281592",
+        "brand": "CrossFit",
+        "brand:wikidata": "Q2072840",
+        "leisure": "fitness_centre",
+        "name": "CrossFit Buddies",
+        "website": "https://www.crossfitbuddies.cz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2346452,
+          49.5939283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/14115054763",
+      "properties": {
+        "@id": "node/14115054763",
+        "description": "privátní samoobslužná posilovna",
+        "email": "info@adaptixgym.cz",
+        "leisure": "fitness_centre",
+        "name": "AdaptixGym",
+        "opening_hours": "Mo-Su 06:00-22:00",
+        "phone": "+420731963940",
+        "website": "https://www.adaptixgym.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2509855,
+          49.5923106
+        ]
+      }
+    }
+  ]
+}

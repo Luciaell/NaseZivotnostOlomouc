@@ -1,0 +1,91 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-20T22:13:22Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/27430501",
+      "properties": {
+        "@id": "node/27430501",
+        "amenity": "cinema",
+        "brand": "CineStar",
+        "brand:wikidata": "Q321889",
+        "brand:wikipedia": "de:Cinestar",
+        "indoor:area": "shell",
+        "indoor:level": "1",
+        "name": "Cinestar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2205561,
+          49.602604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4032937700",
+      "properties": {
+        "@id": "node/4032937700",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1",
+        "addr:postcode": "77900",
+        "addr:street": "Polská",
+        "amenity": "cinema",
+        "contact:facebook": "www.facebook.com/Premiere.Cinemas.Olomouc",
+        "email": "olomouc@premierecinemas.cz",
+        "level": "2",
+        "name": "Multikino - Premiere Cinemas",
+        "note": "2. Floor / 198",
+        "opening_hours": "Mo-Fr 13:00-22:00; Sa-Su 10:00-22:00",
+        "phone": "+420 774 195 380",
+        "website": "https://olomouc.premierecinemas.cz/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2577436,
+          49.5867963
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4032945593",
+      "properties": {
+        "@id": "node/4032945593",
+        "amenity": "cinema",
+        "name": "5D cinema Maxim",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2568538,
+          49.5875243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13369250687",
+      "properties": {
+        "@id": "node/13369250687",
+        "amenity": "cinema",
+        "name": "Čekárna",
+        "start_date": "2025-12-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.241382,
+          49.5940684
+        ]
+      }
+    }
+  ]
+}

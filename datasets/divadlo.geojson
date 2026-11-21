@@ -1,0 +1,116 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-20T22:13:22Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/678868402",
+      "properties": {
+        "@id": "node/678868402",
+        "amenity": "theatre",
+        "name": "Moravské divadlo",
+        "website": "https://moravskedivadlo.cz/cs",
+        "wikidata": "Q12038662",
+        "wikimedia_commons": "Category:Moravské divadlo Olomouc",
+        "wikipedia": "cs:Moravské divadlo Olomouc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2504987,
+          49.5933106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1904305013",
+      "properties": {
+        "@id": "node/1904305013",
+        "amenity": "theatre",
+        "name": "Divadlo hudby"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2560972,
+          49.5964924
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3683399583",
+      "properties": {
+        "@id": "node/3683399583",
+        "amenity": "theatre",
+        "contact:facebook": "https://www.facebook.com/divadlotramtarie.cz/?locale=cs_CZ",
+        "name": "Divadlo Tramtárie",
+        "website": "https://divadlotramtarie.cz/",
+        "wikidata": "Q11812433",
+        "wikipedia": "cs:Divadlo Tramtarie"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2456434,
+          49.5974779
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4032937701",
+      "properties": {
+        "@id": "node/4032937701",
+        "amenity": "theatre",
+        "name": "Divadlo na Šantovce, o.p.s.",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2581708,
+          49.5868076
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5329662835",
+      "properties": {
+        "@id": "node/5329662835",
+        "amenity": "theatre",
+        "name": "Na Cucky"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2519307,
+          49.5922294
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12286085586",
+      "properties": {
+        "@id": "node/12286085586",
+        "amenity": "theatre",
+        "name": "Moravská filharmonie",
+        "theatre:type": "concert_hall",
+        "website": "https://www.mfo.cz/",
+        "wikipedia": "cs:Moravská filharmonie Olomouc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2504591,
+          49.593351
+        ]
+      }
+    }
+  ]
+}

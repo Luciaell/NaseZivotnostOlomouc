@@ -1,0 +1,2965 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-20T22:13:22Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/29922738",
+      "properties": {
+        "@id": "node/29922738",
+        "amenity": "restaurant",
+        "name": "Pizzeria u Jana"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2844037,
+          49.5941264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/35898109",
+      "properties": {
+        "@id": "node/35898109",
+        "amenity": "restaurant",
+        "created_by": "JOSM",
+        "name": "Radegast",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2441151,
+          49.5780128
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/153065281",
+      "properties": {
+        "@id": "node/153065281",
+        "amenity": "restaurant",
+        "check_date:currency:XBT": "2023-07-22",
+        "name": "Kozlovna",
+        "payment:qerko:lightning": "yes",
+        "website": "https://www.kozlovnam3.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2625271,
+          49.5939496
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/205403327",
+      "properties": {
+        "@id": "node/205403327",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "7",
+        "addr:postcode": "77900",
+        "addr:street": "Březinova",
+        "amenity": "restaurant",
+        "check_date:currency:XBT": "2025-05-14",
+        "name": "M. D. Original 1869",
+        "payment:qerko": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2740019,
+          49.5925052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/256485138",
+      "properties": {
+        "@id": "node/256485138",
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "delivery": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Porto",
+        "opening_hours": "Mo-Th 08:00-22:00; Fr 08:00-23:00; Sa 09:00-23:00; Su 09:00-22:00",
+        "smoking": "yes",
+        "toilets": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.277643,
+          49.5929374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/296732580",
+      "properties": {
+        "@id": "node/296732580",
+        "addr:conscriptionnumber": "453",
+        "addr:housenumber": "453/14",
+        "addr:postcode": "77900",
+        "addr:street": "8. května",
+        "addr:streetnumber": "14",
+        "amenity": "restaurant",
+        "brewery": "pilsener_urquell;radegast",
+        "check_date:opening_hours": "2026-03-30",
+        "cuisine": "chicken",
+        "name": "U Ptáka",
+        "opening_hours": "Mo-Sa 11:00-22:00; Su 11:00-16:00; PH off",
+        "phone": "+420 602 723 045",
+        "source:addr": "cuzk:ruian",
+        "website": "https://www.bistrouptaka.cz/",
+        "website:menu": "https://www.bistrouptaka.cz/menu/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.248899,
+          49.5953553
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/296802016",
+      "properties": {
+        "@id": "node/296802016",
+        "addr:conscriptionnumber": "523",
+        "addr:housenumber": "523/30",
+        "addr:postcode": "77900",
+        "addr:street": "Dlouhá",
+        "addr:streetnumber": "30",
+        "amenity": "restaurant",
+        "description": "Hospoda Na Dlouhé",
+        "name": "Restaurace Na Dlouhé",
+        "ref:ruian:addr": "25533657",
+        "source:addr": "cuzk:ruian"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2576496,
+          49.6014975
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/297232603",
+      "properties": {
+        "@id": "node/297232603",
+        "amenity": "restaurant",
+        "brewery": "PilsnerUrquel",
+        "name": "Drápal",
+        "opening_hours": "Mo 11:00-23:00; Tu-Sa 11:00-00:00; Su 12:00-23:00",
+        "website": "http://www.restauracedrapal.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2496508,
+          49.5916604
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/503609011",
+      "properties": {
+        "@id": "node/503609011",
+        "amenity": "restaurant",
+        "cuisine": "hawaiian;poke",
+        "name": "Mr. Poke [poukej]",
+        "opening_hours": "Mo-Su 11:00-20:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2476927,
+          49.5946712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/512336077",
+      "properties": {
+        "@id": "node/512336077",
+        "addr:housenumber": "38",
+        "addr:street": "Dolní náměstí",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "name": "Hanácká hospoda",
+        "phone": "+420774033045",
+        "website": "https://www.hanackahospoda.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2522832,
+          49.5919404
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/512336091",
+      "properties": {
+        "@id": "node/512336091",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "26/39",
+        "addr:postcode": "799 00",
+        "addr:street": "Dolní náměstí",
+        "amenity": "restaurant",
+        "cuisine": "barbecue;burger;noodle",
+        "diet:gluten_free": "yes",
+        "name": "U červeného volka",
+        "website": "https://www.ucervenehovolka.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2521302,
+          49.5919993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/512411315",
+      "properties": {
+        "@id": "node/512411315",
+        "amenity": "restaurant",
+        "name": "Jazz Tibet club",
+        "opening_hours": "Mo-Sa 15:00-24:00+",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2521775,
+          49.5960945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/625358371",
+      "properties": {
+        "@id": "node/625358371",
+        "amenity": "restaurant",
+        "name": "V lese",
+        "opening_hours": "Mo-Fr 08:00-19:00; Sa,Su 09:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2534218,
+          49.593095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/671366943",
+      "properties": {
+        "@id": "node/671366943",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "23a",
+        "addr:street": "Horní náměstí",
+        "amenity": "restaurant",
+        "bar": "yes",
+        "brewery": "mustang;guinness;hoegarden",
+        "capacity": "80",
+        "cuisine": "american;burger;sandwich",
+        "delivery": "yes",
+        "highchair": "yes",
+        "level": "-1",
+        "name": "MacLaren's Pub",
+        "opening_hours": "Mo-Fr 15:00-01:00, Fr,Sa 15:00-03:00",
+        "outdoor_seating": "yes",
+        "payment:american_express": "yes",
+        "payment:app": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:debit_cards": "yes",
+        "payment:electronic_purses": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "reservation": "yes",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "website": "https://www.maclarens.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2496257,
+          49.5933631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/685866535",
+      "properties": {
+        "@id": "node/685866535",
+        "amenity": "restaurant",
+        "name": "Olmeca - Mexico",
+        "opening_hours": "Mo-We 10:00-22:00; Th-Sa 10:00-23:00; Su 10:00-21:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2457746,
+          49.597045
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/691214344",
+      "properties": {
+        "@id": "node/691214344",
+        "amenity": "restaurant",
+        "name": "Na Letné"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2644796,
+          49.601969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/773862036",
+      "properties": {
+        "@id": "node/773862036",
+        "amenity": "restaurant",
+        "name": "Sal de Mar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2469066,
+          49.6011684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/899799939",
+      "properties": {
+        "@id": "node/899799939",
+        "amenity": "restaurant",
+        "name": "U Kapličky"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2347027,
+          49.6082926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/902679352",
+      "properties": {
+        "@id": "node/902679352",
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "name": "Captain Morgan",
+        "opening_hours": "Mo-Fr 10:00-24:00, Sa,Su 10:00-24:00",
+        "outdoor_seating": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2504464,
+          49.5917206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1026637129",
+      "properties": {
+        "@id": "node/1026637129",
+        "amenity": "restaurant",
+        "name": "Cafe Restaurant Konvikt",
+        "opening_hours": "Mo-Fr 08:30-22:00",
+        "website": "http://www.konvikt-olomouc.cz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2556613,
+          49.5950946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1026642723",
+      "properties": {
+        "@id": "node/1026642723",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2025-05-17",
+        "name": "Arigone Hotel Vinárna",
+        "opening_hours:signed": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2544583,
+          49.5947365
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1132163873",
+      "properties": {
+        "@id": "node/1132163873",
+        "amenity": "restaurant",
+        "name": "Moravská restaurace",
+        "opening_hours": "Mo-Su 11:30-22:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2502894,
+          49.5935077
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1363442104",
+      "properties": {
+        "@id": "node/1363442104",
+        "amenity": "restaurant",
+        "delivery": "yes",
+        "name": "Restaurace - pizzerie NA PILE",
+        "website": "http://napile.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2794327,
+          49.6036169
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1419197520",
+      "properties": {
+        "@id": "node/1419197520",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "683/2",
+        "addr:postcode": "77900",
+        "addr:street": "Nešverova",
+        "alt_name": "Moritz s.r.o.",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "internet_access": "wlan",
+        "name": "Hostinský pivovar Moritz",
+        "opening_hours": "Mo-Th, Su 11:00-23:00; Fr, Sa 11:00-00:00",
+        "phone": "+420585205560",
+        "website": "https://www.hostinec-moritz.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2497921,
+          49.5906054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1419217771",
+      "properties": {
+        "@id": "node/1419217771",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "25/40",
+        "addr:postcode": "77900",
+        "addr:street": "Dolní náměstí",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "cuisine": "asian;indian",
+        "diet:chicken": "yes",
+        "diet:fish": "yes",
+        "diet:gluten_free": "yes",
+        "diet:vegetarian": "yes",
+        "email": "info@nepalirestaurant.cz",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "internet_access:ssid": "The Kathmandu - guest",
+        "level": "1",
+        "name": "The Kathmandu – Nepali Restaurant",
+        "opening_hours": "Mo-Sa 11:00-22:00; Su 11:00-20:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+420 773 279 782",
+        "self_service": "no",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "website": "https://www.nepalirestaurant.cz/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2521832,
+          49.5921238
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1463913157",
+      "properties": {
+        "@id": "node/1463913157",
+        "amenity": "restaurant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2504002,
+          49.6029273
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1717726113",
+      "properties": {
+        "@id": "node/1717726113",
+        "addr:housenumber": "845/4",
+        "addr:postcode": "77900",
+        "addr:street": "Mariánská",
+        "amenity": "restaurant",
+        "check_date": "2025-12-08",
+        "check_date:opening_hours": "2024-12-17",
+        "cuisine": "regional",
+        "name": "Svatováclavský pivovar",
+        "opening_hours": "Mo,Tu 11:00-22:30; We-Sa 11:00-23:30; Su 11:00-21:00",
+        "website": "https://www.svatovaclavsky-pivovar.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2584739,
+          49.5959223
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1782865428",
+      "properties": {
+        "@id": "node/1782865428",
+        "amenity": "restaurant",
+        "name": "Hostinec Citadela"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.1939368,
+          49.6089646
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1833462123",
+      "properties": {
+        "@id": "node/1833462123",
+        "amenity": "restaurant",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "U Žida",
+        "smoking": "separated"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2749796,
+          49.580448
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1903987852",
+      "properties": {
+        "@id": "node/1903987852",
+        "addr:housenumber": "127/34",
+        "addr:street": "Rooseveltova",
+        "amenity": "restaurant",
+        "name": "Sokolka",
+        "opening_hours": "Mo-Su 10:30-23:00",
+        "phone": "+420 724 667 307"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2563965,
+          49.5828163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1905286033",
+      "properties": {
+        "@id": "node/1905286033",
+        "amenity": "restaurant",
+        "name": "Tropic",
+        "opening_hours": "Mo-Su 14:00-24:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2491965,
+          49.5830746
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/1915742349",
+      "properties": {
+        "@id": "node/1915742349",
+        "amenity": "restaurant",
+        "name": "U Švejka"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2865535,
+          49.5914891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2054222501",
+      "properties": {
+        "@id": "node/2054222501",
+        "addr:housenumber": "10",
+        "addr:postcode": "77200",
+        "addr:street": "Blažejské náměstí",
+        "amenity": "restaurant",
+        "cuisine": "international",
+        "name": "Restaurace Michalský Výpad",
+        "opening_hours": "Mo-Fr 11:00-14:00",
+        "website": "http://www.michalskyvypad.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2552996,
+          49.5906438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2056681980",
+      "properties": {
+        "@id": "node/2056681980",
+        "addr:housenumber": "2",
+        "addr:postcode": "77200",
+        "addr:street": "Hálkova",
+        "amenity": "restaurant",
+        "check_date:currency:XBT": "2025-05-12",
+        "level": "0",
+        "name": "Bounty Rock Café",
+        "opening_hours": "Mo-Th 10:30-23:00; Fr-Sa 10:30-00:00; Su 10:30-22:00",
+        "payment:qerko": "yes",
+        "self_service": "no",
+        "source": "Bing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2734451,
+          49.5910588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2213447367",
+      "properties": {
+        "@id": "node/2213447367",
+        "amenity": "restaurant",
+        "check_date": "2025-04-21",
+        "cuisine": "chinese",
+        "indoor_seating": "yes",
+        "name": "Wok to go",
+        "opening_hours": "Mo-Fr 10:00-20:30; Sa 10:00-20:00; Su off",
+        "outdoor_seating": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.266144,
+          49.5956301
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2213447391",
+      "properties": {
+        "@id": "node/2213447391",
+        "amenity": "restaurant",
+        "cuisine": "pizza;italian",
+        "indoor_seating": "yes",
+        "name": "La Scala",
+        "opening_hours": "Tu-Sa 17:00-22:00",
+        "outdoor_seating": "no",
+        "payment:cash": "yes",
+        "payment:credit_cards": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2696908,
+          49.5949946
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2213447396",
+      "properties": {
+        "@id": "node/2213447396",
+        "amenity": "restaurant",
+        "cuisine": "pizza",
+        "name": "Pizzerie Bystřička",
+        "opening_hours": "Mo-Th 10:30-21:30; Fr,Sa 10:30-23:30; Su 10:30-21:30",
+        "website": "https://bystricka.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2702998,
+          49.5948221
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2260266172",
+      "properties": {
+        "@id": "node/2260266172",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "21",
+        "addr:postcode": "77900",
+        "addr:street": "tř. Kosmonautů",
+        "amenity": "restaurant",
+        "check_date:currency:XBT": "2024-05-30",
+        "cuisine": "burger;tacos;tortila",
+        "name": "American grill bar restaurant",
+        "opening_hours": "Mo-Th 11:00-23:00; Fr-Sa 11:00-24:00; Su 11:00-22:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.273262,
+          49.5915854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2325760709",
+      "properties": {
+        "@id": "node/2325760709",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2023-04-25",
+        "cuisine": "pizza",
+        "name": "Pizza la Mia Stazione",
+        "opening_hours": "Mo-Fr 07:00-21:00; Sa,Su 07:00-20:00",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2782603,
+          49.5920916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2398630579",
+      "properties": {
+        "@id": "node/2398630579",
+        "addr:housenumber": "63a",
+        "addr:postcode": "77900",
+        "addr:street": "I. P. Pavlova",
+        "amenity": "restaurant",
+        "name": "Queen",
+        "opening_hours": "Mo 11:00-02:00, Tu-Th 11:00-23:00; Fr,Sa11:00-01:00, Su 13:00-22:00",
+        "phone": "+420 601 310 882",
+        "website": "https://www.facebook.com/pivnice.queen.olomouc/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2345606,
+          49.5805152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2408446537",
+      "properties": {
+        "@id": "node/2408446537",
+        "amenity": "restaurant",
+        "name": "U Ladi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2485781,
+          49.5869838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2418312692",
+      "properties": {
+        "@id": "node/2418312692",
+        "amenity": "restaurant",
+        "name": "Avion",
+        "website": "http://www.avion.ic.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2245648,
+          49.5964382
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2465565933",
+      "properties": {
+        "@id": "node/2465565933",
+        "amenity": "restaurant",
+        "name": "Benada Restaurant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2757688,
+          49.5923614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2612617721",
+      "properties": {
+        "@id": "node/2612617721",
+        "amenity": "restaurant",
+        "name": "Jízdárna",
+        "opening_hours": "Mo-We 07:30-15:00; Th-Sa 07:30-22:00; Su 07:30-18:00",
+        "website": "http://www.restaurant-jizdarna.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2515882,
+          49.6084588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2617545981",
+      "properties": {
+        "@id": "node/2617545981",
+        "amenity": "restaurant",
+        "name": "Bistro Zdravá pecka"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.24533,
+          49.5985088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2691276100",
+      "properties": {
+        "@id": "node/2691276100",
+        "amenity": "restaurant",
+        "cuisine": "pizza",
+        "name": "Taverna U Krbu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2302385,
+          49.6067924
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2865118660",
+      "properties": {
+        "@id": "node/2865118660",
+        "amenity": "restaurant",
+        "name": "Hospůdka na Prefě"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2712153,
+          49.5871342
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3319451912",
+      "properties": {
+        "@id": "node/3319451912",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "321/3",
+        "addr:postcode": "77900",
+        "addr:street": "Ztracená",
+        "amenity": "restaurant",
+        "check_date": "2026-02-19",
+        "cuisine": "regional",
+        "diet:gluten_free": "yes",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "email": "team@greenbar.cz",
+        "name": "Green Bar",
+        "opening_hours": "Mo-Fr 10:00-17:00",
+        "phone": "+420777749285",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "website": "https://www.greenbar.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2527596,
+          49.5943186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3338568518",
+      "properties": {
+        "@id": "node/3338568518",
+        "amenity": "restaurant",
+        "cuisine": "vietnamese",
+        "name": "Viet Village",
+        "opening_hours": "Mo-Sa 11:00-22:00; Su 11:00-21:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.249865,
+          49.5954861
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3422166514",
+      "properties": {
+        "@id": "node/3422166514",
+        "amenity": "restaurant",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Jalta",
+        "website": "http://www.restaurace-jalta.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.233604,
+          49.5800378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3547636648",
+      "properties": {
+        "@id": "node/3547636648",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "111",
+        "addr:postcode": "77900",
+        "addr:street": "Rooseveltova",
+        "air_conditioning": "no",
+        "amenity": "restaurant",
+        "cuisine": "indian;nepalese",
+        "level": "0",
+        "name": "Diwali",
+        "opening_hours": "Mo-Su 11:00-22:00",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "smoking": "outside",
+        "website": "https://www.diwalirestaurace.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2558126,
+          49.5848848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3624560950",
+      "properties": {
+        "@id": "node/3624560950",
+        "amenity": "restaurant",
+        "name": "Coffee Library Zbrojnice Bistro",
+        "opening_hours": "Mo-Fr 07:30-19:00; Sa,Su 09:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2600505,
+          49.5956631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3665965991",
+      "properties": {
+        "@id": "node/3665965991",
+        "amenity": "restaurant",
+        "name": "Taste of India"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2489329,
+          49.5962436
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3902864329",
+      "properties": {
+        "@id": "node/3902864329",
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "name": "Taverna Allegra",
+        "phone": "774402924",
+        "website": "https://www.tavernaallegra.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2553516,
+          49.5900138
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4278640048",
+      "properties": {
+        "@id": "node/4278640048",
+        "addr:housenumber": "18",
+        "addr:street": "Tomkova",
+        "amenity": "restaurant",
+        "name": "T2 Thai",
+        "website": "http://www.facebook.com/utraviset2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2400429,
+          49.6047677
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4284824054",
+      "properties": {
+        "@id": "node/4284824054",
+        "addr:housenumber": "38",
+        "addr:street": "Sokolská",
+        "air_conditioning": "no",
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "name": "Pashupati",
+        "opening_hours": "Mo-Sa 11:00-22:00; Su 11:00-21:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "smoking": "no",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.25118,
+          49.5962431
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4435827465",
+      "properties": {
+        "@id": "node/4435827465",
+        "amenity": "restaurant",
+        "email": "restauracepevy@pevyauto.cz",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Restaurace PEVY",
+        "opening_hours": "Mo-Th 10:00-22:00, Fr-Sa 10:00-23:00",
+        "outdoor_seating": "yes",
+        "phone": "607 620 620",
+        "smoking": "yes",
+        "website": "https://www.restauracepevy.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2524016,
+          49.6015778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4614612189",
+      "properties": {
+        "@id": "node/4614612189",
+        "addr:housenumber": "6",
+        "addr:street": "Vodární",
+        "amenity": "restaurant",
+        "name": "MORavská DOmácí Restaurace",
+        "opening_hours": "Mo-Fr 08:00-21:00; Sa, Su 16:00-21:00",
+        "website": "http://mordorrestaurant.sweb.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2544284,
+          49.596473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4793697538",
+      "properties": {
+        "@id": "node/4793697538",
+        "amenity": "restaurant",
+        "name": "Theresian restaurant",
+        "name:cs": "Theresian restaurant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2497083,
+          49.5909831
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4795678710",
+      "properties": {
+        "@id": "node/4795678710",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1",
+        "addr:postcode": "77900",
+        "addr:street": "Ostravská",
+        "amenity": "restaurant",
+        "email": "info@entree-restaurant.cz",
+        "name": "Entree restaurant",
+        "opening_hours": "Mo-Su 11:00-14:00, 17:00-23:59",
+        "operator": "ENTREE GASTRONOMY s.r.o.",
+        "phone": "+420 585 312 440",
+        "smoking": "no",
+        "website": "https://www.entree-restaurant.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.287036,
+          49.5898926
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4814517221",
+      "properties": {
+        "@id": "node/4814517221",
+        "addr:housenumber": "6",
+        "addr:postcode": "779 00",
+        "addr:street": "Wurmova",
+        "amenity": "restaurant",
+        "check_date": "2026-02-15",
+        "contact:facebook": "https://www.facebook.com/ukristyna",
+        "cuisine": "pizza",
+        "diet:gluten_free": "yes",
+        "email": "info@ukristyna.cz",
+        "internet_access": "wlan",
+        "name": "U Kristýna",
+        "opening_hours": "Mo-Sa 11:00-22:00; Su 11:00-17:00",
+        "phone": "+420 604 996 112",
+        "website": "https://www.ukristyna.cz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2608075,
+          49.5964892
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4866168921",
+      "properties": {
+        "@id": "node/4866168921",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "3",
+        "addr:postcode": "77900",
+        "addr:street": "28. října",
+        "amenity": "restaurant",
+        "brewery": "budvar",
+        "check_date": "2025-01-22",
+        "check_date:currency:XBT": "2024-03-31",
+        "internet_access": "wlan",
+        "name": "Mikulda",
+        "opening_hours": "Mo-Su 10:30-00:00",
+        "phone": "+420 585 242 704",
+        "website": "https://www.mikulda.com/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2498878,
+          49.594712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5318046198",
+      "properties": {
+        "@id": "node/5318046198",
+        "amenity": "restaurant",
+        "name": "Mex-Dan Restaurant",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2585273,
+          49.5866722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5318046199",
+      "properties": {
+        "@id": "node/5318046199",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1",
+        "addr:postcode": "77900",
+        "addr:street": "Polská",
+        "amenity": "restaurant",
+        "diet:seafood": "yes",
+        "email": "lobster@lobster-restaurant.cz",
+        "level": "2",
+        "name": "Lobster Family Restaurant",
+        "note": "2. Floor / 196",
+        "opening_hours": "Mo-Sa 11:00-22:00; Su 11:00-21:00",
+        "phone": "+420 730 892 286",
+        "website": "https://www.lobster-restaurant.cz/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2586985,
+          49.5865878
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5329662825",
+      "properties": {
+        "@id": "node/5329662825",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "21",
+        "addr:postcode": "77900",
+        "addr:street": "Pavelčákova",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "cuisine": "mexican",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "level": "0",
+        "name": "Los Capolitos",
+        "opening_hours": "Mo-Su 11:00-21:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+420 737 978 686",
+        "self_service": "no",
+        "smoking": "no",
+        "website": "https://capolitos.cz/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2502546,
+          49.5921158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5329663024",
+      "properties": {
+        "@id": "node/5329663024",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2026-09-11",
+        "name": "Kikiriki",
+        "opening_hours": "Mo-Fr 11:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2505263,
+          49.5926171
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5329663027",
+      "properties": {
+        "@id": "node/5329663027",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "cuisine": "greek",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "no",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "Greek Grill",
+        "opening_hours": "Mo-Sa 11:00-22:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "self_service": "no",
+        "smoking": "no",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2520705,
+          49.5924283
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5329664421",
+      "properties": {
+        "@id": "node/5329664421",
+        "amenity": "restaurant",
+        "name": "Sushi restaurant",
+        "opening_hours": "Mo-Th 10:30-22:00; Fr,Sa 11:00-23:00; Su,PH 11:00-22:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2538062,
+          49.5916104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5489385826",
+      "properties": {
+        "@id": "node/5489385826",
+        "amenity": "restaurant",
+        "name": "Air Bar",
+        "opening_hours": "Mo-Fr 15:00-21:00; Sa 10:00-22:00; Su 10:00-21:00",
+        "outdoor_seating": "yes",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "website": "https://cs-cz.facebook.com/airbarolomouc/",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2102728,
+          49.5923869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6142023538",
+      "properties": {
+        "@id": "node/6142023538",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1203/3",
+        "addr:postcode": "77900",
+        "addr:street": "Uhelná",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "bar": "yes",
+        "changing_table": "no",
+        "contact:facebook": "https://www.facebook.com/highfiveolomouc",
+        "cuisine": "indian",
+        "diet:chicken": "yes",
+        "diet:gluten_free": "yes",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "email": "highfiveolomouc@gmail.com",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "level": "0",
+        "mobile": "+420775518292",
+        "name": "Hi5h",
+        "opening_hours": "Mo-Th 11:00-21:30; Fr 11:00-22:00; Sa 12:00-22:00; Su 12:00-17:00",
+        "outdoor_seating": "yes",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+420775518292",
+        "smoking": "no",
+        "toilets": "yes",
+        "website": "https://highfiveolomouc.info",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2510667,
+          49.5923593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6203369682",
+      "properties": {
+        "@id": "node/6203369682",
+        "addr:housenumber": "644/4",
+        "addr:street": "Kollárovo nám.",
+        "alt_name": "Zina",
+        "amenity": "restaurant",
+        "name": "Rusko-ukrajinský restaurant Zina",
+        "opening_hours": "Mo-Th 10:30-22:00; Fr, Sa 11:00-00:00; Su 11:00-20:00",
+        "phone": "+420739343181",
+        "website": "https://restauracezina.webnode.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2460741,
+          49.5953473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6512093721",
+      "properties": {
+        "@id": "node/6512093721",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "changing_table": "yes",
+        "cuisine": "vietnamese",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "name": "Maison Viet",
+        "opening_hours": "Su-Fr 11:00-22:00; Sa 11:00-21:00",
+        "outdoor_seating": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "smoking": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2581797,
+          49.5959425
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6586353079",
+      "properties": {
+        "@id": "node/6586353079",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "85/13",
+        "addr:postcode": "77900",
+        "addr:street": "Kateřinská",
+        "amenity": "restaurant",
+        "brewery": "yes",
+        "check_date": "2026-01-23",
+        "cuisine": "regional",
+        "description": "Restaurace poskytující hotovkovou a minutkovou kuchyni se zaměřením na speciality s tvarůžků.",
+        "email": "pivniceumorouse@seznam.cz",
+        "internet_access": "wlan",
+        "name": "Pivnice U Morousů",
+        "opening_hours": "Mo-Th 10:00-22:00; Fr 10:00-23:00; Sa 10:00-23:00; Su 11:00-21:00",
+        "outdoor_seating": "yes",
+        "payment:cash": "yes",
+        "payment:meal_voucher": "yes",
+        "phone": "+420 605 566 800",
+        "source": "survey",
+        "website": "https://www.facebook.com/Restaurace-U-Morous%C5%AF-427668210899627/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2545356,
+          49.5903874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7104893760",
+      "properties": {
+        "@id": "node/7104893760",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "7",
+        "addr:postcode": "77900",
+        "addr:street": "Litovelská",
+        "amenity": "restaurant",
+        "internet_access": "wlan",
+        "level": "0",
+        "name": "Stodola",
+        "opening_hours": "Mo-Th 11:00-23:00; Fr-Sa 11:00-00:00; Su 11:00-22:00",
+        "phone": "+420 702 117 462",
+        "website": "https://www.stodolaolomouc.cz/",
+        "website:menu": "https://www.stodolaolomouc.cz/jidelni-listek/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2392515,
+          49.5954161
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7170528585",
+      "properties": {
+        "@id": "node/7170528585",
+        "addr:housenumber": "364/1",
+        "addr:street": "Opletalova",
+        "amenity": "restaurant",
+        "brewery": "PilsnerUrquell",
+        "check_date": "2026-02-19",
+        "name": "U Mořice",
+        "name:en": "IMorice",
+        "opening_hours": "Mo-Sa 11:00-24:00; Su 12:00-23:00",
+        "payment:debit_cards": "yes",
+        "website": "http://www.umorice.cz",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2517243,
+          49.5947298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7640338477",
+      "properties": {
+        "@id": "node/7640338477",
+        "amenity": "restaurant",
+        "check_date": "2026-03-23",
+        "contact:facebook": "100083139408351",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "name": "Zdravíčko",
+        "note": "Vegetariánské/veganské bistro s kavárnou",
+        "takeaway": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2567053,
+          49.597674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7727081985",
+      "properties": {
+        "@id": "node/7727081985",
+        "addr:housenumber": "21",
+        "addr:postcode": "77900",
+        "addr:street": "třída Svobody",
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "email": "info@cafenewone.cz",
+        "internet_access": "wlan",
+        "name": "Cafe New one",
+        "opening_hours": "Mo-Th 07:30-22:00; Fr,Sa 07:30-22:00; Su 07:30-22:00",
+        "phone": "+420731592200",
+        "website": "https://www.cafenewone.cz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2480531,
+          49.5938339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/7878586562",
+      "properties": {
+        "@id": "node/7878586562",
+        "amenity": "restaurant",
+        "name": "U npr. Lukáše"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2517478,
+          49.5922214
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9141104522",
+      "properties": {
+        "@id": "node/9141104522",
+        "amenity": "restaurant",
+        "check_date:currency:XBT": "2025-05-14",
+        "cuisine": "italian",
+        "delivery": "only",
+        "name": "Pizza Pollo",
+        "operator": "Horaprem s r.o.",
+        "payment:qerko": "yes",
+        "takeaway": "only",
+        "website": "https://www.pizzapollo.cz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2259228,
+          49.5837245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9141104524",
+      "properties": {
+        "@id": "node/9141104524",
+        "amenity": "restaurant",
+        "check_date": "2026-02-15",
+        "contact:facebook": "https://www.facebook.com/ristorantepollo",
+        "cuisine": "italian;pizza",
+        "delivery": "yes",
+        "name": "Ristorante Pollo",
+        "opening_hours": "Mo-Su 11:00-22:00",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "reservation": "yes",
+        "website": "https://ristorantepollo.cz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2259744,
+          49.5836164
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9550767357",
+      "properties": {
+        "@id": "node/9550767357",
+        "amenity": "restaurant",
+        "name": "Restaurace Na Hřišti"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2861475,
+          49.593883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9816322151",
+      "properties": {
+        "@id": "node/9816322151",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "834/70",
+        "addr:postcode": "77900",
+        "addr:street": "tř. Míru",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/CarusoPizza/",
+        "cuisine": "pizza;italian;pasta",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "no",
+        "diet:vegetarian": "yes",
+        "email": "info@carusofood.cz",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "name": "Caruso Pasta & Pizza",
+        "opening_hours": "Su-Th 10:00-22:00; Fr-Sa 10:00-22:30",
+        "outdoor_seating": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+420 581 210 000",
+        "smoking": "outside",
+        "website": "https://www.carusorestaurant.cz/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2237555,
+          49.5963665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/9961751647",
+      "properties": {
+        "@id": "node/9961751647",
+        "amenity": "restaurant",
+        "name": "Restaurace Nutrend"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2969901,
+          49.6088146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10578767355",
+      "properties": {
+        "@id": "node/10578767355",
+        "amenity": "restaurant",
+        "cuisine": "asian",
+        "name": "Zhe Wen - Wok & Sushi",
+        "opening_hours": "Mo-Su 09:00-21:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2795433,
+          49.6028971
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10585030391",
+      "properties": {
+        "@id": "node/10585030391",
+        "amenity": "restaurant",
+        "name": "Z-restaurant",
+        "opening_hours": "Mo-Fr 07:00-14:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2665894,
+          49.5904542
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10585077811",
+      "properties": {
+        "@id": "node/10585077811",
+        "amenity": "restaurant",
+        "email": "info@bistro-paulus.cz",
+        "mobile": "+420 732 597 703",
+        "name": "Bistro Paulus",
+        "opening_hours": "Mo-Fr 07:30-16:30",
+        "website": "https://www.bistro-paulus.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2618407,
+          49.5892679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10585077819",
+      "properties": {
+        "@id": "node/10585077819",
+        "amenity": "restaurant",
+        "cuisine": "chinese",
+        "name": "Zhu Te Miao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2713452,
+          49.5911212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10585077832",
+      "properties": {
+        "@id": "node/10585077832",
+        "amenity": "restaurant",
+        "name": "Jídelna Poliklinika Agel"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2766122,
+          49.5912081
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10654145766",
+      "properties": {
+        "@id": "node/10654145766",
+        "addr:housenumber": "206/2",
+        "addr:street": "Michalská",
+        "amenity": "restaurant",
+        "name": "Potrefená husa Olomouc",
+        "opening_hours": "Mo-Th 11:00-23:00, Fr,Sa 11:00-24:00, Su 11:00-22:00",
+        "phone": "585412700",
+        "website": "https://www.husa-olomouc.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2527977,
+          49.5940406
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10829523946",
+      "properties": {
+        "@id": "node/10829523946",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "2",
+        "addr:postcode": "77900",
+        "addr:street": "Mlýnská",
+        "amenity": "restaurant",
+        "check_date": "2026-03-28",
+        "contact:facebook": "https://www.facebook.com/kozazustalacelaofficial/?locale=cs_CZ",
+        "cuisine": "coffee_shop;regional;breakfast;salad",
+        "description": "Vchod je přístupný z schodiště na ulici: Pavelčákova.",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "email": "info@kozazustalacela.cz",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "level": "1",
+        "name": "Koza zůstala celá",
+        "opening_hours": "Mo-Fr 07:30-16:00",
+        "operator": "Martin Kulich",
+        "outdoor_seating": "yes",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "phone": "+420583034132",
+        "stroller": "limited",
+        "toilets": "yes",
+        "website": "https://kozazustalacela.cz/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2506291,
+          49.5915435
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/10853242932",
+      "properties": {
+        "@id": "node/10853242932",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "224/7",
+        "addr:postcode": "779 00",
+        "addr:street": "Univerzitní",
+        "amenity": "restaurant",
+        "cuisine": "waffle",
+        "diet:gluten_free": "yes",
+        "email": "olomoucky@kafec.cz",
+        "name": "Kafec",
+        "opening_hours": "Mo-Fr 08:00-20:00; Sa,Su 08:00-19:00",
+        "phone": "+420 775 554 506",
+        "website": "https://kafec.cz/kafec-ve-vile-primavesi-olomouc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2551249,
+          49.5941151
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11037354554",
+      "properties": {
+        "@id": "node/11037354554",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "830/12",
+        "addr:postcode": "77900",
+        "addr:street": "1. máje",
+        "amenity": "restaurant",
+        "check_date:currency:XBT": "2023-09-11",
+        "cuisine": "asian",
+        "name": "CÔDÔ Palackého",
+        "payment:onchain": "no",
+        "payment:qerko:lightning": "yes",
+        "phone": "+420 735 251 725",
+        "website": "https://www.facebook.com/CODOlomouc/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2454698,
+          49.5956471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11037490055",
+      "properties": {
+        "@id": "node/11037490055",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "554",
+        "addr:postcode": "77900",
+        "addr:street": "Hynaisova",
+        "amenity": "restaurant",
+        "check_date:currency:XBT": "2024-06-17",
+        "name": "Slovanský dům",
+        "payment:qerko": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2456799,
+          49.5973693
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11039516435",
+      "properties": {
+        "@id": "node/11039516435",
+        "amenity": "restaurant",
+        "name": "Kateřinská 10",
+        "opening_hours": "Mo-Sa 16:00-24:00",
+        "website": "https://pivnicekaterinska.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2542503,
+          49.5901586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/11698017835",
+      "properties": {
+        "@id": "node/11698017835",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "37",
+        "addr:postcode": "77900",
+        "addr:street": "Sladkovského",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "email": "info@vegamenu.cz",
+        "name": "Bistro Kostka",
+        "opening_hours": "Mo-Fr 11:00-14:00",
+        "operator": "Vegamenu s.r.o.",
+        "outdoor_seating": "no",
+        "phone": "+420778434090",
+        "start_date": "2026-09-03",
+        "website": "https://bistrokostka.cz",
+        "website:menu": "https://vegamenu-sro.order.app.hd.digital/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.285296,
+          49.5876707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12162316325",
+      "properties": {
+        "@id": "node/12162316325",
+        "addr:housenumber": "497/37",
+        "addr:street": "8. května",
+        "amenity": "restaurant",
+        "name": "Maido",
+        "opening_hours": "Mo-Th 17:00-21:00; Fr 11:00-22:00",
+        "website": "https://www.maidoolomouc.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2516972,
+          49.5955109
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12282891732",
+      "properties": {
+        "@id": "node/12282891732",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "name": "Čtyřlístek",
+        "opening_hours": "Mo-Su 11:00-20:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "smoking": "no",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2480319,
+          49.5948361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12282891740",
+      "properties": {
+        "@id": "node/12282891740",
+        "air_conditioning": "no",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "cuisine": "italian;street_food",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "no",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "name": "Pasta Bar",
+        "opening_hours": "Mo-Fr 10:00-20:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "smoking": "no",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2489211,
+          49.59451
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12289021490",
+      "properties": {
+        "@id": "node/12289021490",
+        "addr:floor": "0",
+        "amenity": "restaurant",
+        "check_date": "2025-10-29",
+        "level": "0",
+        "name": "Banyan Restaurant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2504903,
+          49.5949438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12433984652",
+      "properties": {
+        "@id": "node/12433984652",
+        "air_conditioning": "no",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "cuisine": "vietnamese",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "name": "Pho co Asian foods",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "smoking": "no",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2621219,
+          49.5970789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12493478245",
+      "properties": {
+        "@id": "node/12493478245",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1",
+        "addr:postcode": "77900",
+        "addr:street": "Polská",
+        "amenity": "restaurant",
+        "contact:facebook": "www.facebook.com/bistrolobster",
+        "email": "bistro@helen.cz",
+        "level": "2",
+        "name": "Lobster Bistro",
+        "note": "2.Floor\n195",
+        "opening_hours": "Mo-Th 08:00-20:00; Fr 08:00-21:00; Sa 09:00-21:00; Su 09:00-15:00",
+        "phone": "+420 730 892 288",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2586277,
+          49.5869203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12497646845",
+      "properties": {
+        "@id": "node/12497646845",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1",
+        "addr:postcode": "77900",
+        "addr:street": "Polská",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "cuisine": "mexican;asian",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegetarian": "no",
+        "email": "818restaurace@seznam.cz",
+        "indoor_seating": "yes",
+        "level": "1",
+        "name": "MEX-DAN restaurant",
+        "note": "1. Floor / 155",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+420 724 058 888",
+        "smoking": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2567826,
+          49.5875024
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12497646846",
+      "properties": {
+        "@id": "node/12497646846",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1",
+        "addr:postcode": "77900",
+        "addr:street": "Polská",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "cuisine": "asian",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "email": "cervenejablko@yahoo.cn",
+        "indoor_seating": "yes",
+        "level": "1",
+        "name": "Mango",
+        "note": "1. Floor / 156",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+420 602 711 768",
+        "smoking": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.256748,
+          49.5875935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12497646847",
+      "properties": {
+        "@id": "node/12497646847",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1",
+        "addr:postcode": "77900",
+        "addr:street": "Polská",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "cuisine": "thai;sushi",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "email": "cervenejablko@yahoo.cn",
+        "indoor_seating": "yes",
+        "level": "1",
+        "name": "Červené jablko",
+        "note": "1. Floor / 157",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+420 602 711 768",
+        "smoking": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2567153,
+          49.5876796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12497646848",
+      "properties": {
+        "@id": "node/12497646848",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1",
+        "addr:postcode": "77900",
+        "addr:street": "Polská",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "contact:facebook": "www.facebook.com/bombayexpress.cz",
+        "cuisine": "indian",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "only",
+        "email": "santovka@bombayexpress.cz",
+        "indoor_seating": "yes",
+        "level": "1",
+        "name": "Bombay Express",
+        "note": "1. Floor / 191",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+420 775 610 385",
+        "smoking": "no",
+        "website": "https://www.bombayexpress.cz/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2566632,
+          49.5878167
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12497646850",
+      "properties": {
+        "@id": "node/12497646850",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1",
+        "addr:postcode": "77900",
+        "addr:street": "Polská",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "contact:facebook": "www.facebook.com/spaghettiparmigiano",
+        "cuisine": "italian",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "email": "barbelli@post.cz",
+        "indoor_seating": "yes",
+        "level": "1",
+        "name": "Spaghetti Parmigiano",
+        "note": "1. Floor / 163",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+420 734 441 999",
+        "smoking": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2571038,
+          49.5874879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12500373788",
+      "properties": {
+        "@id": "node/12500373788",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1",
+        "addr:postcode": "77900",
+        "addr:street": "Polská",
+        "amenity": "restaurant",
+        "cuisine": "sushi",
+        "email": "cervenejablko88@seznam.cz",
+        "level": "1",
+        "name": "TENMANYA - Running Sushi",
+        "note": "1. Floor / 124",
+        "opening_hours": "Mo-Su 10:00-21:00",
+        "phone": "+420 735 943 555",
+        "website": "http://www.tenmanyarestaurace.cz",
+        "website:menu": "http://www.tenmanyarestaurace.cz",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2579425,
+          49.5873365
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12512017711",
+      "properties": {
+        "@id": "node/12512017711",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "1322/3B",
+        "addr:postcode": "77900",
+        "addr:street": "Wellnerova",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "cuisine": "asian;sushi;chinese;japanese",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "no",
+        "diet:vegetarian": "yes",
+        "email": "greatbridge@email.cz",
+        "indoor_seating": "yes",
+        "name": "Kung Food",
+        "opening_hours": "Mo-Su 11:00-22:00",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+420 581 701 698",
+        "smoking": "outside",
+        "toilets": "yes",
+        "website": "https://kung-food.cz/#%C3%BAvod",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2426182,
+          49.596653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12512149889",
+      "properties": {
+        "@id": "node/12512149889",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "6/14",
+        "addr:postcode": "77900",
+        "addr:street": "Mrštíkovo nám.",
+        "amenity": "restaurant",
+        "cuisine": "pizza",
+        "name": "Pizza Hradlo",
+        "opening_hours": "We 16:00-21:00; Th-Sa 11:30-21:00; Su 11:30-20:00",
+        "phone": "+420 605 303 203",
+        "website": "https://www.pizzahradlo.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2429734,
+          49.6055803
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12539421532",
+      "properties": {
+        "@id": "node/12539421532",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "40",
+        "addr:postcode": "77900",
+        "addr:street": "Jeremenkova",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2026-04-23",
+        "cuisine": "asian;chinese",
+        "name": "818 Restaurant",
+        "opening_hours": "Mo-Su 11:00-22:00",
+        "phone": "+420 587 332 201"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2773778,
+          49.5909753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12542090400",
+      "properties": {
+        "@id": "node/12542090400",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "830/12",
+        "addr:postcode": "779 00",
+        "addr:street": "1. máje",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "bar": "yes",
+        "check_date": "2026-04-21",
+        "contact:facebook": "https://www.facebook.com/explorecodo",
+        "contact:instagram": "https://www.instagram.com/explorecodo",
+        "cuisine": "asian",
+        "delivery": "yes",
+        "email": "ngoctantrinh@gmail.com",
+        "highchair": "yes",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "level": "0",
+        "name": "CÔDÔ",
+        "opening_hours": "Mo-Sa 11:00-22:00; Su off",
+        "outdoor_seating": "yes",
+        "payment:apple_pay": "yes",
+        "payment:cards": "yes",
+        "payment:cash": "yes",
+        "payment:coins": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:google_pay": "yes",
+        "phone": "+420 735 251 725",
+        "reservation": "yes",
+        "smoking": "outside",
+        "stroller": "yes",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "website": "https://codo-olomouc.cz/",
+        "website:menu": "https://codo-olomouc.cz/section:rozvoz-takeaway",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2592679,
+          49.5963002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12542092802",
+      "properties": {
+        "@id": "node/12542092802",
+        "amenity": "restaurant",
+        "name": "Špagetárna",
+        "opening_hours": "Mo-Fr 11:00-20:00; Sa,Su 11:00-16:00",
+        "phone": "+420 774 780 401"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2583712,
+          49.5963841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12693332901",
+      "properties": {
+        "@id": "node/12693332901",
+        "addr:housenumber": "12",
+        "addr:postcode": "77900",
+        "amenity": "restaurant",
+        "cuisine": "japanese",
+        "diet:gluten_free": "no",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "no",
+        "diet:vegetarian": "yes",
+        "level": "0",
+        "name": "Sushi Hub",
+        "opening_hours": "Mo-Fr 11:00-20:00",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "website": "https://sushihub.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2489297,
+          49.5961883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12697517701",
+      "properties": {
+        "@id": "node/12697517701",
+        "amenity": "restaurant",
+        "cuisine": "asian;chinese;japanese;vietnamese",
+        "name": "Litchi",
+        "opening_hours": "Mo-Su 09:00-21:00",
+        "website": "https://www.litchi.cz/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2250488,
+          49.5843794
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/12768372605",
+      "properties": {
+        "@id": "node/12768372605",
+        "amenity": "restaurant",
+        "cuisine": "asian;sushi",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "name": "Fishi Sushi",
+        "opening_hours": "Mo-We 11:00-15:00,16:00-21:00; Th-Su 11:00-15:00,16:00-22:00",
+        "phone": "+420 777 115 485",
+        "website": "https://www.fishisushi.cz/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2571574,
+          49.5978535
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13030208150",
+      "properties": {
+        "@id": "node/13030208150",
+        "amenity": "restaurant",
+        "cuisine": "greek",
+        "name": "Restaurace Rigani"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2179877,
+          49.5952795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13108819296",
+      "properties": {
+        "@id": "node/13108819296",
+        "amenity": "restaurant",
+        "name": "WAY"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2520339,
+          49.5915644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13359453840",
+      "properties": {
+        "@id": "node/13359453840",
+        "amenity": "restaurant",
+        "name": "U Floriána"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2494032,
+          49.5962625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13363639397",
+      "properties": {
+        "@id": "node/13363639397",
+        "amenity": "restaurant",
+        "cuisine": "pizza",
+        "name": "Vosíme"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2534119,
+          49.5979718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13779420648",
+      "properties": {
+        "@id": "node/13779420648",
+        "amenity": "restaurant",
+        "cuisine": "pizza",
+        "name": "Masakr"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2732875,
+          49.5944992
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13970682289",
+      "properties": {
+        "@id": "node/13970682289",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "name": "Gól",
+        "name:en": "Gool",
+        "opening_hours": "09:00-24:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2475367,
+          49.6007147
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13970695214",
+      "properties": {
+        "@id": "node/13970695214",
+        "amenity": "restaurant",
+        "name": "Prachárna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2139125,
+          49.6070163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13970696397",
+      "properties": {
+        "@id": "node/13970696397",
+        "amenity": "restaurant",
+        "capacity": "100",
+        "cuisine": "steak",
+        "name": "Steak restaurant",
+        "opening_hours": "Mo-Su 11:00-23:00",
+        "phone": "+420 720 157 187",
+        "website": "https://www.steak-restaurant.cz/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.286847,
+          49.5909473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13970696398",
+      "properties": {
+        "@id": "node/13970696398",
+        "addr:city": "Olomouc",
+        "addr:housenumber": "721/45a",
+        "addr:street": "Chválkovická",
+        "amenity": "restaurant",
+        "cuisine": "regional;international",
+        "delivery": "yes",
+        "dog": "yes",
+        "email": "info@restauraceumlyna.com",
+        "internet_access": "wlan",
+        "name": "Restaurace u mlýna",
+        "opening_hours": "Mo-Th 11:00-20:00; Fr-Sa 11:00-22:00; Su 11:00-19:00",
+        "opening_hours:kitchen": "Mo-Th 11:00-19:00; Fr-Sa 11:00-20:00; Su 11:00-17:00",
+        "payment:cards": "yes",
+        "phone": "+420 606 022 032",
+        "website": "https://www.restauraceumlyna.cz"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2829833,
+          49.6101178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13970696428",
+      "properties": {
+        "@id": "node/13970696428",
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "name": "Fontána",
+        "opening_hours": "Mo-Su 10:00-19:00",
+        "outdoor_seating": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2511403,
+          49.5872075
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13970696456",
+      "properties": {
+        "@id": "node/13970696456",
+        "amenity": "restaurant",
+        "name": "U Rytíře",
+        "website": "restauraceurytire.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2221067,
+          49.593667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13970696634",
+      "properties": {
+        "@id": "node/13970696634",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2026-03-21",
+        "name": "Viktoria",
+        "name:cs": "Viktoria",
+        "opening_hours": "Mo-Th 11:00-23:00; Fr 11:00-01:00",
+        "phone": "+420585221066"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2526321,
+          49.5935
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/14115029734",
+      "properties": {
+        "@id": "node/14115029734",
+        "amenity": "restaurant",
+        "name": "Trinity Restaurant",
+        "opening_hours": "Mo-Fr 06:30-10:00; Sa,Su 07:00-10:00",
+        "stars": "4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2501202,
+          49.5922467
+        ]
+      }
+    }
+  ]
+}

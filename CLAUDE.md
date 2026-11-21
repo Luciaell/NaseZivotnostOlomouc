@@ -49,6 +49,8 @@ python back_end.py          # quick manual test of the backend (prints amenities
 
 ## Datasets
 
+This file is the documentation of the whole project. Each dataset has its own detailed page in [md files of datasets/](md%20files%20of%20datasets/), named after the GeoJSON file (e.g. `bus_stop.geojson` → `bus_stop.md`). A page covers the source, export date, feature counts, every property key and its meaning, and known quirks. Read the page before using a dataset.
+
 There are two kinds of source:
 - **OpenStreetMap exports from Overpass Turbo.** Names are in `properties.name` (sometimes `brand`), and features can be Points or Polygons.
 - **Open data from the Olomouc Region (`zakladni_skola`, `knihovna`).** Property keys are UPPERCASE and every feature is a Point. They have no `name` key: school names are in `ORG_NAZEV` and library names in `NAZEV`. There is no OSM ID, so `osm_id` is `None`. Both files cover the whole region, so the city-boundary filter matters.

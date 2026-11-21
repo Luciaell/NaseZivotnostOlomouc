@@ -112,17 +112,25 @@ def suggest(searchterm: str) -> list[str]:
         results.append(searchterm)
     return results
 
+def circle_color(results: dict[str, list]) -> str:
+    missing = sum(1 for seznam in results.values() if not seznam)
+    if missing == 0:
+        return "green"
+    if missing == 1:
+        return "#ff6600"
+    return "red"
 
-def draw_circle(m: folium.Map, radius: int, coords):
+def draw_circle(m: folium.Map, radius: int, coords, color: str = "blue"):
     folium.Circle(
         location=coords,
         radius=radius,
-        color="blue",
+        color=color,
         weight=1,
         fill=True,
-        fill_opacity=0.1,
+        fill_color=color,
+        fill_opacity=0.1
     ).add_to(m)
-    icon = folium.Icon(color="#0000FF", icon="house", prefix="fa")
+    icon = folium.Icon(color=color, icon="house", prefix="fa")
     folium.Marker(coords, icon=icon).add_to(m)
 
 
@@ -132,7 +140,7 @@ selected = st_searchbox(
     key="address_search",
 )
 
-radius = 1000
+radius = 500 # metres
 default_center = [49.5955, 17.2518]
 default_zoom = 12.5
 
@@ -163,11 +171,13 @@ else:
         st.error("Could not find that location.")
     else:
         m = folium.Map(location=coords, zoom_start=default_zoom)
+        results = {}
         for typ in instituce.TYPY:
             seznam = instituce.najdi_instituce(coords, typ, radius / 1000)
+            results[typ] = seznam
             st.write(f"### {typ} ({len(seznam)})")
             for i in seznam:
                 st.write(f"- {i['nazev']} ({i['vzdalenost_m']} m)")
                 add_marker(m, typ, i)
-    draw_circle(m, radius, coords)
+    draw_circle(m, radius, coords, color=circle_color(results))
     st_folium(m, width=725, key="map", returned_objects=[])

@@ -11,16 +11,41 @@ from streamlit_searchbox import st_searchbox
 
 import back_end as institutions
 
-geolocator = Nominatim(user_agent="Geopy Library")
+st.set_page_config(layout="wide")  # must run before any other st.* call
 
+USER_AGENT = "nase-zivotnost-ol/1.0"
 OVERPASS_URLS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
 ]
-HEADERS = {"User-Agent": "nase-zivotnost-ol/1.0"}
 MIN_CHARS = 2      # suggestions appear after this many characters
 MAX_RESULTS = 10
 
+RADIUS_M = 500
+DEFAULT_CENTER = [49.5955, 17.2518]
+DEFAULT_ZOOM = 12.5
+SELECTED_ZOOM = 15
+
+# One entry per type in back_end.TYPES: Czech label for the summary + marker style.
+KINDS = {
+    "bus_stops":     {"label": "zastávka",       "color": "blue",   "icon": "bus"},
+    "kindergartens": {"label": "mateřská škola", "color": "orange", "icon": "child"},
+    "pharmacies":    {"label": "lékárna",        "color": "green",  "icon": "pills"},
+    "schools":       {"label": "základní škola", "color": "red",    "icon": "school"},
+    "supermarkets":  {"label": "supermarket",    "color": "purple", "icon": "cart-shopping"},
+}
+DEFAULT_KIND = {"color": "gray", "icon": "location-dot"}
+
+CARTO_STYLES = {"voyager": "voyager", "positron": "light_all", "dark_matter": "dark_all"}
+CARTO_ATTR = (
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> '
+    'contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
+)
+
+geolocator = Nominatim(user_agent=USER_AGENT)
+
+
+# --- address search ---
 
 def normalize(s: str) -> str:
     # Lowercase and strip diacritics, so 'kat' matches 'Kateřinská'.
@@ -49,7 +74,7 @@ def fetch_addresses() -> dict[str, list[float]]:
     last_error = None
     for url in OVERPASS_URLS:
         try:
-            r = requests.post(url, data={"data": query}, headers=HEADERS, timeout=60)
+            r = requests.post(url, data={"data": query}, headers={"User-Agent": USER_AGENT}, timeout=60)
             r.raise_for_status()
             data = r.json()
             if "elements" not in data:
@@ -96,8 +121,7 @@ def search_location(query: str):
 
 
 addresses = get_addresses()
-labels = sorted(addresses)
-normalized = [(normalize(label), label) for label in labels]
+normalized = [(normalize(label), label) for label in sorted(addresses)]
 
 
 def suggest(searchterm: str) -> list[str]:
@@ -113,6 +137,28 @@ def suggest(searchterm: str) -> list[str]:
         results.append(searchterm)
     return results
 
+
+# --- map ---
+
+def get_carto_key() -> str | None:
+    try:
+        return st.secrets["CARTO_API_KEY"]
+    except (KeyError, FileNotFoundError):
+        return os.environ.get("CARTO_API_KEY")
+
+
+def make_map(coords, zoom, style="voyager") -> folium.Map:
+    key = get_carto_key()
+    if not key:
+        return folium.Map(location=coords, zoom_start=zoom)   # plain OSM fallback
+    return folium.Map(
+        location=coords,
+        zoom_start=zoom,
+        tiles=f"https://basemaps.cartocdn.com/rastertiles/{CARTO_STYLES[style]}/{{z}}/{{x}}/{{y}}{{r}}.png?key={key}",
+        attr=CARTO_ATTR,
+    )
+
+
 def circle_color(results: dict[str, list]) -> str:
     missing = sum(1 for found in results.values() if not found)
     if missing == 0:
@@ -121,6 +167,7 @@ def circle_color(results: dict[str, list]) -> str:
         return "#ff6600"
     return "red"
 
+
 def dist_color(dist: float) -> str:
     if dist < 300:
         return "green"
@@ -128,115 +175,66 @@ def dist_color(dist: float) -> str:
         return "orange"
     return "red"
 
-def draw_circle(m: folium.Map, radius: int, coords, color: str = "blue"):
+
+def draw_selected_location(m: folium.Map, coords, color: str):
     folium.Circle(
         location=coords,
-        radius=radius,
+        radius=RADIUS_M,
         color=color,
         weight=1,
         fill=True,
         fill_color=color,
-        fill_opacity=0.1
+        fill_opacity=0.1,
     ).add_to(m)
     icon = folium.Icon(color=color, icon="house", prefix="fa")
     folium.Marker(coords, icon=icon, tooltip="Vybraná lokace").add_to(m)
 
 
-selected = st_searchbox(
-    suggest,
-    placeholder="Enter a location",
-    key="address_search",
-)
-
-radius = 500 # metres
-default_center = [49.5955, 17.2518]
-default_zoom = 12.5
-
-LABELS = {
-    "bus_stops":     "zastávka",
-    "kindergartens": "mateřská škola",
-    "pharmacies":    "lékárna",
-    "schools":       "základní škola",
-    "supermarkets":  "supermarket"
-}    
-
-MARKER_STYLES = {
-    "bus_stops":     {"color": "blue",      "icon": "bus"},
-    "kindergartens": {"color": "orange",    "icon": "child"},
-    "pharmacies":    {"color": "green",     "icon": "pills"},
-    "schools":       {"color": "red",       "icon": "school"},
-    "supermarkets":  {"color": "purple",    "icon": "cart-shopping"}
-}
-DEFAULT_STYLE = {"color": "gray", "icon": "location-dot"}
-
 def add_marker(m: folium.Map, kind: str, item: dict):
-    style = MARKER_STYLES.get(kind, DEFAULT_STYLE)
+    style = KINDS.get(kind, DEFAULT_KIND)
     folium.Marker(
         location=[item["lat"], item["lon"]],
         tooltip=f"{item['name']} ({item['distance_m']} m)",
         icon=folium.Icon(color=style["color"], icon=style["icon"], prefix="fa"),
     ).add_to(m)
 
-CARTO_ATTR = (
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> '
-    'contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
-)
 
-def get_carto_key() -> str | None:
-    try:
-        return st.secrets["CARTO_API_KEY"]
-    except (KeyError, FileNotFoundError):
-        return os.environ.get("CARTO_API_KEY")
+def summary_line(kind: str, found: list[dict]) -> str:
+    label = KINDS.get(kind, {}).get("label", kind)
+    if not found:
+        return f":red[Nejbližší {label}: více než {RADIUS_M} m]"
+    nearest = found[0]  # back_end returns results sorted by distance
+    return f":{dist_color(nearest['distance_m'])}[Nejbližší {label}: {nearest['name']} ({nearest['distance_m']} m)]"
 
-def make_map(coords, zoom, style="voyager"):
-    # style: "voyager", "positron" (light_all) or "dark_matter" (dark_all)
-    key = get_carto_key()
-    if not key:
-        return folium.Map(location=coords, zoom_start=zoom)   # plain OSM fallback
 
-    path = {"voyager": "voyager", "positron": "light_all", "dark_matter": "dark_all"}[style]
-    return folium.Map(
-        location=coords,
-        zoom_start=zoom,
-        tiles=f"https://basemaps.cartocdn.com/rastertiles/{path}/{{z}}/{{x}}/{{y}}{{r}}.png?key={key}",
-        attr=CARTO_ATTR,
-    )
+def show_results(coords):
+    m = make_map(coords, SELECTED_ZOOM)
+    results = {kind: institutions.find_institutions(coords, kind, RADIUS_M / 1000)
+               for kind in institutions.TYPES}
+    for kind, found in results.items():
+        for item in found:
+            add_marker(m, kind, item)
+    draw_selected_location(m, coords, circle_color(results))
 
-st.set_page_config(layout="wide")
+    col_map, col_text = st.columns([4, 3])
+    with col_map:
+        st_folium(m, use_container_width=True, height=500, key="map", returned_objects=[])
+    with col_text:
+        for kind, found in results.items():
+            st.write(summary_line(kind, found))
+
+
+# --- page ---
+
+selected = st_searchbox(suggest, placeholder="Enter a location", key="address_search")
 
 if not selected:
-    m = make_map(default_center, default_zoom)
-    st_folium(m, width=725, key="map", returned_objects=[])
+    st_folium(make_map(DEFAULT_CENTER, DEFAULT_ZOOM), width=725, key="map", returned_objects=[])
 else:
     coords = addresses.get(selected) or search_location(selected)
     if not coords:
         st.error("Could not find that location.")
+    elif not institutions.is_in_olomouc(*coords):
+        st.error("That location is outside Olomouc.")
     else:
-        m = make_map(coords, 15)
-        results = {}
-        nearest = {}
-        lines = []
-
-        for kind in institutions.TYPES:
-            found = institutions.find_institutions(coords, kind, radius / 1000)
-            results[kind] = found
-            for i in found:
-                add_marker(m, kind, i)
-
-            if found:
-                nearest[kind] = min(found, key=lambda i: i["distance_m"])
-                n = nearest[kind]
-                lines.append(f":{dist_color(n['distance_m'])}[Nejbližší {kind}: {n['name']} ({n['distance_m']} m)]")
-            else:
-                lines.append(f":red[Nejbližší {LABELS.get(kind, kind)}: více než {radius} m]")
-
-        draw_circle(m, radius, coords, color=circle_color(results))
-
-        col_map, col_text = st.columns([4, 3])   # map gets 2/3 of the width
-
-        with col_map:
-            st_folium(m, use_container_width=True, height=500, key="map", returned_objects=[])
-
-        with col_text:
-            for line in lines:
-                st.write(line)
+        show_results(coords)

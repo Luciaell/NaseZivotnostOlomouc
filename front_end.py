@@ -237,15 +237,10 @@ def show_metric(kind: str, found: list[dict]):
         else:
             st.caption(name)
 
-
-def show_results(coords):
-    col_map, col_text = st.columns([1, 1])
-    with col_text:
-        enabled = settings()
-    
+def show_results(coords, enabled, col_map, col_text):
     m = make_map(coords, SELECTED_ZOOM)
     results = {kind: back_end.find_institutions(coords, kind, RADIUS_M / 1000)
-           for kind in enabled}
+               for kind in enabled}
     for kind, found in results.items():
         for item in found:
             add_marker(m, kind, item)
@@ -253,11 +248,15 @@ def show_results(coords):
 
     with col_map:
         st_folium(m, use_container_width=True, height=500, key="map", returned_objects=[])
-    summary_heading(find_missing(results), results)
-    grid = st.columns(4)
-    for i, (kind, found) in enumerate(results.items()):
-        with grid[i % 4]:
-            show_metric(kind, found)
+    with col_text:
+        if not enabled:
+            st.info("Vyberte alespoň jednu kategorii.")
+        else:
+            summary_heading(find_missing(results), results)
+            grid = st.columns(2)
+            for i, (kind, found) in enumerate(results.items()):
+                with grid[i % 2]:
+                    show_metric(kind, found)
 
 def settings() -> list[str]:
     with st.popover("Nastavení zobrazených kategorií"):
@@ -274,8 +273,15 @@ def settings() -> list[str]:
 
 selected = st_searchbox(suggest, placeholder="Zadejte adresu", key="address_search")
 
+col_map, col_text = st.columns([1, 1])
+
+with col_text:
+    enabled = settings()
+
 if not selected:
-    st_folium(make_map(DEFAULT_CENTER, DEFAULT_ZOOM), width=725, key="map", returned_objects=[])
+    with col_map:
+        st_folium(make_map(DEFAULT_CENTER, DEFAULT_ZOOM), use_container_width=True,
+                  height=500, key="map", returned_objects=[])
 else:
     coords = addresses.get(selected) or search_location(selected)
     if not coords:
@@ -283,4 +289,4 @@ else:
     elif not back_end.is_in_olomouc(*coords):
         st.error("Adresa je mimo Olomouc.")
     else:
-        show_results(coords)
+        show_results(coords, enabled, col_map, col_text)

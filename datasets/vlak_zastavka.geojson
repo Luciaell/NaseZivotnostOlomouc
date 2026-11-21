@@ -1,0 +1,251 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-20T22:13:22Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/25956684",
+      "properties": {
+        "@id": "node/25956684",
+        "name": "Olomouc hlavní nádraží",
+        "operator": "Správa železnic",
+        "operator:short": "SŽ",
+        "operator:wikidata": "Q1848025",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2783556,
+          49.5928973
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/60779314",
+      "properties": {
+        "@id": "node/60779314",
+        "name": "Olomouc-Smetanovy sady",
+        "operator": "cz:SŽDC",
+        "railway": "halt",
+        "railway:ref": "344127",
+        "wikidata": "Q18180448"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2548599,
+          49.5855635
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/94949366",
+      "properties": {
+        "@id": "node/94949366",
+        "name": "Nemilany",
+        "name:de": "Nimlau",
+        "operator": "cz:SŽDC",
+        "railway": "halt",
+        "railway:ref": "330225",
+        "wikidata": "Q41710991"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2442628,
+          49.5589793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/116070164",
+      "properties": {
+        "@id": "node/116070164",
+        "name": "Olomouc-Nové Sady",
+        "name:de": "Olmütz-Neustift",
+        "operator": "cz:SŽDC",
+        "railway": "halt",
+        "railway:ref": "330324",
+        "wikidata": "Q22713248"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.260733,
+          49.5709539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/141962708",
+      "properties": {
+        "@id": "node/141962708",
+        "name": "Olomouc-Řepčín",
+        "name:de": "Olmütz-Repschein",
+        "operator": "cz:SŽDC",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:ref": "343921",
+        "wikidata": "Q19602504"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.224045,
+          49.6165217
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/256081313",
+      "properties": {
+        "@id": "node/256081313",
+        "name": "Olomouc-Hejčín",
+        "name:de": "Olmütz-Hatschein",
+        "operator": "cz:SŽDC",
+        "railway": "halt",
+        "railway:ref": "343822",
+        "wikidata": "Q18180446"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2366545,
+          49.6022915
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/256081315",
+      "properties": {
+        "@id": "node/256081315",
+        "name": "Olomouc-Nová Ulice",
+        "name:de": "Olmütz-Neugasse",
+        "operator": "cz:SŽDC",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:ref": "344028",
+        "wheelchair": "yes",
+        "wikidata": "Q18180447"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2447943,
+          49.5870565
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2506544888",
+      "properties": {
+        "@id": "node/2506544888",
+        "ele": "215",
+        "name": "Olomouc hlavní nádraží",
+        "name:cs": "Olomouc hlavní nádraží",
+        "name:de": "Olmütz Hauptbahnhof",
+        "name:pl": "Ołomuniec Główny",
+        "operator": "Správa železnic",
+        "operator:short": "SŽ",
+        "operator:wikidata": "Q1848025",
+        "platforms": "6",
+        "public_transport": "station",
+        "railway": "station",
+        "railway:ref": "343624",
+        "short_name": "Olomouc hl.n.",
+        "start_date": "1841",
+        "train": "yes",
+        "uic_ref": "5434362",
+        "wheelchair": "yes",
+        "wikidata": "Q11798083",
+        "wikipedia": "cs:Olomouc hlavní nádraží"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2783453,
+          49.5928438
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/5652249075",
+      "properties": {
+        "@id": "node/5652249075",
+        "ele": "220",
+        "name": "Olomouc město",
+        "operator": "Správa železnic",
+        "operator:short": "SŽ",
+        "operator:wikidata": "Q1848025",
+        "public_transport": "station",
+        "railway": "halt",
+        "railway:ref": "343723",
+        "train": "yes",
+        "wikidata": "Q18180445",
+        "wikipedia": "cs:Olomouc město (železniční zastávka)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2412311,
+          49.5940713
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13395315293",
+      "properties": {
+        "@id": "node/13395315293",
+        "name": "Olomouc hlavní nádraží",
+        "operator": "Správa železnic",
+        "operator:short": "SŽ",
+        "operator:wikidata": "Q1848025",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2782917,
+          49.5928842
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13422198838",
+      "properties": {
+        "@id": "node/13422198838",
+        "name": "Olomouc hlavní nádraží",
+        "operator": "Správa železnic",
+        "operator:short": "SŽ",
+        "operator:wikidata": "Q1848025",
+        "public_transport": "stop_position",
+        "railway": "stop",
+        "train": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2781003,
+          49.5928527
+        ]
+      }
+    }
+  ]
+}

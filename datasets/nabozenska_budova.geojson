@@ -1,0 +1,177 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-11-20T22:13:22Z",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "node/899845197",
+      "properties": {
+        "@id": "node/899845197",
+        "amenity": "place_of_worship",
+        "historic": "yes",
+        "name": "Kaplička",
+        "religion": "christian"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2321646,
+          49.6396718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/2260323587",
+      "properties": {
+        "@id": "node/2260323587",
+        "amenity": "place_of_worship",
+        "building": "chapel",
+        "denomination": "catholic",
+        "religion": "christian"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2586928,
+          49.595275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3000228831",
+      "properties": {
+        "@id": "node/3000228831",
+        "amenity": "community_centre",
+        "building": "chapel",
+        "check_date": "2024-03-10",
+        "description": "Návštěva pouze po předchozí domluvě. Viz internet.stránky",
+        "name": "Kaple Božího těla",
+        "note": "Kaple je odsvěcena. Neslouží k náboženským obřadům.",
+        "url": "https://tourism.olomouc.eu/mista/kaple-boziho-tela/",
+        "website": "https://uc.upol.cz/prostory/kaple-boziho-tela/",
+        "wikidata": "Q21282854",
+        "wikimedia_commons": "Category:Chapel of Corpus Christi (Olomouc)",
+        "wikipedia": "cs:Kaple Božího Těla (Olomouc)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2555367,
+          49.5953304
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/3862346334",
+      "properties": {
+        "@id": "node/3862346334",
+        "amenity": "place_of_worship",
+        "building": "chapel",
+        "denomination": "roman_catholic",
+        "historic": "chapel",
+        "name": "Kaple sv. Barbory",
+        "religion": "christian",
+        "source": "cuzk:km"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2621689,
+          49.5982635
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/4038934663",
+      "properties": {
+        "@id": "node/4038934663",
+        "amenity": "place_of_worship",
+        "building": "chapel",
+        "check_date": "2025-03-03",
+        "denomination": "catholic",
+        "name": "Nemocniční kaple",
+        "opening_hours": "24/7",
+        "religion": "christian"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2373516,
+          49.5841032
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/6006987162",
+      "properties": {
+        "@id": "node/6006987162",
+        "amenity": "place_of_worship",
+        "building": "chapel",
+        "denomination": "roman_catholic",
+        "religion": "christian"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.3640131,
+          49.6363314
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13566448864",
+      "properties": {
+        "@id": "node/13566448864",
+        "addr:city": "Olomouc",
+        "addr:country": "CZ",
+        "addr:housenumber": "32",
+        "addr:postcode": "77900",
+        "addr:street": "Dolní náměstí",
+        "amenity": "place_of_worship",
+        "contact:facebook": "https://www.facebook.com/mormoni.olomouc/?locale=cs_CZ",
+        "denomination": "mormon",
+        "description": "Sbor Olomouc",
+        "name": "Církev Ježíše Krista Svatých posledních dnů",
+        "operator": "The Church of Jesus Christ of Latter-day Saints",
+        "religion": "christian",
+        "website": "https://cz.cirkevjezisekrista.org/",
+        "wikidata": "Q42504",
+        "wikipedia": "cs:Církev Ježíše Krista Svatých posledních dnů"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2529834,
+          49.5913997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "node/13608171150",
+      "properties": {
+        "@id": "node/13608171150",
+        "amenity": "place_of_worship",
+        "description": "místo pro modlitby u podzemního jezírka",
+        "level": "-1",
+        "name": "poustevna",
+        "religion": "christian"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.2540375,
+          49.5934995
+        ]
+      }
+    }
+  ]
+}

@@ -100,7 +100,7 @@ def get_addresses() -> dict[str, list[float]]:
     try:
         return fetch_addresses()
     except Exception as e:
-        st.warning(f"Address list unavailable ({e}). Free-text search still works.")
+        st.warning(f"Seznam adres není dostupný ({e}). Textové vyhledávání stále funguje.")
         return {}
 
 
@@ -187,7 +187,7 @@ def draw_selected_location(m: folium.Map, coords, color: str):
         fill_opacity=0.1,
     ).add_to(m)
     icon = folium.Icon(color=color, icon="house", prefix="fa")
-    folium.Marker(coords, icon=icon, tooltip="Vybraná lokace").add_to(m)
+    folium.Marker(coords, icon=icon, tooltip="Vybraná adresa").add_to(m)
 
 
 def add_marker(m: folium.Map, kind: str, item: dict):
@@ -226,15 +226,15 @@ def show_results(coords):
 
 # --- page ---
 
-selected = st_searchbox(suggest, placeholder="Enter a location", key="address_search")
+selected = st_searchbox(suggest, placeholder="Zadejte adresu", key="address_search")
 
 if not selected:
     st_folium(make_map(DEFAULT_CENTER, DEFAULT_ZOOM), width=725, key="map", returned_objects=[])
 else:
     coords = addresses.get(selected) or search_location(selected)
     if not coords:
-        st.error("Could not find that location.")
+        st.error("Adresa nenalezena.")
     elif not back_end.is_in_olomouc(*coords):
-        st.error("That location is outside Olomouc.")
+        st.error("Adresa je mimo Olomouc.")
     else:
         show_results(coords)

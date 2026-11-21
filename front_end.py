@@ -9,7 +9,7 @@ from geopy.point import Point
 from streamlit_folium import st_folium
 from streamlit_searchbox import st_searchbox
 
-import back_end as institutions
+import back_end
 
 st.set_page_config(layout="wide")  # must run before any other st.* call
 
@@ -209,8 +209,8 @@ def summary_line(kind: str, found: list[dict]) -> str:
 
 def show_results(coords):
     m = make_map(coords, SELECTED_ZOOM)
-    results = {kind: institutions.find_institutions(coords, kind, RADIUS_M / 1000)
-               for kind in institutions.TYPES}
+    results = {kind: back_end.find_institutions(coords, kind, RADIUS_M / 1000)
+               for kind in back_end.TYPES}
     for kind, found in results.items():
         for item in found:
             add_marker(m, kind, item)
@@ -234,7 +234,7 @@ else:
     coords = addresses.get(selected) or search_location(selected)
     if not coords:
         st.error("Could not find that location.")
-    elif not institutions.is_in_olomouc(*coords):
+    elif not back_end.is_in_olomouc(*coords):
         st.error("That location is outside Olomouc.")
     else:
         show_results(coords)

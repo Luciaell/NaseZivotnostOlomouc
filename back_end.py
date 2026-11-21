@@ -1,7 +1,7 @@
 """Find institutions within a given distance of a point in Olomouc.
 
 Usage:
-    from instituce import find_institutions, TYPES
+    from back_end import find_institutions, TYPES
     pharmacies = find_institutions((49.5938, 17.2509), "pharmacies")  # point = (lat, lon)
     # -> [{"name": ..., "distance_m": ..., "lat": ..., "lon": ..., "osm_id": ...}, ...]
 """
@@ -15,14 +15,19 @@ from geopy.distance import geodesic
 DATASETS = Path(__file__).parent / "datasets"
 OLOMOUC_BOUNDARY = DATASETS / "olomouc_boundary.geojson"
 
-# category key -> (file name, fallback name when OSM has none)
+# category key -> (file name, fallback name when the feature has none)
 CATEGORIES = {
     "bus_stops": ("bus_stop.geojson", "Zastávka (bez názvu)"),
     "kindergartens": ("kindergarten.geojson", "MŠ (bez názvu)"),
     "pharmacies": ("pharmacy.geojson", "Lékárna (bez názvu)"),
-    "schools": ("primary_school.geojson", "ZŠ (bez názvu)"),
+    "schools": ("zakladni_skola.geojson", "ZŠ (bez názvu)"),
     "supermarkets": ("supermarket.geojson", "Supermarket (bez názvu)"),
 }
+
+
+# Property keys holding a feature's name: OSM uses "name", the regional
+# open data uses "NAZEV" (libraries) or "ORG_NAZEV" (schools).
+NAME_KEYS = ("name", "NAZEV", "ORG_NAZEV")
 
 
 # --- geometry helpers (lon/lat treated as planar; fine at city scale) ---
@@ -93,15 +98,20 @@ def _load_category(key):
     """Load one category, keeping only features whose point lies in Olomouc."""
     file_name, default_name = CATEGORIES[key]
     data = json.loads((DATASETS / file_name).read_text(encoding="utf-8"))
-    institutions = []
+    institutions, seen = [], set()
     for f in data["features"]:
         lon, lat = _geometry_center(f["geometry"])
         if not is_in_olomouc(lat, lon):
             continue
         p = f.get("properties", {})
+        name = next((p[k] for k in NAME_KEYS if p.get(k)), None)
+        # regional data lists a school once per school type at the same point
+        if name and (name, lat, lon) in seen:
+            continue
+        seen.add((name, lat, lon))
         institutions.append({
-            "name": p.get("name") or p.get("brand") or default_name,
-            "has_name": bool(p.get("name")),
+            "name": name or p.get("brand") or default_name,
+            "has_name": bool(name),
             "lat": lat,
             "lon": lon,
             "osm_id": f.get("id") or p.get("@id"),
@@ -176,12 +186,3 @@ if __name__ == "__main__":
         print(f"\n{category} ({len(results)}):")
         for i in results:
             print(f"  {i['distance_m']:>5} m  {i['name']}")
-
-
-num = 0
-
-for item in find_institutions((49.5958, 17.2509), "pharmacies", 1.0):
-    print(f"  {item['name']}")
-    num += 1
-
-print (num)

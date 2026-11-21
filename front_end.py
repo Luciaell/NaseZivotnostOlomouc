@@ -349,8 +349,8 @@ def show_metric(kind: str, found: list[dict], radius: int):
         st.metric(f":{color}[:material/{style['symbol']}: {label}]", f"{nearest['distance_m']} m")
         walk = f":material/directions_walk: {chatbot.walk_minutes(nearest['distance_m'])} min"
         name = nearest["name"]
-        if len(name) > 30:
-            st.caption(f"{walk} · {name[:30]}…", help=name)
+        if len(name) > 20:
+            st.caption(f"{walk} · {name[:20]}…", help=name)
         else:
             st.caption(f"{walk} · {name}")
 

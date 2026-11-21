@@ -1,3 +1,4 @@
+import os
 import unicodedata
 
 import folium
@@ -120,6 +121,13 @@ def circle_color(results: dict[str, list]) -> str:
         return "#ff6600"
     return "red"
 
+def dist_color(dist: float) -> str:
+    if dist < 200:
+        return "green"
+    if dist < 350:
+        return "orange"
+    return "red"
+
 def draw_circle(m: folium.Map, radius: int, coords, color: str = "blue"):
     folium.Circle(
         location=coords,
@@ -153,7 +161,6 @@ MARKER_STYLES = {
 }
 DEFAULT_STYLE = {"color": "gray", "icon": "location-dot"}
 
-
 def add_marker(m: folium.Map, typ: str, item: dict):
     style = MARKER_STYLES.get(typ, DEFAULT_STYLE)
     folium.Marker(
@@ -162,22 +169,53 @@ def add_marker(m: folium.Map, typ: str, item: dict):
         icon=folium.Icon(color=style["color"], icon=style["icon"], prefix="fa"),
     ).add_to(m)
 
+CARTO_ATTR = (
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> '
+    'contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
+)
+
+def get_carto_key() -> str | None:
+    try:
+        return st.secrets["CARTO_API_KEY"]
+    except (KeyError, FileNotFoundError):
+        return os.environ.get("CARTO_API_KEY")
+
+def make_map(coords, zoom, style="voyager"):
+    # style: "voyager", "positron" (light_all) or "dark_matter" (dark_all)
+    key = get_carto_key()
+    if not key:
+        return folium.Map(location=coords, zoom_start=zoom)   # plain OSM fallback
+
+    path = {"voyager": "voyager", "positron": "light_all", "dark_matter": "dark_all"}[style]
+    return folium.Map(
+        location=coords,
+        zoom_start=zoom,
+        tiles=f"https://basemaps.cartocdn.com/rastertiles/{path}/{{z}}/{{x}}/{{y}}{{r}}.png?key={key}",
+        attr=CARTO_ATTR,
+    )
+
 if not selected:
-    m = folium.Map(location=default_center, zoom_start=default_zoom)
+    m = make_map(default_center, default_zoom)
     st_folium(m, width=725, key="map", returned_objects=[])
 else:
     coords = addresses.get(selected) or search_location(selected)
     if not coords:
         st.error("Could not find that location.")
     else:
-        m = folium.Map(location=coords, zoom_start=default_zoom)
+        m = make_map(coords, 14)
         results = {}
+        nearest = {}
         for typ in instituce.TYPY:
             seznam = instituce.najdi_instituce(coords, typ, radius / 1000)
             results[typ] = seznam
-            st.write(f"### {typ} ({len(seznam)})")
+            if seznam:
+                nearest[typ] = min(seznam, key=lambda i: i["vzdalenost_m"])
             for i in seznam:
-                st.write(f"- {i['nazev']} ({i['vzdalenost_m']} m)")
                 add_marker(m, typ, i)
+            if typ in nearest:
+                st.write(f":{dist_color(nearest[typ]['vzdalenost_m'])}[Nejbližší {typ}: {nearest[typ]['nazev']} ({nearest[typ]['vzdalenost_m']} m)]")
+            else:
+                st.write(f":{dist_color(0)}Nejbližší {typ}: žádný v okruhu {radius} m")
+
     draw_circle(m, radius, coords, color=circle_color(results))
     st_folium(m, width=725, key="map", returned_objects=[])

@@ -28,11 +28,20 @@ SELECTED_ZOOM = 15
 
 # One entry per type in back_end.TYPES: Czech label for the summary + marker style.
 KINDS = {
-    "bus_stops":     {"label": "zastávka",       "color": "blue",   "icon": "bus"},
-    "kindergartens": {"label": "mateřská škola", "color": "orange", "icon": "child"},
-    "pharmacies":    {"label": "lékárna",        "color": "green",  "icon": "pills"},
-    "schools":       {"label": "základní škola", "color": "red",    "icon": "school"},
-    "supermarkets":  {"label": "supermarket",    "color": "purple", "icon": "cart-shopping"},
+    "bus_stops":         {"label": "zastávka",          "color": "blue",       "icon": "bus"},
+    "tram_stops":        {"label": "zastávka tramvaje", "color": "darkblue",   "icon": "train-tram"},
+    "train_stations":    {"label": "vlakové nádraží",   "color": "cadetblue",  "icon": "train"},
+    "kindergartens":     {"label": "mateřská škola",    "color": "orange",     "icon": "child"},
+    "schools":           {"label": "základní škola",    "color": "red",        "icon": "school"},
+    "libraries":         {"label": "knihovna",          "color": "darkred",    "icon": "book"},
+    "pharmacies":        {"label": "lékárna",           "color": "green",      "icon": "pills"},
+    "supermarkets":      {"label": "supermarket",       "color": "purple",     "icon": "cart-shopping"},
+    "restaurants":       {"label": "restaurace",        "color": "beige",      "icon": "utensils"},
+    "theatres":          {"label": "divadlo",           "color": "darkpurple", "icon": "masks-theater"},
+    "cinemas":           {"label": "kino",              "color": "pink",       "icon": "film"},
+    "gyms":              {"label": "posilovna",         "color": "darkgreen",  "icon": "dumbbell"},
+    "sports_halls":      {"label": "sportovní hala",    "color": "lightgreen", "icon": "volleyball"},
+    "places_of_worship": {"label": "kostel",            "color": "black",      "icon": "church"},
 }
 DEFAULT_KIND = {"color": "gray", "icon": "location-dot"}
 

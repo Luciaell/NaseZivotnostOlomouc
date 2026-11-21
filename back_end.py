@@ -16,13 +16,27 @@ DATASETS = Path(__file__).parent / "datasets"
 OLOMOUC_BOUNDARY = DATASETS / "olomouc_boundary.geojson"
 
 # category key -> (file name, fallback name when the feature has none)
+# Details of each dataset: "md files of datasets/<file name>.md"
 CATEGORIES = {
     "bus_stops": ("bus_stop.geojson", "Zastávka (bez názvu)"),
+    "tram_stops": ("tramvaj_zastavka.geojson", "Zastávka tramvaje (bez názvu)"),
+    "train_stations": ("vlak_zastavka.geojson", "Nádraží (bez názvu)"),
     "kindergartens": ("kindergarten.geojson", "MŠ (bez názvu)"),
-    "pharmacies": ("pharmacy.geojson", "Lékárna (bez názvu)"),
     "schools": ("zakladni_skola.geojson", "ZŠ (bez názvu)"),
+    "libraries": ("knihovna.geojson", "Knihovna (bez názvu)"),
+    "pharmacies": ("pharmacy.geojson", "Lékárna (bez názvu)"),
     "supermarkets": ("supermarket.geojson", "Supermarket (bez názvu)"),
+    "restaurants": ("restaurace_hospody_bary_cluby.geojson", "Restaurace (bez názvu)"),  # restaurants only, no pubs/bars/clubs yet
+    "theatres": ("divadlo.geojson", "Divadlo (bez názvu)"),
+    "cinemas": ("kino.geojson", "Kino (bez názvu)"),
+    "gyms": ("gym.geojson", "Posilovna (bez názvu)"),
+    "sports_halls": ("sportovni_hala.geojson", "Sportovní hala (bez názvu)"),  # only 1 entry, needs re-export
+    "places_of_worship": ("nabozenska_budova.geojson", "Kostel (bez názvu)"),  # only small chapels, needs re-export
 }
+
+# Types whose data has several points per stop (platforms, stop positions);
+# results keep only the nearest point per name.
+MERGE_BY_NAME = {"bus_stops", "tram_stops", "train_stations"}
 
 
 # Property keys holding a feature's name: OSM uses "name", the regional
@@ -128,11 +142,11 @@ def find_institutions(point, kind, radius_km=1.0):
     """Return institutions of one type within `radius_km` of `point`.
 
     point: (lat, lon) tuple
-    kind: one of TYPES ("bus_stops", "kindergartens", "pharmacies", "schools", "supermarkets")
+    kind: one of TYPES (e.g. "bus_stops", "pharmacies", "libraries")
 
     Result: [ {name, distance_m, lat, lon, osm_id}, ... ] sorted by distance.
-    Bus stop platforms sharing a name are merged into one stop (the nearest
-    platform is kept).
+    For types in MERGE_BY_NAME, points sharing a name are merged into one
+    stop (the nearest point is kept).
 
     Raises ValueError if the type is unknown or the point is outside Olomouc.
     """
@@ -156,8 +170,8 @@ def find_institutions(point, kind, radius_km=1.0):
             })
     found.sort(key=lambda x: x["distance_m"])
 
-    if kind == "bus_stops":
-        found = _merge_platforms(found)
+    if kind in MERGE_BY_NAME:
+        found = _merge_by_name(found)
 
     for n in found:
         n.pop("_has_name")
@@ -167,8 +181,8 @@ def find_institutions(point, kind, radius_km=1.0):
 find = find_institutions  # short alias
 
 
-def _merge_platforms(stops):
-    """Keep only the nearest platform per stop name (input sorted by distance)."""
+def _merge_by_name(stops):
+    """Keep only the nearest point per stop name (input sorted by distance)."""
     seen, merged = set(), []
     for s in stops:
         if s["_has_name"]:

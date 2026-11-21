@@ -158,9 +158,11 @@ def make_map(coords, zoom, style="voyager") -> folium.Map:
         attr=CARTO_ATTR,
     )
 
+def find_missing(results: dict[str, list]) -> list[str]:
+    return sum(1 for found in results.values() if not found)
 
 def circle_color(results: dict[str, list]) -> str:
-    missing = sum(1 for found in results.values() if not found)
+    missing = find_missing(results)
     if missing == 0:
         return "green"
     if missing == 1:
@@ -198,6 +200,11 @@ def add_marker(m: folium.Map, kind: str, item: dict):
         icon=folium.Icon(color=style["color"], icon=style["icon"], prefix="fa"),
     ).add_to(m)
 
+def summary_heading(missing: int, results: dict[str, list]):
+        if missing == 0:
+            st.success(f"Všechny služby jsou dostupné v okruhu {RADIUS_M} m.")
+        else:
+            st.error(f"Chybí: {missing} z {len(results)} služeb.")
 
 def summary_line(kind: str, found: list[dict]) -> str:
     label = KINDS.get(kind, {}).get("label", kind)
@@ -220,6 +227,8 @@ def show_results(coords):
     with col_map:
         st_folium(m, use_container_width=True, height=500, key="map", returned_objects=[])
     with col_text:
+        missing = find_missing(results)
+        summary_heading(missing, results)
         for kind, found in results.items():
             st.write(summary_line(kind, found))
 

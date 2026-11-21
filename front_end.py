@@ -547,6 +547,34 @@ def show_results(coords, address: str, enabled, show_heat: bool, radius: int, co
         show_metric_groups(results, radius)
 
 
+def text_color_on(hex_color: str) -> str:
+    # Black text on light fills (beige, light green, pink), white on dark ones.
+    r, g, b = (int(hex_color[i:i + 2], 16) for i in (1, 3, 5))
+    return "#1a1a1a" if 0.299 * r + 0.587 * g + 0.114 * b > 150 else "#ffffff"
+
+
+def pill_colors_css(kinds: list[str]) -> str:
+    """CSS that colours each category pill like its map marker.
+
+    st.pills has no colour option, so this targets pill number i (same order as
+    `kinds`) inside .st-key-categories. A selected pill is filled with the marker
+    colour; an unselected one only gets a coloured dot and border.
+    """
+    rules = []
+    for i, kind in enumerate(kinds, start=1):
+        color = MARKER_HEX.get(KINDS.get(kind, DEFAULT_KIND)["color"], MARKER_HEX["gray"])
+        pill = f".st-key-categories button:nth-of-type({i})"
+        rules.append(
+            f"{pill} {{ border-color: {color}; }}"
+            f"{pill}::before {{ content: ''; display: inline-block; width: .6em; height: .6em;"
+            f" margin-right: .4em; border-radius: 50%; background: {color}; }}"
+            f"{pill}[data-selected] {{ background: {color}; border-color: {color}; }}"
+            f"{pill}[data-selected], {pill}[data-selected] * {{ color: {text_color_on(color)}; }}"
+            f"{pill}[data-selected]::before {{ background: {text_color_on(color)}; }}"
+        )
+    return "<style>" + "".join(rules) + "</style>"
+
+
 def settings() -> tuple[list[str], bool, int]:
     """Sidebar settings: (enabled categories, show the heatmap, radius in metres)."""
     with st.sidebar:   # left side of the screen; collapsible
@@ -567,7 +595,9 @@ def settings() -> tuple[list[str], bool, int]:
             default=list(back_end.TYPES),
             selection_mode="multi",
             format_func=lambda k: KINDS.get(k, DEFAULT_KIND).get("label", k).capitalize(),
+            key="categories",   # gives the widget the CSS class .st-key-categories
         )
+        st.html(pill_colors_css(list(back_end.TYPES)))
         st.subheader("Vrstvy mapy")
         show_heat = st.toggle(
             "Pocitová teplotní mapa",

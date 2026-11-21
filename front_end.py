@@ -1,6 +1,7 @@
 import os
 import unicodedata
 
+import anthropic
 import folium
 import requests
 import streamlit as st
@@ -10,6 +11,7 @@ from streamlit_folium import st_folium
 from streamlit_searchbox import st_searchbox
 
 import back_end
+import chatbot
 
 st.set_page_config(page_title="Naše životnost Olomouc", layout="wide")  # must run before any other st.* call
 
@@ -234,7 +236,75 @@ def show_metric(kind: str, found: list[dict]):
         st.caption(nearest["name"])
 
 
-def show_results(coords):
+# --- AI chatbot (see CHATBOT.md) ---
+
+def get_anthropic_key() -> str | None:
+    try:
+        return st.secrets["ANTHROPIC_API_KEY"]
+    except (KeyError, FileNotFoundError):
+        return os.environ.get("ANTHROPIC_API_KEY")
+
+
+@st.cache_resource
+def get_chat_client(api_key: str) -> anthropic.Anthropic:
+    return chatbot.make_client(api_key)
+
+
+def respond(client: anthropic.Anthropic, messages: list[dict]) -> bool:
+    """Stream one assistant reply into the page and append it to `messages`."""
+    with st.chat_message("assistant"):
+        try:
+            text = st.write_stream(chatbot.stream_reply(client, messages))
+        except anthropic.AuthenticationError:
+            st.error("Neplatný klíč ANTHROPIC_API_KEY.")
+            return False
+        except anthropic.RateLimitError:
+            st.error("Příliš mnoho dotazů, zkuste to prosím za chvíli.")
+            return False
+        except anthropic.APIStatusError as e:
+            st.error(f"Chyba AI služby ({e.status_code}).")
+            return False
+        except anthropic.APIConnectionError:
+            st.error("AI služba není dostupná, zkontrolujte připojení.")
+            return False
+    messages.append({"role": "assistant", "content": text})
+    return True
+
+
+def show_chatbot(address: str, results: dict[str, list]):
+    st.subheader(":material/smart_toy: AI shrnutí okolí")
+    key = get_anthropic_key()
+    if not key:
+        st.info("AI shrnutí je vypnuté: chybí ANTHROPIC_API_KEY v .streamlit/secrets.toml.")
+        return
+    client = get_chat_client(key)
+
+    # One conversation per address; selecting a new address starts over.
+    chat = st.session_state.get("chat")
+    if not chat or chat["address"] != address:
+        labels = {kind: style["label"] for kind, style in KINDS.items()}
+        context = chatbot.build_context(address, results, RADIUS_M, labels)
+        chat = {"address": address, "messages": [{"role": "user", "content": context}]}
+        st.session_state["chat"] = chat
+    messages = chat["messages"]
+
+    for msg in messages[1:]:   # messages[0] is the hidden data prompt
+        with st.chat_message(msg["role"]):
+            st.markdown(msg["content"])
+
+    if len(messages) == 1:     # summary not generated yet
+        respond(client, messages)
+
+    question = st.chat_input("Zeptejte se na okolí této adresy…")
+    if question:
+        messages.append({"role": "user", "content": question})
+        with st.chat_message("user"):
+            st.markdown(question)
+        if not respond(client, messages):
+            messages.pop()     # keep the history valid for the next try
+
+
+def show_results(coords, address: str):
     m = make_map(coords, SELECTED_ZOOM)
     results = {kind: back_end.find_institutions(coords, kind, RADIUS_M / 1000)
                for kind in back_end.TYPES}
@@ -253,6 +323,8 @@ def show_results(coords):
             with grid[i % 2]:
                 show_metric(kind, found)
 
+    show_chatbot(address, results)
+
 
 # --- page ---
 
@@ -267,4 +339,4 @@ else:
     elif not back_end.is_in_olomouc(*coords):
         st.error("Adresa je mimo Olomouc.")
     else:
-        show_results(coords)
+        show_results(coords, selected)

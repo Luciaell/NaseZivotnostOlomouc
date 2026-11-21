@@ -19,6 +19,7 @@ python back_end.py          # quick manual test of the backend (prints amenities
 
 ### Secrets
 - `CARTO_API_KEY` (optional) selects CARTO basemap tiles. The app reads it from `.streamlit/secrets.toml` (`CARTO_API_KEY = "..."`) and falls back to the environment variable. Without a key, the map uses plain OpenStreetMap tiles.
+- `ANTHROPIC_API_KEY` (optional) enables the AI chatbot. It is read the same way as the CARTO key. Without it, the chatbot section shows an info message instead.
 - Both `.env` and `.streamlit/secrets.toml` are gitignored. Never commit keys.
 
 ## Architecture
@@ -27,6 +28,7 @@ python back_end.py          # quick manual test of the backend (prints amenities
 |---|---|
 | [front_end.py](front_end.py) | Streamlit UI: address search box, Folium map, list of results |
 | [back_end.py](back_end.py) | Backend: loads GeoJSON datasets and finds amenities within a radius of a point |
+| [chatbot.py](chatbot.py) | AI chatbot (Claude API): area summary and follow-up chat. **All chatbot details are in [CHATBOT.md](CHATBOT.md). Read and update it when working on the chatbot.** |
 | [datasets/](datasets/) | GeoJSON datasets (see [Datasets](#datasets)) and the Olomouc city boundary |
 
 ### front_end.py

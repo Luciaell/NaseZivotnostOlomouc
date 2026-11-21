@@ -21,7 +21,7 @@ OVERPASS_URLS = [
 MIN_CHARS = 2      # suggestions appear after this many characters
 MAX_RESULTS = 10
 
-RADIUS_M = 500
+RADIUS_M = 1000
 DEFAULT_CENTER = [49.5955, 17.2518]
 DEFAULT_ZOOM = 12.5
 SELECTED_ZOOM = 15
@@ -29,7 +29,7 @@ SELECTED_ZOOM = 15
 # One entry per type in back_end.TYPES: Czech label, map marker style (Font Awesome
 # `icon`) and the summary icon (`symbol`, a Google Material Symbol name).
 KINDS = {
-    "bus_stops":         {"label": "zastávka",          "color": "blue",       "icon": "bus",           "symbol": "directions_bus"},
+    "bus_stops":         {"label": "zastávka autobusu", "color": "blue",       "icon": "bus",           "symbol": "directions_bus"},
     "tram_stops":        {"label": "zastávka tramvaje", "color": "darkblue",   "icon": "train-tram",    "symbol": "tram"},
     "train_stations":    {"label": "vlakové nádraží",   "color": "cadetblue",  "icon": "train",         "symbol": "train"},
     "kindergartens":     {"label": "mateřská škola",    "color": "orange",     "icon": "child",         "symbol": "child_care"},
@@ -183,9 +183,9 @@ def circle_color(results: dict[str, list]) -> str:
 
 
 def dist_color(dist: float) -> str:
-    if dist < 300:
+    if dist < RADIUS_M / 2:
         return "green"
-    if dist < 500:
+    if dist < RADIUS_M:
         return "orange"
     return "red"
 
@@ -231,28 +231,44 @@ def show_metric(kind: str, found: list[dict]):
         nearest = found[0]  # back_end returns results sorted by distance
         color = dist_color(nearest["distance_m"])
         st.metric(f":{color}[:material/{style['symbol']}: {label}]", f"{nearest['distance_m']} m")
-        st.caption(nearest["name"])
+        name = nearest["name"]
+        if len(name) > 30:
+            st.caption(name[:30] + "…", help=name)
+        else:
+            st.caption(name)
 
 
 def show_results(coords):
+    col_map, col_text = st.columns([1, 1])
+    with col_text:
+        enabled = settings()
+    
     m = make_map(coords, SELECTED_ZOOM)
     results = {kind: back_end.find_institutions(coords, kind, RADIUS_M / 1000)
-               for kind in back_end.TYPES}
+           for kind in enabled}
     for kind, found in results.items():
         for item in found:
             add_marker(m, kind, item)
     draw_selected_location(m, coords, circle_color(results))
 
-    col_map, col_text = st.columns([4, 3])
     with col_map:
         st_folium(m, use_container_width=True, height=500, key="map", returned_objects=[])
-    with col_text:
-        summary_heading(find_missing(results), results)
-        grid = st.columns(2)
-        for i, (kind, found) in enumerate(results.items()):
-            with grid[i % 2]:
-                show_metric(kind, found)
+    summary_heading(find_missing(results), results)
+    grid = st.columns(4)
+    for i, (kind, found) in enumerate(results.items()):
+        with grid[i % 4]:
+            show_metric(kind, found)
 
+def settings() -> list[str]:
+    with st.popover("Nastavení zobrazených kategorií"):
+        st.header("Nastavení")
+        return st.pills(
+            "Zobrazit kategorie",
+            options=list(back_end.TYPES),
+            default=list(back_end.TYPES),
+            selection_mode="multi",
+            format_func=lambda k: KINDS.get(k, DEFAULT_KIND).get("label", k).capitalize(),
+        )
 
 # --- page ---
 

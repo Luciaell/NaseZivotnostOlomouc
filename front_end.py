@@ -9,7 +9,7 @@ from geopy.point import Point
 from streamlit_folium import st_folium
 from streamlit_searchbox import st_searchbox
 
-import instituce
+import back_end as instituce
 
 geolocator = Nominatim(user_agent="Geopy Library")
 
@@ -122,9 +122,9 @@ def circle_color(results: dict[str, list]) -> str:
     return "red"
 
 def dist_color(dist: float) -> str:
-    if dist < 200:
+    if dist < 300:
         return "green"
-    if dist < 350:
+    if dist < 500:
         return "orange"
     return "red"
 
@@ -139,7 +139,7 @@ def draw_circle(m: folium.Map, radius: int, coords, color: str = "blue"):
         fill_opacity=0.1
     ).add_to(m)
     icon = folium.Icon(color=color, icon="house", prefix="fa")
-    folium.Marker(coords, icon=icon).add_to(m)
+    folium.Marker(coords, icon=icon, tooltip="Vybraná lokace").add_to(m)
 
 
 selected = st_searchbox(
@@ -152,12 +152,20 @@ radius = 500 # metres
 default_center = [49.5955, 17.2518]
 default_zoom = 12.5
 
+NAZVY = {
+    "zastavky":     "zastávka",
+    "skolky":       "mateřská škola",
+    "lekarny":      "lékárna",
+    "skoly":        "základní škola",
+    "supermarkety": "supermarket"
+}    
+
 MARKER_STYLES = {
     "zastavky":     {"color": "blue",      "icon": "bus"},
     "skolky":       {"color": "orange",    "icon": "child"},
     "lekarny":      {"color": "green",     "icon": "pills"},
     "skoly":        {"color": "red",       "icon": "school"},
-    "supermarkety": {"color": "purple",    "icon": "cart-shopping"},
+    "supermarkety": {"color": "purple",    "icon": "cart-shopping"}
 }
 DEFAULT_STYLE = {"color": "gray", "icon": "location-dot"}
 
@@ -194,6 +202,8 @@ def make_map(coords, zoom, style="voyager"):
         attr=CARTO_ATTR,
     )
 
+st.set_page_config(layout="wide")
+
 if not selected:
     m = make_map(default_center, default_zoom)
     st_folium(m, width=725, key="map", returned_objects=[])
@@ -202,7 +212,7 @@ else:
     if not coords:
         st.error("Could not find that location.")
     else:
-        m = make_map(coords, 15.5)
+        m = make_map(coords, 15)
         results = {}
         nearest = {}
         lines = []
@@ -218,10 +228,15 @@ else:
                 n = nearest[typ]
                 lines.append(f":{dist_color(n['vzdalenost_m'])}[Nejbližší {typ}: {n['nazev']} ({n['vzdalenost_m']} m)]")
             else:
-                lines.append(f":red[Nejbližší {typ}: žádný v okruhu {radius} m]")
+                lines.append(f":red[Nejbližší {NAZVY.get(typ, typ)}: více než {radius} m]")
 
         draw_circle(m, radius, coords, color=circle_color(results))
-        st_folium(m, width=725, key="map", returned_objects=[])
 
-        for line in lines:
-            st.write(line)
+        col_map, col_text = st.columns([4, 3])   # map gets 2/3 of the width
+
+        with col_map:
+            st_folium(m, use_container_width=True, height=500, key="map", returned_objects=[])
+
+        with col_text:
+            for line in lines:
+                st.write(line)

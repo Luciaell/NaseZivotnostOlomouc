@@ -43,6 +43,19 @@ MERGE_BY_NAME = {"bus_stops", "tram_stops", "train_stations"}
 # open data uses "NAZEV" (libraries) or "ORG_NAZEV" (schools).
 NAME_KEYS = ("name", "NAZEV", "ORG_NAZEV")
 
+# Heat-perception survey (2020). Details: "md files of datasets/pocitova-teplotni-mapa-olomouce-2.md"
+HEAT_MAP = DATASETS / "pocitova-teplotni-mapa-olomouce-2.geojson"
+# Heatmap weight per felt-temperature answer (desc_teplota): hot places count most.
+HEAT_WEIGHTS = {
+    "velká zima": 0.0, "zima": 0.0, "chladno": 0.05, "mírně chladno": 0.1, "neutrální": 0.2,
+    "mírně teplo": 0.4, "teplo": 0.6, "horko": 0.8, "velmi horko": 1.0,
+}
+# No rating given: fall back on the question answered ("a" = feels unpleasant on hot days,
+# "b" = feels pleasant).
+HEAT_FALLBACK = {"a": 0.8, "b": 0.2}
+MAX_HEAT_AREA_M2 = 2_000_000   # larger polygons are drawing mistakes (one covers half a continent)
+M_PER_DEG_LAT, M_PER_DEG_LON = 111_320, 72_100   # at Olomouc's latitude (~49.6°)
+
 
 # --- geometry helpers (lon/lat treated as planar; fine at city scale) ---
 
@@ -70,6 +83,12 @@ def _geometry_center(geometry):
     if kind == "MultiPolygon":  # use the largest part's outer ring
         return _ring_centroid(max((p[0] for p in coords), key=len))
     raise ValueError(f"Unsupported geometry type: {kind}")
+
+
+def _ring_area_m2(ring):
+    """Approximate area of a ring [[lon, lat], ...] in square metres (shoelace formula)."""
+    doubled = sum(x0 * y1 - x1 * y0 for (x0, y0), (x1, y1) in zip(ring, ring[1:]))
+    return abs(doubled) / 2 * M_PER_DEG_LAT * M_PER_DEG_LON
 
 
 def _point_in_ring(lon, lat, ring):
@@ -131,6 +150,28 @@ def _load_category(key):
             "osm_id": f.get("id") or p.get("@id"),
         })
     return tuple(institutions)
+
+
+@lru_cache(maxsize=1)
+def heat_points():
+    """Heat-perception survey answers as heatmap points: tuple of (lat, lon, weight).
+
+    Polygons are reduced to their centroid; oversized polygons and answers outside
+    Olomouc are dropped. Weight 0..1 comes from HEAT_WEIGHTS (hot = 1).
+    """
+    data = json.loads(HEAT_MAP.read_text(encoding="utf-8"))
+    points = []
+    for f in data["features"]:
+        g, p = f["geometry"], f["properties"]
+        if g["type"] == "Polygon" and _ring_area_m2(g["coordinates"][0]) > MAX_HEAT_AREA_M2:
+            continue
+        lon, lat = _geometry_center(g)
+        if not is_in_olomouc(lat, lon):
+            continue
+        weight = HEAT_WEIGHTS.get(p.get("desc_teplota"), HEAT_FALLBACK.get(p.get("typ_ident")))
+        if weight:   # skip None and 0 (cold answers add no heat)
+            points.append((lat, lon, weight))
+    return tuple(points)
 
 
 # --- public API ---

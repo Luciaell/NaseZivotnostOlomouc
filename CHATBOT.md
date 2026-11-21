@@ -1,6 +1,6 @@
 # CHATBOT.md
 
-The single source of truth for the AI chatbot in **Naše životnost Olomouc**.
+The single source of truth for the AI chatbot in **Walker15**.
 Update this file whenever a decision is made or the implementation changes.
 
 Status: **v1 implemented**: area summary with a score, plus follow-up chat. Not yet tested against the live API.
@@ -42,7 +42,7 @@ Also known: the address label, the coordinates, `RADIUS_M` (500 m), the circle c
 
 **Data quality caveats** (the chatbot must not draw strong conclusions from these): sports halls and places of worship are incomplete, and restaurants exclude pubs and bars.
 
-**Hidden categories are a user choice, not a gap.** `results` contains only the categories enabled in the settings popover. The types the user turned off are passed separately as "hidden". The chatbot must never present them as missing amenities or as gaps in the data, leaves them out of the summary and the score, and, when asked about one, says it is turned off in the settings and can be turned back on there. Only an *enabled* category with no result in the radius counts as a real gap.
+**Hidden categories are a user choice, not a gap.** `results` contains only the categories enabled in the settings sidebar. The types the user turned off are passed separately as "hidden". The chatbot must never present them as missing amenities or as gaps in the data, leaves them out of the summary and the score, and, when asked about one, says it is turned off in the settings and can be turned back on there. Only an *enabled* category with no result in the radius counts as a real gap.
 
 ---
 
@@ -70,7 +70,7 @@ Also known: the address label, the coordinates, `RADIUS_M` (500 m), the circle c
 - **Module split:** `chatbot.py` builds the prompt and calls the API, and has no Streamlit import. `front_end.py` (`show_chatbot`, `respond`) renders it and holds the session state.
 - **Prompt input** (`chatbot.build_context`): the address, the radius, the app's score as `Hodnocení aplikace: X.X/10` (omitted when `score` is None), the categories turned off in the settings as `Skryté kategorie (uživatel je vypnul v nastavení): …` (omitted when none are hidden), and per enabled type: the Czech label, the count, the 3 nearest results with distance and walking minutes, and an "incomplete data" note for `sports_halls`, `places_of_worship` and `restaurants`. No coordinates.
 - **System prompt** (`chatbot.SYSTEM_PROMPT`, written in English): use only the given data and answer in Czech Markdown. Hidden categories are a user choice: never call them missing, keep them out of the summary, and point to the settings if asked. The summary starts with `**Hodnocení: X/10**` using the app's score exactly as given (the model must never compute, change or round its own; no score in the data → no score line), then one sentence on what raises or lowers it, then at most 3 one-line bullets (main strength, main gap, who the area suits), under about 80 words, without listing every amenity. The prompt describes how the app computes the score (everyday needs up to 8 points, other types up to 2 bonus points, closer counts more, incomplete types don't lower it, hidden categories are not part of it) so the model can explain it. **Keep this description in sync with `front_end.livability_score`.**
-- **Conversation state:** `st.session_state["chat"] = {"key", "messages"}`, where `key = (address, enabled categories)`. `messages[0]` is the hidden data prompt. Changing the address or the categories selected in the settings popover resets the conversation (and creates one new summary). With no categories selected, the chatbot is hidden.
+- **Conversation state:** `st.session_state["chat"] = {"key", "messages"}`, where `key = (address, enabled categories)`. `messages[0]` is the hidden data prompt. Changing the address or the categories selected in the settings sidebar resets the conversation (and creates one new summary). With no categories selected, the chatbot is hidden.
 - **Radius:** taken from `front_end.RADIUS_M` (currently 1000 m, changed by the settings-menu merge). History is stored as plain text (assistant text only).
 - **No re-billing on reruns:** the summary is generated once per address, when `messages` has length 1. Later Streamlit reruns (e.g. after a chat question) only redraw stored messages.
 - **Streaming:** `chatbot.stream_reply` is a generator used with `st.write_stream`.

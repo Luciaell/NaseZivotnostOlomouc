@@ -6,6 +6,7 @@ import folium
 import requests
 import streamlit as st
 from geopy.geocoders import Nominatim
+from folium.plugins import HeatMap
 from geopy.point import Point
 from streamlit_folium import st_folium
 from streamlit_searchbox import st_searchbox
@@ -13,9 +14,9 @@ from streamlit_searchbox import st_searchbox
 import back_end
 import chatbot
 
-st.set_page_config(page_title="Naše životnost Olomouc", layout="wide")  # must run before any other st.* call
+st.set_page_config(page_title="Walker15", layout="wide")  # must run before any other st.* call
 
-USER_AGENT = "nase-zivotnost-ol/1.0"
+USER_AGENT = "walker15/1.0"
 OVERPASS_URLS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
@@ -69,6 +70,12 @@ EDGE_SCORE = 0.3                          # an amenity at the radius edge counts
 
 # Start screen examples: the first known address on each street (free text if none is known).
 EXAMPLE_STREETS = ["Horní náměstí", "třída Svobody", "Brněnská", "Foerstrova"]
+
+# Felt-temperature heatmap (survey data from back_end.heat_points), toggled in the sidebar.
+HEAT_GRADIENT = {0.2: "#2c7bb6", 0.4: "#abd9e9", 0.6: "#ffffbf", 0.8: "#fdae61", 1.0: "#d7191c"}
+HEAT_RADIUS = 25      # px per point
+HEAT_BLUR = 20
+HEAT_MAX_ZOOM = 12    # full intensity from this zoom on, so the layer doesn't fade at city zoom
 
 CARTO_STYLES = {"voyager": "voyager", "positron": "light_all", "dark_matter": "dark_all"}
 CARTO_ATTR = (
@@ -191,6 +198,33 @@ def make_map(coords, zoom, style="voyager") -> folium.Map:
         tiles=f"https://basemaps.cartocdn.com/rastertiles/{CARTO_STYLES[style]}/{{z}}/{{x}}/{{y}}{{r}}.png?key={key}",
         attr=CARTO_ATTR,
     )
+
+
+def add_heat_layer(m: folium.Map):
+    HeatMap(
+        [list(p) for p in back_end.heat_points()],
+        name="Pocitová teplota",
+        radius=HEAT_RADIUS,
+        blur=HEAT_BLUR,
+        max_zoom=HEAT_MAX_ZOOM,
+        min_opacity=0.3,
+        gradient=HEAT_GRADIENT,
+    ).add_to(m)
+
+
+def heat_legend():
+    st.caption(
+        ":material/thermostat: **Pocitová teplota v létě** (průzkum mezi obyvateli, 2020): "
+        ":blue[modrá] = příjemně, :orange[oranžová] až :red[červená] = horko."
+    )
+
+
+def show_map(m: folium.Map, show_heat: bool):
+    if show_heat:
+        add_heat_layer(m)
+    st_folium(m, use_container_width=True, height=MAP_HEIGHT, key="map", returned_objects=[])
+    if show_heat:
+        heat_legend()
 
 
 def find_missing(results: dict[str, list]) -> int:
@@ -399,7 +433,7 @@ def show_chatbot(address: str, results: dict[str, list], score: float | None):
                 messages.pop()     # keep the history valid for the next try
 
 
-def show_results(coords, address: str, enabled, col_map, col_text):
+def show_results(coords, address: str, enabled, show_heat: bool, col_map, col_text):
     m = make_map(coords, SELECTED_ZOOM)
     results = {kind: back_end.find_institutions(coords, kind, RADIUS_M / 1000)
                for kind in enabled}
@@ -410,7 +444,7 @@ def show_results(coords, address: str, enabled, col_map, col_text):
     score = livability_score(results)   # shown on the page and given to the chatbot
 
     with col_map:
-        st_folium(m, use_container_width=True, height=MAP_HEIGHT, key="map", returned_objects=[])
+        show_map(m, show_heat)
     with col_text:
         if not enabled:
             st.info("Vyberte alespoň jednu kategorii.")
@@ -426,16 +460,25 @@ def show_results(coords, address: str, enabled, col_map, col_text):
         show_metric_groups(results)
 
 
-def settings() -> list[str]:
-    with st.popover("Nastavení zobrazených kategorií"):
-        st.header("Nastavení")
-        return st.pills(
+def settings() -> tuple[list[str], bool]:
+    """Sidebar settings: (enabled categories, show the heatmap)."""
+    with st.sidebar:   # left side of the screen; collapsible
+        st.header(":material/settings: Nastavení")
+        enabled = st.pills(
             "Zobrazit kategorie",
             options=list(back_end.TYPES),
             default=list(back_end.TYPES),
             selection_mode="multi",
             format_func=lambda k: KINDS.get(k, DEFAULT_KIND).get("label", k).capitalize(),
         )
+        st.subheader("Vrstvy mapy")
+        show_heat = st.toggle(
+            "Pocitová teplotní mapa",
+            value=False,
+            help="Kde se lidé v Olomouci cítí během horkých letních dní nepříjemně (červená) "
+                 "nebo příjemně (modrá). Data z průzkumu města z roku 2020.",
+        )
+    return enabled, show_heat
 
 # --- start screen ---
 
@@ -465,7 +508,7 @@ def clear_example():
 
 
 def show_intro():
-    st.title("Naše životnost Olomouc")
+    st.title("Walker15")
     st.markdown(
         f"Zadejte adresu v Olomouci a zjistěte, jak se tam žije. Aplikace ukáže, co je "
         f"v okruhu **{RADIUS_M} m**: zastávky, školy a školky, obchody, lékárny i volný čas. "
@@ -489,14 +532,13 @@ selected = st_searchbox(
     reset_function=clear_example,
 )
 
-enabled = settings()
+enabled, show_heat = settings()
 
 col_map, col_text = st.columns([1, 1])
 
 if not selected:
     with col_map:
-        st_folium(make_map(DEFAULT_CENTER, DEFAULT_ZOOM), use_container_width=True,
-                  height=MAP_HEIGHT, key="map", returned_objects=[])
+        show_map(make_map(DEFAULT_CENTER, DEFAULT_ZOOM), show_heat)
     with col_text:
         show_intro()
 else:
@@ -506,4 +548,4 @@ else:
     elif not back_end.is_in_olomouc(*coords):
         st.error("Adresa je mimo Olomouc.")
     else:
-        show_results(coords, selected, enabled, col_map, col_text)
+        show_results(coords, selected, enabled, show_heat, col_map, col_text)

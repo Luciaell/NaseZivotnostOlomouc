@@ -20,7 +20,7 @@ INCOMPLETE = {
 }
 
 SYSTEM_PROMPT = """\
-You are the assistant of "Naše životnost Olomouc", an app that rates how livable \
+You are the assistant of "Walker15", an app that rates how livable \
 an address in Olomouc (Czech Republic) is.
 
 You receive a list of amenities found within a fixed radius of one address. \

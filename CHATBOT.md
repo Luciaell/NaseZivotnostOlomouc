@@ -67,7 +67,7 @@ Also known: the address label, the coordinates, `RADIUS_M` (500 m), the circle c
 - **API key:** `ANTHROPIC_API_KEY` in `.streamlit/secrets.toml`, with the environment variable as a fallback (`get_anthropic_key()`, the same pattern as `get_carto_key()`). Without a key, the section shows an info message and makes no API calls.
 - **Module split:** `chatbot.py` builds the prompt and calls the API, and has no Streamlit import. `front_end.py` (`show_chatbot`, `respond`) renders it and holds the session state.
 - **Prompt input** (`chatbot.build_context`): the address, the radius, and per type: the Czech label, the count, the 3 nearest results with distance and walking minutes, and an "incomplete data" note for `sports_halls`, `places_of_worship` and `restaurants`. No coordinates.
-- **System prompt** (`chatbot.SYSTEM_PROMPT`, written in English): use only the given data and answer in Czech Markdown. The summary starts with `**Hodnocení: X/10**`, then covers strengths, gaps and who the area suits, in about 200 words. The score weighs everyday needs (transport, supermarket, pharmacy, kindergarten, school) above leisure, and incomplete types must not lower it.
+- **System prompt** (`chatbot.SYSTEM_PROMPT`, written in English): use only the given data and answer in Czech Markdown. The summary starts with `**Hodnocení: X/10**`, then at most 3 one-line bullets (main strength, main gap, who the area suits), under about 80 words, without listing every amenity. The score weighs everyday needs (transport, supermarket, pharmacy, kindergarten, school) above leisure, and incomplete types must not lower it.
 - **Conversation state:** `st.session_state["chat"] = {"key", "messages"}`, where `key = (address, enabled categories)`. `messages[0]` is the hidden data prompt. Changing the address or the categories selected in the settings popover resets the conversation (and creates one new summary). With no categories selected, the chatbot is hidden.
 - **Radius:** taken from `front_end.RADIUS_M` (currently 1000 m, changed by the settings-menu merge). History is stored as plain text (assistant text only).
 - **No re-billing on reruns:** the summary is generated once per address, when `messages` has length 1. Later Streamlit reruns (e.g. after a chat question) only redraw stored messages.
@@ -95,12 +95,13 @@ Also known: the address label, the coordinates, `RADIUS_M` (500 m), the circle c
 | 2026-11-21 | UI: the summary generates automatically below the map and metrics; the follow-up chat input sits at the bottom of the page. |
 | 2026-11-21 | Deployment: local only; the team has an API key. No rate limiting for now. |
 | 2026-11-21 | Merged with the settings menu (category pills). The chatbot sees only the enabled categories and renders full-width below the map and metric columns. |
+| 2026-11-21 | Layout change: the chat (summary, scrollable history of `CHAT_HEIGHT` px, inline chat input) sits in the right column next to the map; the metric cards moved under the map. Summary shortened to ≤ 3 bullets, ~80 words. |
 
 ---
 
 ## 7. Implementation notes
 
-- Files: [chatbot.py](chatbot.py) (logic) and [front_end.py](front_end.py) (`get_anthropic_key`, `get_chat_client`, `respond`, `show_chatbot`). `show_results(coords, address, enabled, col_map, col_text)` calls `show_chatbot` after the two columns.
+- Files: [chatbot.py](chatbot.py) (logic) and [front_end.py](front_end.py) (`get_anthropic_key`, `get_chat_client`, `respond`, `show_chatbot`). `show_results(coords, address, enabled, col_map, col_text)` calls `show_chatbot` inside `col_text` (next to the map); the metric cards render full width below both columns.
 - Settings to tune are constants at the top of `chatbot.py`: `MODEL`, `MAX_TOKENS`, `EFFORT`, `WALK_M_PER_MIN`, `TOP_N` and `INCOMPLETE`.
 - When a new amenity type is added (CLAUDE.md, "Adding a new amenity type"), the chatbot picks it up automatically through `results`. If the dataset is incomplete, add it to `INCOMPLETE`.
 - Cost estimate: one summary is about 1.5k input and a few hundred output tokens, roughly $0.01 per address with Sonnet 5.5.

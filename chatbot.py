@@ -31,9 +31,11 @@ Always answer in Czech, in Markdown.
 
 When asked for the area summary, use this structure:
 **Hodnocení: X/10** (one decimal allowed), then one short sentence explaining the score.
-Then 3 to 5 short paragraphs or bullet points: strengths, what is missing within the \
-radius, and who the location suits best (e.g. families, seniors, students, car-free \
-commuters). Keep it under about 200 words.
+Then at most 3 short bullet points, one line each: the main strength, the main gap \
+within the radius (if any), and who the location suits best (e.g. families, seniors, \
+students, car-free commuters). Keep the whole summary under about 80 words. \
+Do not list every amenity; the user sees the full list next to the chat and can \
+ask follow-up questions for details.
 
 Base the score mainly on everyday needs: public transport, supermarket, pharmacy, \
 kindergarten and primary school. Leisure amenities (restaurants, cinema, theatre, \

@@ -27,6 +27,9 @@ RADIUS_M = 1000
 DEFAULT_CENTER = [49.5955, 17.2518]
 DEFAULT_ZOOM = 12.5
 SELECTED_ZOOM = 15
+MAP_HEIGHT = 500
+METRIC_COLUMNS = 4
+CHAT_HEIGHT = 380  # scrollable chat history; with the heading and input it lines up with the map
 
 # One entry per type in back_end.TYPES: Czech label, map marker style (Font Awesome
 # `icon`) and the summary icon (`symbol`, a Google Material Symbol name).
@@ -276,6 +279,7 @@ def respond(client: anthropic.Anthropic, messages: list[dict]) -> bool:
 
 
 def show_chatbot(address: str, results: dict[str, list]):
+    """Render the chat in the current container (the column next to the map)."""
     st.subheader(":material/smart_toy: AI shrnutí okolí")
     key = get_anthropic_key()
     if not key:
@@ -293,20 +297,24 @@ def show_chatbot(address: str, results: dict[str, list]):
         st.session_state["chat"] = chat
     messages = chat["messages"]
 
-    for msg in messages[1:]:   # messages[0] is the hidden data prompt
-        with st.chat_message(msg["role"]):
-            st.markdown(msg["content"])
-
-    if len(messages) == 1:     # summary not generated yet
-        respond(client, messages)
-
+    # Scrollable history keeps the column roughly as tall as the map.
+    history = st.container(height=CHAT_HEIGHT)
     question = st.chat_input("Zeptejte se na okolí této adresy…")
-    if question:
-        messages.append({"role": "user", "content": question})
-        with st.chat_message("user"):
-            st.markdown(question)
-        if not respond(client, messages):
-            messages.pop()     # keep the history valid for the next try
+
+    with history:
+        for msg in messages[1:]:   # messages[0] is the hidden data prompt
+            with st.chat_message(msg["role"]):
+                st.markdown(msg["content"])
+
+        if len(messages) == 1:     # summary not generated yet
+            respond(client, messages)
+
+        if question:
+            messages.append({"role": "user", "content": question})
+            with st.chat_message("user"):
+                st.markdown(question)
+            if not respond(client, messages):
+                messages.pop()     # keep the history valid for the next try
 
 
 def show_results(coords, address: str, enabled, col_map, col_text):
@@ -319,19 +327,19 @@ def show_results(coords, address: str, enabled, col_map, col_text):
     draw_selected_location(m, coords, circle_color(results))
 
     with col_map:
-        st_folium(m, use_container_width=True, height=500, key="map", returned_objects=[])
+        st_folium(m, use_container_width=True, height=MAP_HEIGHT, key="map", returned_objects=[])
     with col_text:
         if not enabled:
             st.info("Vyberte alespoň jednu kategorii.")
         else:
-            summary_heading(find_missing(results), results)
-            grid = st.columns(2)
-            for i, (kind, found) in enumerate(results.items()):
-                with grid[i % 2]:
-                    show_metric(kind, found)
+            show_chatbot(address, results)   # AI summary next to the map
 
-    if enabled:
-        show_chatbot(address, results)   # full width, below both columns
+    if enabled:   # metric cards full width, below both columns
+        summary_heading(find_missing(results), results)
+        grid = st.columns(METRIC_COLUMNS)
+        for i, (kind, found) in enumerate(results.items()):
+            with grid[i % METRIC_COLUMNS]:
+                show_metric(kind, found)
 
 
 def settings() -> list[str]:
@@ -349,15 +357,14 @@ def settings() -> list[str]:
 
 selected = st_searchbox(suggest, placeholder="Zadejte adresu", key="address_search")
 
-col_map, col_text = st.columns([1, 1])
+enabled = settings()
 
-with col_text:
-    enabled = settings()
+col_map, col_text = st.columns([1, 1])
 
 if not selected:
     with col_map:
         st_folium(make_map(DEFAULT_CENTER, DEFAULT_ZOOM), use_container_width=True,
-                  height=500, key="map", returned_objects=[])
+                  height=MAP_HEIGHT, key="map", returned_objects=[])
 else:
     coords = addresses.get(selected) or search_location(selected)
     if not coords:

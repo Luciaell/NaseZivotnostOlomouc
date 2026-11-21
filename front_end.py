@@ -9,7 +9,7 @@ from geopy.point import Point
 from streamlit_folium import st_folium
 from streamlit_searchbox import st_searchbox
 
-import back_end as instituce
+import back_end as institutions
 
 geolocator = Nominatim(user_agent="Geopy Library")
 
@@ -114,7 +114,7 @@ def suggest(searchterm: str) -> list[str]:
     return results
 
 def circle_color(results: dict[str, list]) -> str:
-    missing = sum(1 for seznam in results.values() if not seznam)
+    missing = sum(1 for found in results.values() if not found)
     if missing == 0:
         return "green"
     if missing == 1:
@@ -152,28 +152,28 @@ radius = 500 # metres
 default_center = [49.5955, 17.2518]
 default_zoom = 12.5
 
-NAZVY = {
-    "zastavky":     "zastávka",
-    "skolky":       "mateřská škola",
-    "lekarny":      "lékárna",
-    "skoly":        "základní škola",
-    "supermarkety": "supermarket"
+LABELS = {
+    "bus_stops":     "zastávka",
+    "kindergartens": "mateřská škola",
+    "pharmacies":    "lékárna",
+    "schools":       "základní škola",
+    "supermarkets":  "supermarket"
 }    
 
 MARKER_STYLES = {
-    "zastavky":     {"color": "blue",      "icon": "bus"},
-    "skolky":       {"color": "orange",    "icon": "child"},
-    "lekarny":      {"color": "green",     "icon": "pills"},
-    "skoly":        {"color": "red",       "icon": "school"},
-    "supermarkety": {"color": "purple",    "icon": "cart-shopping"}
+    "bus_stops":     {"color": "blue",      "icon": "bus"},
+    "kindergartens": {"color": "orange",    "icon": "child"},
+    "pharmacies":    {"color": "green",     "icon": "pills"},
+    "schools":       {"color": "red",       "icon": "school"},
+    "supermarkets":  {"color": "purple",    "icon": "cart-shopping"}
 }
 DEFAULT_STYLE = {"color": "gray", "icon": "location-dot"}
 
-def add_marker(m: folium.Map, typ: str, item: dict):
-    style = MARKER_STYLES.get(typ, DEFAULT_STYLE)
+def add_marker(m: folium.Map, kind: str, item: dict):
+    style = MARKER_STYLES.get(kind, DEFAULT_STYLE)
     folium.Marker(
         location=[item["lat"], item["lon"]],
-        tooltip=f"{item['nazev']} ({item['vzdalenost_m']} m)",
+        tooltip=f"{item['name']} ({item['distance_m']} m)",
         icon=folium.Icon(color=style["color"], icon=style["icon"], prefix="fa"),
     ).add_to(m)
 
@@ -217,18 +217,18 @@ else:
         nearest = {}
         lines = []
 
-        for typ in instituce.TYPY:
-            seznam = instituce.najdi_instituce(coords, typ, radius / 1000)
-            results[typ] = seznam
-            for i in seznam:
-                add_marker(m, typ, i)
+        for kind in institutions.TYPES:
+            found = institutions.find_institutions(coords, kind, radius / 1000)
+            results[kind] = found
+            for i in found:
+                add_marker(m, kind, i)
 
-            if seznam:
-                nearest[typ] = min(seznam, key=lambda i: i["vzdalenost_m"])
-                n = nearest[typ]
-                lines.append(f":{dist_color(n['vzdalenost_m'])}[Nejbližší {typ}: {n['nazev']} ({n['vzdalenost_m']} m)]")
+            if found:
+                nearest[kind] = min(found, key=lambda i: i["distance_m"])
+                n = nearest[kind]
+                lines.append(f":{dist_color(n['distance_m'])}[Nejbližší {kind}: {n['name']} ({n['distance_m']} m)]")
             else:
-                lines.append(f":red[Nejbližší {NAZVY.get(typ, typ)}: více než {radius} m]")
+                lines.append(f":red[Nejbližší {LABELS.get(kind, kind)}: více než {radius} m]")
 
         draw_circle(m, radius, coords, color=circle_color(results))
 

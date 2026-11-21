@@ -202,20 +202,26 @@ else:
     if not coords:
         st.error("Could not find that location.")
     else:
-        m = make_map(coords, 14)
+        m = make_map(coords, 15.5)
         results = {}
         nearest = {}
+        lines = []
+
         for typ in instituce.TYPY:
             seznam = instituce.najdi_instituce(coords, typ, radius / 1000)
             results[typ] = seznam
-            if seznam:
-                nearest[typ] = min(seznam, key=lambda i: i["vzdalenost_m"])
             for i in seznam:
                 add_marker(m, typ, i)
-            if typ in nearest:
-                st.write(f":{dist_color(nearest[typ]['vzdalenost_m'])}[Nejbližší {typ}: {nearest[typ]['nazev']} ({nearest[typ]['vzdalenost_m']} m)]")
-            else:
-                st.write(f":{dist_color(0)}Nejbližší {typ}: žádný v okruhu {radius} m")
 
-    draw_circle(m, radius, coords, color=circle_color(results))
-    st_folium(m, width=725, key="map", returned_objects=[])
+            if seznam:
+                nearest[typ] = min(seznam, key=lambda i: i["vzdalenost_m"])
+                n = nearest[typ]
+                lines.append(f":{dist_color(n['vzdalenost_m'])}[Nejbližší {typ}: {n['nazev']} ({n['vzdalenost_m']} m)]")
+            else:
+                lines.append(f":red[Nejbližší {typ}: žádný v okruhu {radius} m]")
+
+        draw_circle(m, radius, coords, color=circle_color(results))
+        st_folium(m, width=725, key="map", returned_objects=[])
+
+        for line in lines:
+            st.write(line)

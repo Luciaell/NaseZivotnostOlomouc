@@ -26,24 +26,25 @@ DEFAULT_CENTER = [49.5955, 17.2518]
 DEFAULT_ZOOM = 12.5
 SELECTED_ZOOM = 15
 
-# One entry per type in back_end.TYPES: Czech label for the summary + marker style.
+# One entry per type in back_end.TYPES: Czech label, map marker style (Font Awesome
+# `icon`) and the summary icon (`symbol`, a Google Material Symbol name).
 KINDS = {
-    "bus_stops":         {"label": "zastávka",          "color": "blue",       "icon": "bus"},
-    "tram_stops":        {"label": "zastávka tramvaje", "color": "darkblue",   "icon": "train-tram"},
-    "train_stations":    {"label": "vlakové nádraží",   "color": "cadetblue",  "icon": "train"},
-    "kindergartens":     {"label": "mateřská škola",    "color": "orange",     "icon": "child"},
-    "schools":           {"label": "základní škola",    "color": "red",        "icon": "school"},
-    "libraries":         {"label": "knihovna",          "color": "darkred",    "icon": "book"},
-    "pharmacies":        {"label": "lékárna",           "color": "green",      "icon": "pills"},
-    "supermarkets":      {"label": "supermarket",       "color": "purple",     "icon": "cart-shopping"},
-    "restaurants":       {"label": "restaurace",        "color": "beige",      "icon": "utensils"},
-    "theatres":          {"label": "divadlo",           "color": "darkpurple", "icon": "masks-theater"},
-    "cinemas":           {"label": "kino",              "color": "pink",       "icon": "film"},
-    "gyms":              {"label": "posilovna",         "color": "darkgreen",  "icon": "dumbbell"},
-    "sports_halls":      {"label": "sportovní hala",    "color": "lightgreen", "icon": "volleyball"},
-    "places_of_worship": {"label": "kostel",            "color": "black",      "icon": "church"},
+    "bus_stops":         {"label": "zastávka",          "color": "blue",       "icon": "bus",           "symbol": "directions_bus"},
+    "tram_stops":        {"label": "zastávka tramvaje", "color": "darkblue",   "icon": "train-tram",    "symbol": "tram"},
+    "train_stations":    {"label": "vlakové nádraží",   "color": "cadetblue",  "icon": "train",         "symbol": "train"},
+    "kindergartens":     {"label": "mateřská škola",    "color": "orange",     "icon": "child",         "symbol": "child_care"},
+    "schools":           {"label": "základní škola",    "color": "red",        "icon": "school",        "symbol": "school"},
+    "libraries":         {"label": "knihovna",          "color": "darkred",    "icon": "book",          "symbol": "local_library"},
+    "pharmacies":        {"label": "lékárna",           "color": "green",      "icon": "pills",         "symbol": "local_pharmacy"},
+    "supermarkets":      {"label": "supermarket",       "color": "purple",     "icon": "cart-shopping", "symbol": "shopping_cart"},
+    "restaurants":       {"label": "restaurace",        "color": "beige",      "icon": "utensils",      "symbol": "restaurant"},
+    "theatres":          {"label": "divadlo",           "color": "darkpurple", "icon": "masks-theater", "symbol": "theater_comedy"},
+    "cinemas":           {"label": "kino",              "color": "pink",       "icon": "film",          "symbol": "movie"},
+    "gyms":              {"label": "posilovna",         "color": "darkgreen",  "icon": "dumbbell",      "symbol": "fitness_center"},
+    "sports_halls":      {"label": "sportovní hala",    "color": "lightgreen", "icon": "volleyball",    "symbol": "sports_volleyball"},
+    "places_of_worship": {"label": "kostel",            "color": "black",      "icon": "church",        "symbol": "church"},
 }
-DEFAULT_KIND = {"color": "gray", "icon": "location-dot"}
+DEFAULT_KIND = {"color": "gray", "icon": "location-dot", "symbol": "location_on"}
 
 CARTO_STYLES = {"voyager": "voyager", "positron": "light_all", "dark_matter": "dark_all"}
 CARTO_ATTR = (
@@ -208,12 +209,18 @@ def add_marker(m: folium.Map, kind: str, item: dict):
     ).add_to(m)
 
 
-def summary_line(kind: str, found: list[dict]) -> str:
-    label = KINDS.get(kind, {}).get("label", kind)
-    if not found:
-        return f":red[Nejbližší {label}: více než {RADIUS_M} m]"
-    nearest = found[0]  # back_end returns results sorted by distance
-    return f":{dist_color(nearest['distance_m'])}[Nejbližší {label}: {nearest['name']} ({nearest['distance_m']} m)]"
+def show_metric(kind: str, found: list[dict]):
+    style = KINDS.get(kind, DEFAULT_KIND)
+    label = style.get("label", kind).capitalize()
+    with st.container(border=True):
+        if not found:
+            st.metric(f":red[:material/{style['symbol']}: {label}]", f"> {RADIUS_M} m")
+            st.caption("Žádné v okolí")
+            return
+        nearest = found[0]  # back_end returns results sorted by distance
+        color = dist_color(nearest["distance_m"])
+        st.metric(f":{color}[:material/{style['symbol']}: {label}]", f"{nearest['distance_m']} m")
+        st.caption(nearest["name"])
 
 
 def show_results(coords):
@@ -229,8 +236,10 @@ def show_results(coords):
     with col_map:
         st_folium(m, use_container_width=True, height=500, key="map", returned_objects=[])
     with col_text:
-        for kind, found in results.items():
-            st.write(summary_line(kind, found))
+        grid = st.columns(2)
+        for i, (kind, found) in enumerate(results.items()):
+            with grid[i % 2]:
+                show_metric(kind, found)
 
 
 # --- page ---

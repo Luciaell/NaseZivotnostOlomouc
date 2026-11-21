@@ -23,6 +23,7 @@ OVERPASS_URLS = [
 ]
 MIN_CHARS = 2      # suggestions appear after this many characters
 MAX_RESULTS = 10
+FOUND_NAME_PARTS = 3   # how much of Nominatim's place name to show after a free-text search
 
 # Search radius, chosen with the sidebar slider (metres).
 DEFAULT_RADIUS_M = 1000
@@ -149,8 +150,9 @@ def get_addresses() -> dict[str, list[float]]:
         return {}
 
 
-@st.cache_data(show_spinner=False)
-def search_location(query: str):
+@st.cache_data(show_spinner="Hledání adresy...")
+def search_location(query: str) -> tuple[list[float], str] | None:
+    """Free-text lookup (Nominatim) inside the Olomouc bbox: (coords, short place name)."""
     bbox = get_city_bbox("Olomouc")
     if bbox is None:
         return None
@@ -162,25 +164,42 @@ def search_location(query: str):
         bounded=True,
         addressdetails=True,
     )
-    return [loc.latitude, loc.longitude] if loc else None
+    if not loc:
+        return None
+    # "Hlavní nádraží, Jeremenkova, Nové Hodolany, Hodolany, Olomouc, ..." -> first 3 parts
+    name = ", ".join(loc.address.split(", ")[:FOUND_NAME_PARTS])
+    return [loc.latitude, loc.longitude], name
+
+
+def locate(selected: str) -> tuple[list[float] | None, str | None]:
+    """Coords for the searchbox value, plus what a free-text search matched (None for a
+    suggested address, which needs no explanation)."""
+    if selected in addresses:
+        return addresses[selected], None
+    hit = search_location(selected)
+    return hit if hit else (None, None)
 
 
 addresses = get_addresses()
 normalized = [(normalize(label), label) for label in sorted(addresses)]
 
 
-def suggest(searchterm: str) -> list[str]:
-    # Called by the searchbox on every keystroke.
-    if len(searchterm) < MIN_CHARS:
+def suggest(searchterm: str) -> list[str | tuple[str, str]]:
+    # Called by the searchbox on every keystroke. Returns address labels plus a
+    # "search for exactly this" option as a (label, value) tuple.
+    text = searchterm.strip()
+    if len(text) < MIN_CHARS:
         return []
-    term = normalize(searchterm)
+    term = normalize(text)
     starts = [lab for n, lab in normalized if n.startswith(term)]
     contains = [lab for n, lab in normalized if term in n and not n.startswith(term)]
     results = (starts + contains)[:MAX_RESULTS]
-    # let the user pick their exact text even if it's not in the list
-    if searchterm not in results:
-        results.append(searchterm)
-    return results
+    if any(n == term for n, _ in normalized):
+        return results   # the exact address is already in the list
+    free_text = (f"Hledat „{text}“", text)   # districts, landmarks, other spellings
+    # With prefix matches the user is probably typing an address, so those come first;
+    # otherwise their own text is the best guess and goes on top (Enter picks it).
+    return results + [free_text] if starts else [free_text] + results
 
 
 # --- map ---
@@ -547,28 +566,38 @@ def show_intro(radius: int):
 example = st.session_state.get("example")
 selected = st_searchbox(
     suggest,
-    placeholder="Zadejte adresu",
+    placeholder="Zadejte adresu, čtvrť nebo místo (např. Kateřinská 10, Neředín, Hlavní nádraží)",
     key=f"address_search_{st.session_state.get('search_gen', 0)}",
     default=example,
     default_searchterm=example or "",
     default_options=[example] if example else None,
+    edit_after_submit="current",   # a chosen term stays editable, so a typo is easy to fix
     reset_function=clear_example,
 )
 
 enabled, show_heat, radius = settings()
 
+# Resolve the search before laying out the page, so feedback sits right under the box.
+coords = None
+if selected:
+    coords, found_as = locate(selected)
+    if not coords:
+        st.error(
+            f"„{selected}“ jsme v Olomouci nenašli. Zkuste ulici s číslem domu "
+            "(Kateřinská 10), čtvrť (Neředín) nebo známé místo (Hlavní nádraží)."
+        )
+    elif not back_end.is_in_olomouc(*coords):
+        st.error(f"„{found_as or selected}“ leží mimo hranice Olomouce.")
+        coords = None
+    elif found_as:
+        st.caption(f":material/search: Nalezeno: **{found_as}**")
+
 col_map, col_text = st.columns([1, 1])
 
-if not selected:
+if coords:
+    show_results(coords, selected, enabled, show_heat, radius, col_map, col_text)
+else:   # nothing chosen yet, or the search failed: show the start screen
     with col_map:
         show_map(make_map(DEFAULT_CENTER, DEFAULT_ZOOM), show_heat)
     with col_text:
         show_intro(radius)
-else:
-    coords = addresses.get(selected) or search_location(selected)
-    if not coords:
-        st.error("Adresa nenalezena.")
-    elif not back_end.is_in_olomouc(*coords):
-        st.error("Adresa je mimo Olomouc.")
-    else:
-        show_results(coords, selected, enabled, show_heat, radius, col_map, col_text)

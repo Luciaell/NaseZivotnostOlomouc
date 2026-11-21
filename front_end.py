@@ -11,7 +11,7 @@ from streamlit_searchbox import st_searchbox
 
 import back_end
 
-st.set_page_config(layout="wide")  # must run before any other st.* call
+st.set_page_config(page_title="Naše životnost Olomouc", layout="wide")  # must run before any other st.* call
 
 USER_AGENT = "nase-zivotnost-ol/1.0"
 OVERPASS_URLS = [
@@ -48,8 +48,8 @@ DEFAULT_KIND = {"color": "gray", "icon": "location-dot", "symbol": "location_on"
 
 CARTO_STYLES = {"voyager": "voyager", "positron": "light_all", "dark_matter": "dark_all"}
 CARTO_ATTR = (
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> '
-    'contributors, &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    '&copy; přispěvatelé <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, '
+    '&copy; <a href="https://carto.com/attributions">CARTO</a>'
 )
 
 geolocator = Nominatim(user_agent=USER_AGENT)
@@ -72,7 +72,7 @@ def get_city_bbox(city: str):
     return (south, west, north, east)
 
 
-@st.cache_data(ttl=60 * 60 * 24, show_spinner="Loading addresses...")
+@st.cache_data(ttl=60 * 60 * 24, show_spinner="Načítání adres...")
 def fetch_addresses() -> dict[str, list[float]]:
     # Returns {"Kateřinská 12": [lat, lon], ...} for all address points in the box.
     south, west, north, east = get_city_bbox("Olomouc")
@@ -88,7 +88,7 @@ def fetch_addresses() -> dict[str, list[float]]:
             r.raise_for_status()
             data = r.json()
             if "elements" not in data:
-                raise RuntimeError(data.get("remark", "No elements in response"))
+                raise RuntimeError(data.get("remark", "odpověď neobsahuje žádná data"))
             addresses = {}
             for el in data["elements"]:
                 tags = el["tags"]
@@ -103,14 +103,14 @@ def fetch_addresses() -> dict[str, list[float]]:
             return addresses
         except Exception as e:
             last_error = e
-    raise RuntimeError(f"All Overpass servers failed: {last_error}")  # not cached
+    raise RuntimeError(f"žádný server Overpass neodpověděl: {last_error}")  # not cached; shown in the UI warning
 
 
 def get_addresses() -> dict[str, list[float]]:
     try:
         return fetch_addresses()
     except Exception as e:
-        st.warning(f"Address list unavailable ({e}). Free-text search still works.")
+        st.warning(f"Seznam adres není dostupný ({e}). Textové vyhledávání stále funguje.")
         return {}
 
 
@@ -169,8 +169,12 @@ def make_map(coords, zoom, style="voyager") -> folium.Map:
     )
 
 
+def find_missing(results: dict[str, list]) -> int:
+    return sum(1 for found in results.values() if not found)
+
+
 def circle_color(results: dict[str, list]) -> str:
-    missing = sum(1 for found in results.values() if not found)
+    missing = find_missing(results)
     if missing == 0:
         return "green"
     if missing == 1:
@@ -197,7 +201,7 @@ def draw_selected_location(m: folium.Map, coords, color: str):
         fill_opacity=0.1,
     ).add_to(m)
     icon = folium.Icon(color=color, icon="house", prefix="fa")
-    folium.Marker(coords, icon=icon, tooltip="Vybraná lokace").add_to(m)
+    folium.Marker(coords, icon=icon, tooltip="Vybraná adresa").add_to(m)
 
 
 def add_marker(m: folium.Map, kind: str, item: dict):
@@ -207,6 +211,13 @@ def add_marker(m: folium.Map, kind: str, item: dict):
         tooltip=f"{item['name']} ({item['distance_m']} m)",
         icon=folium.Icon(color=style["color"], icon=style["icon"], prefix="fa"),
     ).add_to(m)
+
+
+def summary_heading(missing: int, results: dict[str, list]):
+    if missing == 0:
+        st.success(f"Všechny služby jsou dostupné v okruhu {RADIUS_M} m.")
+    else:
+        st.error(f"Chybí: {missing} z {len(results)} služeb.")
 
 
 def show_metric(kind: str, found: list[dict]):
@@ -236,6 +247,7 @@ def show_results(coords):
     with col_map:
         st_folium(m, use_container_width=True, height=500, key="map", returned_objects=[])
     with col_text:
+        summary_heading(find_missing(results), results)
         grid = st.columns(2)
         for i, (kind, found) in enumerate(results.items()):
             with grid[i % 2]:
@@ -244,15 +256,15 @@ def show_results(coords):
 
 # --- page ---
 
-selected = st_searchbox(suggest, placeholder="Enter a location", key="address_search")
+selected = st_searchbox(suggest, placeholder="Zadejte adresu", key="address_search")
 
 if not selected:
     st_folium(make_map(DEFAULT_CENTER, DEFAULT_ZOOM), width=725, key="map", returned_objects=[])
 else:
     coords = addresses.get(selected) or search_location(selected)
     if not coords:
-        st.error("Could not find that location.")
+        st.error("Adresa nenalezena.")
     elif not back_end.is_in_olomouc(*coords):
-        st.error("That location is outside Olomouc.")
+        st.error("Adresa je mimo Olomouc.")
     else:
         show_results(coords)

@@ -2,7 +2,7 @@
 
 ## Project overview
 
-**Walker15** (formerly *Naše životnost Olomouc*) is a Streamlit web app that rates how livable an address in Olomouc (Czech Republic) is. The user searches for an address. The app shows it on a map with a 500 m radius and lists the nearby amenities in that radius: bus stops, kindergartens, pharmacies, primary schools and supermarkets.
+**Walker15** (formerly *Naše životnost Olomouc*) is a Streamlit web app that rates how livable an address in Olomouc (Czech Republic) is. The user searches for an address. The app shows it on a map with an adjustable radius (sidebar slider, 1 km by default) and lists the nearby amenities in that radius: transport, schools, shops, pharmacies and leisure.
 
 It is a small team project, and the planned features are in [roadmap.txt](roadmap.txt). Code (identifiers, comments, docstrings, error messages) is in **English**. User-facing strings (summary lines, marker tooltips, fallback names such as `"Lékárna (bez názvu)"`) are in **Czech**.
 
@@ -32,12 +32,13 @@ python back_end.py          # quick manual test of the backend (prints amenities
 | [datasets/](datasets/) | GeoJSON datasets (see [Datasets](#datasets)) and the Olomouc city boundary |
 
 ### front_end.py
-- **Settings**: constants at the top of the file: `RADIUS_M` (500), `DEFAULT_CENTER`, `DEFAULT_ZOOM` (12.5, start view), `SELECTED_ZOOM` (15, after choosing an address). The `KINDS` dict holds each type's Czech label, marker colour and Font Awesome icon.
+- **Settings**: constants at the top of the file: `DEFAULT_RADIUS_M` (1000) with the slider range `MIN_RADIUS_M`/`MAX_RADIUS_M`/`RADIUS_STEP_M` (200–2000 m, step 100), `DEFAULT_CENTER`, `DEFAULT_ZOOM` (12.5, start view). After choosing an address, `fit_radius` zooms the map so the whole radius circle is visible.
+- **Radius**: chosen with the "Okruh hledání" slider in the sidebar (`settings()` returns it). There is no global radius constant: every function that needs it takes a `radius` argument (search, circle, distance colours, score, metric cards, chatbot). Changing the radius starts a new chat conversation. The `KINDS` dict holds each type's Czech label, marker colour and Font Awesome icon.
 - **Address autocomplete**: `fetch_addresses()` queries the **Overpass API** for every address point in the Olomouc bounding box. If the first server fails, it tries a fallback mirror. Results are cached for 24 h. Labels use the Czech `conscription/orientation` number format (e.g. `Kateřinská 123/4`). `suggest()` matches without diacritics: results that start with the search text come first, then results that only contain it.
 - **Free-text fallback**: `search_location()` uses Nominatim (geopy), bounded to the Olomouc bbox.
 - **Map tiles**: `make_map(coords, zoom, style)` builds the Folium map. With a CARTO key (`get_carto_key()`), it uses CARTO raster tiles in one of three styles (`CARTO_STYLES`): `voyager` (default), `positron` or `dark_matter`. Without a key, it uses plain OSM tiles.
 - **Heatmap layer**: the sidebar toggle "Pocitová teplotní mapa" (off by default, returned by `settings()`) adds a felt-temperature heatmap from `back_end.heat_points()` to both the start map and the results map (`show_map`, `add_heat_layer`, folium `HeatMap` plugin), with a legend caption under the map. Look and feel: `HEAT_GRADIENT`, `HEAT_RADIUS`, `HEAT_BLUR`, `HEAT_MAX_ZOOM`. Map only: it does not affect the score or the chatbot.
-- **Results** (`show_results`): an address outside the city boundary gets an error message instead. For each type in `back_end.TYPES`, the app calls `back_end.find_institutions(coords, kind, RADIUS_M / 1000)` and adds one marker per result. `draw_selected_location` draws the radius circle and a house marker. The circle is green when every type has at least one result, orange when one type has none, and red when two or more types have none (`circle_color`).
+- **Results** (`show_results`): an address outside the city boundary gets an error message instead. For each type in `back_end.TYPES`, the app calls `back_end.find_institutions(coords, kind, radius / 1000)` and adds one marker per result. `draw_selected_location` draws the radius circle and a house marker. The circle is green when every type has at least one result, orange when one type has none, and red when two or more types have none (`circle_color`).
 - **Nearest-amenity summary** (`summary_line`): next to the map, one coloured line per type shows the nearest result, e.g. `Nejbližší lékárna: … (120 m)`. It uses Streamlit's `:color[...]` markdown. `dist_color()` colours the line green under 300 m, orange under 500 m and red otherwise. A type with no results gets a red line saying none are within the radius.
 
 ### back_end.py (public API)

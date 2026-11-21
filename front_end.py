@@ -24,10 +24,12 @@ OVERPASS_URLS = [
 MIN_CHARS = 2      # suggestions appear after this many characters
 MAX_RESULTS = 10
 
-RADIUS_M = 1000
+# Search radius, chosen with the sidebar slider (metres).
+DEFAULT_RADIUS_M = 1000
+MIN_RADIUS_M, MAX_RADIUS_M, RADIUS_STEP_M = 200, 2000, 100
 DEFAULT_CENTER = [49.5955, 17.2518]
 DEFAULT_ZOOM = 12.5
-SELECTED_ZOOM = 15
+M_PER_DEG_LAT, M_PER_DEG_LON = 111_320, 72_100   # at Olomouc's latitude, to fit the circle in view
 MAP_HEIGHT = 500
 METRIC_COLUMNS = 4
 CHAT_HEIGHT = 380  # scrollable chat history; with the heading and input it lines up with the map
@@ -242,18 +244,25 @@ def circle_color(results: dict[str, list]) -> str:
     return "red"
 
 
-def dist_color(dist: float) -> str:
-    if dist < RADIUS_M / 2:
+def dist_color(dist: float, radius: int) -> str:
+    if dist < radius / 2:
         return "green"
-    if dist < RADIUS_M:
+    if dist < radius:
         return "orange"
     return "red"
 
 
-def draw_selected_location(m: folium.Map, coords, color: str):
+def fit_radius(m: folium.Map, coords, radius: int):
+    # Zoom so the whole radius circle is in view, whatever its size.
+    lat, lon = coords
+    dlat, dlon = radius / M_PER_DEG_LAT, radius / M_PER_DEG_LON
+    m.fit_bounds([[lat - dlat, lon - dlon], [lat + dlat, lon + dlon]])
+
+
+def draw_selected_location(m: folium.Map, coords, color: str, radius: int):
     folium.Circle(
         location=coords,
-        radius=RADIUS_M,
+        radius=radius,
         color=color,
         weight=1,
         fill=True,
@@ -273,34 +282,34 @@ def add_marker(m: folium.Map, kind: str, item: dict):
     ).add_to(m)
 
 
-def summary_heading(missing: int, results: dict[str, list]):
+def summary_heading(missing: int, results: dict[str, list], radius: int):
     if missing == 0:
-        st.success(f"Všechny služby jsou dostupné v okruhu {RADIUS_M} m.")
+        st.success(f"Všechny služby jsou dostupné v okruhu {radius} m.")
     else:
         st.error(f"Chybí: {missing} z {len(results)} služeb.")
 
 
 # --- livability score ---
 
-def amenity_score(found: list[dict]) -> float:
+def amenity_score(found: list[dict], radius: int) -> float:
     """0 when none is in the radius, else 1 at the door falling to EDGE_SCORE at the edge."""
     if not found:
         return 0.0
-    share = min(found[0]["distance_m"], RADIUS_M) / RADIUS_M
+    share = min(found[0]["distance_m"], radius) / radius
     return 1 - (1 - EDGE_SCORE) * share
 
 
-def livability_score(results: dict[str, list]) -> float | None:
+def livability_score(results: dict[str, list], radius: int) -> float | None:
     everyday, bonus = [], []
     transport = [results[k] for k in TRANSPORT if k in results]
     if transport:
-        everyday.append(max(amenity_score(found) for found in transport))
+        everyday.append(max(amenity_score(found, radius) for found in transport))
     for kind, found in results.items():
         if kind in TRANSPORT:
             continue
         if not found and kind in chatbot.INCOMPLETE:
             continue   # incomplete data must not lower the score
-        (everyday if kind in EVERYDAY else bonus).append(amenity_score(found))
+        (everyday if kind in EVERYDAY else bonus).append(amenity_score(found, radius))
 
     def mean(xs):
         return sum(xs) / len(xs)
@@ -312,14 +321,14 @@ def livability_score(results: dict[str, list]) -> float | None:
     return None
 
 
-def show_score(score: float | None):
+def show_score(score: float | None, radius: int):
     if score is None:
         return
     color = "green" if score >= 7 else "orange" if score >= 4 else "red"
     st.metric(
         f":{color}[:material/star: Hodnocení lokality]",
         f"{score:.1f} / 10",
-        help=f"Vypočteno z dostupnosti služeb v okruhu {RADIUS_M} m. Doprava, obchod, lékárna, "
+        help=f"Vypočteno z dostupnosti služeb v okruhu {radius} m. Doprava, obchod, lékárna, "
              f"školka a škola tvoří {EVERYDAY_SHARE * 10:.0f} bodů, ostatní služby jsou bonus. "
              "Čím blíž služba je, tím víc bodů.",
     )
@@ -327,16 +336,16 @@ def show_score(score: float | None):
 
 # --- metric cards ---
 
-def show_metric(kind: str, found: list[dict]):
+def show_metric(kind: str, found: list[dict], radius: int):
     style = KINDS.get(kind, DEFAULT_KIND)
     label = style.get("label", kind).capitalize()
     with st.container(border=True):
         if not found:
-            st.metric(f":red[:material/{style['symbol']}: {label}]", f"> {RADIUS_M} m")
+            st.metric(f":red[:material/{style['symbol']}: {label}]", f"> {radius} m")
             st.caption("Žádné v okolí")
             return
         nearest = found[0]  # back_end returns results sorted by distance
-        color = dist_color(nearest["distance_m"])
+        color = dist_color(nearest["distance_m"], radius)
         st.metric(f":{color}[:material/{style['symbol']}: {label}]", f"{nearest['distance_m']} m")
         walk = f":material/directions_walk: {chatbot.walk_minutes(nearest['distance_m'])} min"
         name = nearest["name"]
@@ -346,7 +355,7 @@ def show_metric(kind: str, found: list[dict]):
             st.caption(f"{walk} · {name}")
 
 
-def show_metric_groups(results: dict[str, list]):
+def show_metric_groups(results: dict[str, list], radius: int):
     grouped = {kind for kinds in GROUPS.values() for kind in kinds}
     sections = {**GROUPS, "Ostatní": tuple(k for k in results if k not in grouped)}
     for title, kinds in sections.items():
@@ -357,7 +366,7 @@ def show_metric_groups(results: dict[str, list]):
         grid = st.columns(METRIC_COLUMNS)
         for i, kind in enumerate(shown):
             with grid[i % METRIC_COLUMNS]:
-                show_metric(kind, results[kind])
+                show_metric(kind, results[kind], radius)
 
 
 # --- AI chatbot (see CHATBOT.md) ---
@@ -395,7 +404,7 @@ def respond(client: anthropic.Anthropic, messages: list[dict]) -> bool:
     return True
 
 
-def show_chatbot(address: str, results: dict[str, list], score: float | None):
+def show_chatbot(address: str, results: dict[str, list], score: float | None, radius: int):
     """Render the chat in the current container (the column next to the map)."""
     st.subheader(f"{CHAT_ICON} Shrnutí")
     key = get_anthropic_key()
@@ -404,13 +413,13 @@ def show_chatbot(address: str, results: dict[str, list], score: float | None):
         return
     client = get_chat_client(key)
 
-    # One conversation per address and category selection; changing either starts over.
-    chat_key = (address, tuple(results))
+    # One conversation per address, category selection and radius; changing any starts over.
+    chat_key = (address, tuple(results), radius)
     chat = st.session_state.get("chat")
     if not chat or chat["key"] != chat_key:
         labels = {kind: style["label"] for kind, style in KINDS.items()}
         hidden = [kind for kind in back_end.TYPES if kind not in results]   # turned off in settings
-        context = chatbot.build_context(address, results, RADIUS_M, labels, score, hidden)
+        context = chatbot.build_context(address, results, radius, labels, score, hidden)
         chat = {"key": chat_key, "messages": [{"role": "user", "content": context}]}
         st.session_state["chat"] = chat
     messages = chat["messages"]
@@ -436,15 +445,16 @@ def show_chatbot(address: str, results: dict[str, list], score: float | None):
                 messages.pop()     # keep the history valid for the next try
 
 
-def show_results(coords, address: str, enabled, show_heat: bool, col_map, col_text):
-    m = make_map(coords, SELECTED_ZOOM)
-    results = {kind: back_end.find_institutions(coords, kind, RADIUS_M / 1000)
+def show_results(coords, address: str, enabled, show_heat: bool, radius: int, col_map, col_text):
+    m = make_map(coords, DEFAULT_ZOOM)
+    fit_radius(m, coords, radius)
+    results = {kind: back_end.find_institutions(coords, kind, radius / 1000)
                for kind in enabled}
     for kind, found in results.items():
         for item in found:
             add_marker(m, kind, item)
-    draw_selected_location(m, coords, circle_color(results))
-    score = livability_score(results)   # shown on the page and given to the chatbot
+    draw_selected_location(m, coords, circle_color(results), radius)
+    score = livability_score(results, radius)   # shown on the page and given to the chatbot
 
     with col_map:
         show_map(m, show_heat)
@@ -452,21 +462,31 @@ def show_results(coords, address: str, enabled, show_heat: bool, col_map, col_te
         if not enabled:
             st.info("Vyberte alespoň jednu kategorii.")
         else:
-            show_chatbot(address, results, score)   # AI summary next to the map
+            show_chatbot(address, results, score, radius)   # AI summary next to the map
 
     if enabled:   # score and metric cards full width, below both columns
         col_score, col_heading = st.columns([1, 3], vertical_alignment="center")
         with col_score:
-            show_score(score)
+            show_score(score, radius)
         with col_heading:
-            summary_heading(find_missing(results), results)
-        show_metric_groups(results)
+            summary_heading(find_missing(results), results, radius)
+        show_metric_groups(results, radius)
 
 
-def settings() -> tuple[list[str], bool]:
-    """Sidebar settings: (enabled categories, show the heatmap)."""
+def settings() -> tuple[list[str], bool, int]:
+    """Sidebar settings: (enabled categories, show the heatmap, radius in metres)."""
     with st.sidebar:   # left side of the screen; collapsible
         st.header(":material/settings: Nastavení")
+        radius = st.slider(
+            "Okruh hledání",
+            min_value=MIN_RADIUS_M,
+            max_value=MAX_RADIUS_M,
+            value=DEFAULT_RADIUS_M,
+            step=RADIUS_STEP_M,
+            format="%d m",
+            key="radius",
+            help="Jak daleko od adresy se hledají služby. Mění mapu, karty, hodnocení i AI shrnutí.",
+        )
         enabled = st.pills(
             "Zobrazit kategorie",
             options=list(back_end.TYPES),
@@ -481,7 +501,7 @@ def settings() -> tuple[list[str], bool]:
             help="Kde se lidé v Olomouci cítí během horkých letních dní nepříjemně (červená) "
                  "nebo příjemně (modrá). Data z průzkumu města z roku 2020.",
         )
-    return enabled, show_heat
+    return enabled, show_heat, radius
 
 # --- start screen ---
 
@@ -510,11 +530,11 @@ def clear_example():
         bump_search_key()
 
 
-def show_intro():
+def show_intro(radius: int):
     st.title("Walker15")
     st.markdown(
         f"Zadejte adresu v Olomouci a zjistěte, jak se tam žije. Aplikace ukáže, co je "
-        f"v okruhu **{RADIUS_M} m**: zastávky, školy a školky, obchody, lékárny i volný čas. "
+        f"v okruhu **{radius} m** (nastavíte vlevo): zastávky, školy a školky, obchody, lékárny i volný čas. "
         "Lokalitu ohodnotí a AI ji shrne a odpoví na vaše dotazy."
     )
     st.caption("Vyzkoušejte například:")
@@ -535,7 +555,7 @@ selected = st_searchbox(
     reset_function=clear_example,
 )
 
-enabled, show_heat = settings()
+enabled, show_heat, radius = settings()
 
 col_map, col_text = st.columns([1, 1])
 
@@ -543,7 +563,7 @@ if not selected:
     with col_map:
         show_map(make_map(DEFAULT_CENTER, DEFAULT_ZOOM), show_heat)
     with col_text:
-        show_intro()
+        show_intro(radius)
 else:
     coords = addresses.get(selected) or search_location(selected)
     if not coords:
@@ -551,4 +571,4 @@ else:
     elif not back_end.is_in_olomouc(*coords):
         st.error("Adresa je mimo Olomouc.")
     else:
-        show_results(coords, selected, enabled, show_heat, col_map, col_text)
+        show_results(coords, selected, enabled, show_heat, radius, col_map, col_text)

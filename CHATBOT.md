@@ -38,7 +38,7 @@ For the selected point, `front_end.show_results` already builds
 | `sports_halls` | sportovní hala | only 1 entry, data incomplete |
 | `places_of_worship` | kostel | only small chapels, data incomplete |
 
-Also known: the address label, the coordinates, `RADIUS_M` (500 m), the circle colour and the count of missing types.
+Also known: the address label, the coordinates, the radius chosen with the sidebar slider (200–2000 m, default 1000 m), the circle colour and the count of missing types.
 
 **Data quality caveats** (the chatbot must not draw strong conclusions from these): sports halls and places of worship are incomplete, and restaurants exclude pubs and bars.
 
@@ -70,8 +70,8 @@ Also known: the address label, the coordinates, `RADIUS_M` (500 m), the circle c
 - **Module split:** `chatbot.py` builds the prompt and calls the API, and has no Streamlit import. `front_end.py` (`show_chatbot`, `respond`) renders it and holds the session state.
 - **Prompt input** (`chatbot.build_context`): the address, the radius, the app's score as `Hodnocení aplikace: X.X/10` (omitted when `score` is None), the categories turned off in the settings as `Skryté kategorie (uživatel je vypnul v nastavení): …` (omitted when none are hidden), and per enabled type: the Czech label, the count, the 3 nearest results with distance and walking minutes, and an "incomplete data" note for `sports_halls`, `places_of_worship` and `restaurants`. No coordinates.
 - **System prompt** (`chatbot.SYSTEM_PROMPT`, written in English): use only the given data and answer in Czech Markdown. Hidden categories are a user choice: never call them missing, keep them out of the summary, and point to the settings if asked. The summary starts with `**Hodnocení: X/10**` using the app's score exactly as given (the model must never compute, change or round its own; no score in the data → no score line), then one sentence on what raises or lowers it, then at most 3 one-line bullets (main strength, main gap, who the area suits), under about 80 words, without listing every amenity. The prompt describes how the app computes the score (everyday needs up to 8 points, other types up to 2 bonus points, closer counts more, incomplete types don't lower it, hidden categories are not part of it) so the model can explain it. **Keep this description in sync with `front_end.livability_score`.**
-- **Conversation state:** `st.session_state["chat"] = {"key", "messages"}`, where `key = (address, enabled categories)`. `messages[0]` is the hidden data prompt. Changing the address or the categories selected in the settings sidebar resets the conversation (and creates one new summary). With no categories selected, the chatbot is hidden.
-- **Radius:** taken from `front_end.RADIUS_M` (currently 1000 m, changed by the settings-menu merge). History is stored as plain text (assistant text only).
+- **Conversation state:** `st.session_state["chat"] = {"key", "messages"}`, where `key = (address, enabled categories, radius)`. `messages[0]` is the hidden data prompt. Changing the address, the radius or the categories selected in the settings sidebar resets the conversation (and creates one new summary). With no categories selected, the chatbot is hidden.
+- **Radius:** the value of the sidebar slider, passed to `show_chatbot(..., radius)` and on to `build_context`. It is part of the conversation key (`key = (address, enabled categories, radius)`), so moving the slider starts a new conversation and one new summary. History is stored as plain text (assistant text only).
 - **No re-billing on reruns:** the summary is generated once per address, when `messages` has length 1. Later Streamlit reruns (e.g. after a chat question) only redraw stored messages.
 - **Streaming:** `chatbot.stream_reply` is a generator used with `st.write_stream`.
 - **Errors:** authentication, rate-limit, API-status and connection errors show a Czech `st.error`. A failed follow-up question is removed from the history.

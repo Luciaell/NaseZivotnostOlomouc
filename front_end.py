@@ -659,9 +659,9 @@ def clear_example():
 def show_intro(radius: int):
     st.title("Walker15")
     st.markdown(
-        f"Zadejte adresu v Olomouci a zjistěte, jak se tam žije. Aplikace ukáže, co je "
+        f"Zadejte adresu v Olomouci. Aplikace ukáže, co je "
         f"v okruhu **{radius} m** (nastavíte vlevo): zastávky, školy a školky, obchody, lékárny i volný čas. "
-        "Lokalitu ohodnotí a AI ji shrne a odpoví na vaše dotazy."
+        "Na specifické dotazy se můžete ptát v chatu."
     )
     st.caption("Vyzkoušejte například:")
     for address in example_addresses():

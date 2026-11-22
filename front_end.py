@@ -6,7 +6,7 @@ import folium
 import requests
 import streamlit as st
 from branca.element import MacroElement
-from folium.plugins import BeautifyIcon, HeatMap
+from folium.plugins import HeatMap
 from geopy.geocoders import Nominatim
 from geopy.point import Point
 from jinja2 import Template
@@ -304,15 +304,28 @@ def draw_selected_location(m: folium.Map, coords, score: float | None, radius: i
         fill_color=color,
         fill_opacity=0.1,
     ).add_to(m)
-    # folium.Icon only takes a few named colours; BeautifyIcon takes any hex value.
-    icon = BeautifyIcon(
-        icon="house",
-        icon_shape="marker",
-        background_color=color,
-        border_color=color,
-        text_color="white",
-    )
-    folium.Marker(coords, icon=icon, tooltip="Vybraná adresa").add_to(m)
+    folium.Marker(coords, icon=house_pin(color), tooltip="Vybraná adresa").add_to(m)
+
+
+HOUSE_PIN_W, HOUSE_PIN_H = 32, 42   # px, including the white outline
+
+
+def house_pin(color: str) -> folium.DivIcon:
+    # folium.Icon only takes a few named colours, and BeautifyIcon's "marker" shape is a
+    # rotated square with a stubby tip that looks cut off. So draw our own SVG pin:
+    # any hex colour, the same teardrop shape as the other markers, tip exactly on the point.
+    html = f"""
+        <div style="position:relative;width:{HOUSE_PIN_W}px;height:{HOUSE_PIN_H}px">
+          <svg width="{HOUSE_PIN_W}" height="{HOUSE_PIN_H}" viewBox="-1 -1 32 42">
+            <path d="M15 0C6.7 0 0 6.7 0 15c0 10.5 15 25 15 25s15-14.5 15-25C30 6.7 23.3 0 15 0z"
+                  fill="{color}" stroke="white" stroke-width="1.5"/>
+          </svg>
+          <i class="fa fa-house" style="position:absolute;top:9px;left:0;width:100%;
+             text-align:center;color:white;font-size:14px"></i>
+        </div>"""
+    # class_name="empty" avoids Leaflet's default white box behind div icons.
+    return folium.DivIcon(html=html, icon_size=(HOUSE_PIN_W, HOUSE_PIN_H),
+                          icon_anchor=(HOUSE_PIN_W // 2, HOUSE_PIN_H), class_name="empty")
 
 
 class ZoomSwitch(MacroElement):

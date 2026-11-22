@@ -6,7 +6,7 @@ import folium
 import requests
 import streamlit as st
 from branca.element import MacroElement
-from folium.plugins import HeatMap
+from folium.plugins import BeautifyIcon, HeatMap
 from geopy.geocoders import Nominatim
 from geopy.point import Point
 from jinja2 import Template
@@ -86,6 +86,9 @@ TRANSPORT = ("bus_stops", "tram_stops")   # either one covers the transport need
 EVERYDAY = ("kindergartens", "schools", "pharmacies", "supermarkets")
 EVERYDAY_SHARE = 0.8                      # 8 of 10 points; the bonus types give the other 2
 EDGE_SCORE = 0.3                          # an amenity at the radius edge counts 30 %, at the door 100 %
+# Streamlit's own green/orange/red (the colours of :green[...] etc.), so the house marker and
+# radius circle match the colour of the "Hodnocení lokality" rating.
+SCORE_HEX = {"green": "#21c354", "orange": "#ffa421", "red": "#ff4b4b", "gray": "#808495"}
 
 # Start screen examples: the first known address on each street (free text if none is known).
 EXAMPLE_STREETS = ["Horní náměstí", "třída Svobody", "Brněnská", "Foerstrova"]
@@ -267,13 +270,11 @@ def find_missing(results: dict[str, list]) -> int:
     return sum(1 for found in results.values() if not found)
 
 
-def circle_color(results: dict[str, list]) -> str:
-    missing = find_missing(results)
-    if missing == 0:
-        return "green"
-    if missing == 1:
-        return "#ff6600"
-    return "red"
+def score_color(score: float | None) -> str:
+    """Streamlit colour name for a livability score, shared by the rating and the map."""
+    if score is None:
+        return "gray"
+    return "green" if score >= 7 else "orange" if score >= 4 else "red"
 
 
 def dist_color(dist: float, radius: int) -> str:
@@ -291,7 +292,9 @@ def fit_radius(m: folium.Map, coords, radius: int):
     m.fit_bounds([[lat - dlat, lon - dlon], [lat + dlat, lon + dlon]])
 
 
-def draw_selected_location(m: folium.Map, coords, color: str, radius: int):
+def draw_selected_location(m: folium.Map, coords, score: float | None, radius: int):
+    # Circle and house marker share the rating's colour (score_color, Streamlit's palette).
+    color = SCORE_HEX[score_color(score)]
     folium.Circle(
         location=coords,
         radius=radius,
@@ -301,7 +304,14 @@ def draw_selected_location(m: folium.Map, coords, color: str, radius: int):
         fill_color=color,
         fill_opacity=0.1,
     ).add_to(m)
-    icon = folium.Icon(color=color, icon="house", prefix="fa")
+    # folium.Icon only takes a few named colours; BeautifyIcon takes any hex value.
+    icon = BeautifyIcon(
+        icon="house",
+        icon_shape="marker",
+        background_color=color,
+        border_color=color,
+        text_color="white",
+    )
     folium.Marker(coords, icon=icon, tooltip="Vybraná adresa").add_to(m)
 
 
@@ -395,9 +405,8 @@ def livability_score(results: dict[str, list], radius: int) -> float | None:
 def show_score(score: float | None, radius: int):
     if score is None:
         return
-    color = "green" if score >= 7 else "orange" if score >= 4 else "red"
     st.metric(
-        f":{color}[:material/star: Hodnocení lokality]",
+        f":{score_color(score)}[:material/star: Hodnocení lokality]",
         f"{score:.1f} / 10",
         help=f"Vypočteno z dostupnosti služeb v okruhu {radius} m. Doprava, obchod, lékárna, "
              f"školka a škola tvoří {EVERYDAY_SHARE * 10:.0f} bodů, ostatní služby jsou bonus. "
@@ -527,8 +536,8 @@ def show_results(coords, address: str, enabled, show_heat: bool, radius: int, co
         for item in found:
             add_marker(detail, simple, kind, item)
     ZoomSwitch(detail, simple, DETAIL_MIN_ZOOM).add_to(m)
-    draw_selected_location(m, coords, circle_color(results), radius)
     score = livability_score(results, radius)   # shown on the page and given to the chatbot
+    draw_selected_location(m, coords, score, radius)
 
     with col_map:
         show_map(m, show_heat)

@@ -1,0 +1,13 @@
+EEE znamená, že tam něco ještě má být, ale zatím jsem nic nevymyslela
+
+1. *popis situace - příklad se dvěma osobama (AUTEM vs PĚŠKY) - jde vidět, že pro lidi ve městě je ideální cestovat pěšky, 
+ale pro spoustu lidí je to nereálné, protože bydlí daleko a cesta by trvala moc dlouho - nestíhají*
+	("Ráno vycházíte ze dveří a musíte se dopravit do školy, do práce. Záleží, kde bydlíte, ale ať už jsme z okolí nebo z města, velká část z nás jezdí autem, ať už kvůli pohodlí, nebo kvůli času, protože bydlíme daleko od svých pracovišť.
+	Nebo samozřejmě od svých potřeb obecně, protože musíme i k doktorovi nebo jít si nakoupit.
+	EEE")
+2. *naše webová aplikace Walker15 - vysvětlit, že je to stavěno na konceptu 15ti minutových měst, 
+použitá data + použité AI, k čemu je, v čem je dobrá nebo jiná (rychlejší?, ???) + ukázka*
+	(")
+3. *business potenciál a shrnutí*
+	("Jaké jsou možnosti do budoucna? Aplikace by mohla fungovat na bázi jednorázové tranzakce: uživatel si koupí sadu analýz, například tří, které pak může použít k zpracování
+     tří různých adres na mapě. Na to by se dalo navázat větším balíčkem s například šesti analýzami a obsáhlejším rozborem místa, který by zahrnoval pocitovou teplotu v létě a v zimě, námrazu, kvalitu vzduchu nebo vlkost.")
